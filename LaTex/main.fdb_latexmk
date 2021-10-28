@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber main"] 1635457839 "main.bcf" "main.bbl" "main" 1635458023
+["biber main"] 1635457839 "main.bcf" "main.bbl" "main" 1635460041
   "main.bcf" 1635458022 136507 586a117637bf73c5090f065b80af9f90 "pdflatex"
   "references.bib" 1624309675 41631 85bbec2ae84931fcf84d6cbf0d6167e1 ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1635458010 "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" "main.pdf" "main" 1635458023
+  "main.blg"
+["pdflatex"] 1635458010 "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" "main.pdf" "main" 1635460041
   "../MATLAB/LiFePO4_data/latex_export//image_chg_50.eps" 1618488800 309314 e4ddf3ca1958bfff49ece93d659ae663 ""
   "../MATLAB/LiFePO4_data/latex_export//image_dis_50.eps" 1618488780 304143 4e1596e5d02c3f2c5d85dc952757f8b7 ""
   "../MATLAB/LiFePO4_data/latex_export//image_electrolyte_resistances_matlab.eps" 1618488811 89741 8289648df655b1ad5fd042b857630603 ""
@@ -20,7 +20,7 @@
   "../MATLAB/pv_generator_model/latex_export//image_power_volt_temp_ae_solar.eps" 1618870806 332234 095dda55ab3ef3d28ef0f52cd7a7bbd5 ""
   "../MATLAB/pv_generator_model/latex_export//image_power_volt_temp_das_energy.eps" 1618870811 318562 0853658c95920dba88c359682aa5dcc7 ""
   "../MATLAB/ultraflex_7_coaxial_cable_attenuation/latex_export//image_attenuation_UF7.eps" 1618073779 107434 ed1f66fc7dbfdae3a83b9e825ae33169 ""
-  "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" 1635457946 7160 b76fb685997024092d80d26b0e9bae39 ""
+  "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" 1635460041 7160 b76fb685997024092d80d26b0e9bae39 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -445,7 +445,7 @@
   "main.lot" 1635458022 6239 45466c643a88759af552463d6c0d9c77 "pdflatex"
   "main.out" 1635458022 11838 060815b2be5f18421c84c7266b98aebd "pdflatex"
   "main.run.xml" 1635458022 2402 7c866ed2192e71c57464ed4279aadefa "pdflatex"
-  "main.tex" 1635457946 7160 b76fb685997024092d80d26b0e9bae39 ""
+  "main.tex" 1635460041 7160 b76fb685997024092d80d26b0e9bae39 ""
   "main.toc" 1635458022 8179 82edf50dff84260147a322dd7a4e9470 "pdflatex"
   "mcode.sty" 1447274647 11473 e3c3290432e60d7d82bde7534454793e ""
   "pdf_files/maple_code.pdf" 1618164464 124919 c97582b67e10a403704da3985876f0d1 ""
@@ -514,13 +514,13 @@
   "tikz/tikz_wind_energy.tex" 1612289051 6841 3ed9a52f372ec607d8b73a262663e60a ""
   "titlepage.tex" 1619217805 1063 15ef2a63b8a059343242dcaebb5b712b ""
   (generated)
-  "main.lol"
-  "main.bcf"
-  "main.toc"
-  "main.run.xml"
   "main.lof"
+  "main.bcf"
+  "main.out"
+  "main.run.xml"
   "main.log"
   "main.lot"
-  "main.out"
+  "main.lol"
   "main.pdf"
   "main.aux"
+  "main.toc"
