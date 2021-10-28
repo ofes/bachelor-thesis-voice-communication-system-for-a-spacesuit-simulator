@@ -1,0 +1,233 @@
+\subsection{Electrochemical energy storage} \label{sec:electrochemical}
+In order to guarantee a constant supply of electrical energy during times when the PV generator cannot supply the self-sufficient voice communication system, an electrochemical energy storage device is required. Such storage devices are typically rechargeable batteries -- consisting of secondary cells -- based on either lithium, sodium, nickel or lead \cite{Mertens:2015, Sterner:2017, Kurzweil:2018}. 
+
+\emph{Nickel-cadmium} ($\mathrm{NiCd}$) and \emph{nickel-hydrogen} ($\mathrm{NiH}_2$) batteries have long been used for aerospace applications. However, in recent years they have been increasingly replaced by lithium-ion batteries \cite{Ley:2011}. This is due to their high energy density and low self-discharge. On the other hand, the main disadvantages of lithium-ion batteries are high acquisition costs, the need for a \emph{battery management system} (BMS) to maintain safe operation and the strong dependency of the battery performance on the ambient temperatur $\vartheta_{\mathrm{A}}$. The latter becomes a problem only at extreme ambient temperatures \cite{Hausmann:2013, Wehbe:2015, Ala-A.-Hussein:2015, Nejad:2016, Chin:2018}.
+
+In terms of safe operation, \emph{lithium iron phosphate} ($\mathrm{LiFePO}_4$) batteries are among the safest lithium-ion batteries available today. They are furthermore non-toxic\footnote{Compared to, for example, \emph{lithium cobalt oxide} ($\mathrm{LiCoO}_2$) batteries.} and have a very constant cell voltage for different charging states (see linear part in figure \ref{fig:tikz_u_oc_vs_soc}). It is noted that for the \emph{state of charge} $\mathrm{SOC} = 1$ the battery is fully charged and for $\mathrm{SOC} = 0$ it is fully discharged  \cite{Mertens:2015, Sterner:2017, Li:2018, Kurzweil:2018, Hinz:2019, Hossain:2019, Offgridtec:2020}. 
+
+Because $\mathrm{LiFePO}_4$ batteries are commercially available and often used with photvoltaic standalone systems, this subsection aims to model the \emph{terminal voltage} $U_\mathrm{B} = U_\mathrm{B}(\mathrm{SOC})$ in $\left( \mathrm{V} \right)$ of such a battery for a given current $I_\mathrm{B} = I_\mathrm{B}(t)$, based on an experimental approach \cite{Mertens:2015, Offgridtec:2020}. For this purpose, $I_\mathrm{B}(t)$ is defined as shown below:
+	\begin{equation} \label{eq:battery_current}
+		\centering
+		I_\mathrm{B}(t) =
+  		\begin{cases}
+   			I_\mathrm{D}(t)\text{,} & \text{when discharging the battery} \\
+    		- I_\mathrm{C}(t)\text{,} & \text{when charging the battery.}
+  		\end{cases}
+	\end{equation} 
+	
+Following from the equation (\ref{eq:battery_current}), the $\mathrm{SOC}$ of a battery as a function of the discharge or charge \emph{time} $t$ in $\left(\mathrm{h}\right)$ can be calculated directly from the \emph{Coulomb counting method} in the equation (\ref{eq:soc}). 
+	\begin{equation} \label{eq:soc}
+		\centering
+		\begin{gathered}
+		\mathrm{SOC}(t) = \mathrm{SOC}_\mathrm{init} - \dfrac{\eta_\mathrm{C}}{Q_\mathrm{tot}} \int\limits_{0\mathrm{h}}^{t} I_\mathrm{B}(\tau) \,\mathrm{d}\tau \\
+		\mathrm{SOC}(t) = \mathrm{SOC}_\mathrm{init} - \dfrac{\eta_\mathrm{C}}{Q_\mathrm{tot}} \displaystyle\sum_{\tau = 0\mathrm{h}}^{t} I_\mathrm{B}(\tau) \, \Delta \tau
+		\end{gathered}
+	\end{equation} 
+$\mathrm{SOC}_\mathrm{init}$ in $\left(1\right)$ is the \emph{initial} SOC of the battery. It can be calculated by the ratio of the \emph{remaining battery charge} $Q_\mathrm{rem}$ in $\left(\mathrm{Ah}\right)$ to the \emph{total available battery charge} $Q_\mathrm{tot}$ in $\left(\mathrm{Ah}\right)$ as written in the equation (\ref{eq:soc_init}). $\eta_\mathrm{C}$ is the \emph{coulombic efficiency} in $\left(1\right)$ for which $\eta_\mathrm{C} = 1$ applies when discharging and $\eta_\mathrm{C} \leq 1$ applies when charging \cite{He:2011, Wehbe:2015, Nejad:2016, Kurzweil:2018, Li:2018}. In the proposed model it is assumed that $\eta_\mathrm{C} = 1$ applies for both cases \cite{Hentunen:2014, Hinz:2019,Gurjer:2019}.
+	\begin{equation} \label{eq:soc_init}
+	\centering
+		\mathrm{SOC}_\mathrm{init} = \dfrac{Q_\mathrm{rem}}{Q_\mathrm{tot}}
+	\end{equation}
+
+According to the authors of \cite{Hausmann:2013, Kurzweil:2018, Saldana:2019}, the total available battery charge $Q_\mathrm{tot}$ when discharging depends on the \emph{discharging current} $I_\mathrm{D}$ in $\left(\mathrm{A}\right)$. During charging -- with the \emph{charging current} $I_\mathrm{C}$ in $\left(\mathrm{A}\right)$ -- $Q_\mathrm{tot}$ is equal to the \emph{nominal battery charge} $Q_\mathrm{nom}$ in $\left(\mathrm{Ah}\right)$. This empirical approximation is summarized in the equation (\ref{eq:battery_charge}), in which $k_\mathrm{P} \approx 1,05$ is the \emph{Peukert constant} for lithium-ion batteries and $Q_\mathrm{nom}$ can be taken from the data sheet of a $\mathrm{LiFePO}_4$ battery \cite{Hausmann:2013, Kurzweil:2018}.
+	\begin{equation} \label{eq:battery_charge}
+	\centering
+		Q_\mathrm{tot} \approx
+  		\begin{cases}
+   			Q_\mathrm{nom} \left(\dfrac{I_\mathrm{nom}}{I_\mathrm{D}}\right)^{k_\mathrm{P} - 1} \text{,} & \text{when discharging the battery} \\
+    		Q_\mathrm{nom}\text{,} & \text{when charging the battery}
+  		\end{cases}
+	\end{equation} 
+	
+Since $Q_\mathrm{nom}$ depends on the \emph{discharging rate} $\mathrm{C_D}$ in $\left(\mathrm{h}^{-1}\right)$, which is listed in the data sheet as well, the \emph{nominal battery current} $I_\mathrm{nom}$ in $\left(\mathrm{A}\right)$ can be calculated as follows \cite{Thirugnanam:2014, Kurzweil:2018}: 
+	\begin{equation} \label{eq:i_nom}
+	\centering
+		I_\mathrm{nom} = \mathrm{C_D} \, Q_\mathrm{nom} \text{.}
+	\end{equation}
+	
+From the above it can now be concluded that the \emph{battery charge} as a function of the time $Q_\mathrm{B}(t)$ in $\left(\mathrm{Ah}\right)$ must result in:
+\begin{equation} \label{eq:q_b}
+\centering
+	Q_\mathrm{B}(t) = \mathrm{SOC} \, Q_\mathrm{tot} \text{.}
+\end{equation}
+
+The simplest EEC model of a $\mathrm{LiFePO}_4$ battery is an ideal voltage source. Altough this model is easy to implement and compute in simulations, it lacks important properties such as the dynamical behavior of the battery's open-circuit voltage $U_0 = U_0(\mathrm{SOC})$ in $\left( \mathrm{V} \right)$, \emph{electrolyte resistance} when discharging $R_{\mathrm{e,D}} = R_{\mathrm{e,D}}(\mathrm{SOC})$ in $\left( \Omega \right)$ and electrolyte resistance when charging $R_{\mathrm{e,C}} = R_{\mathrm{e,C}}(\mathrm{SOC})$ in $\left( \Omega \right)$. To incorporate these properties and improve accuracy while keeping the model simple, the $R_{\mathrm{int}}$ model shown in the figure (\ref{fig:tikz_simple_battery_model}) is used. The diodes in this model are assumed to be ideal and are only present to illustrate which resistor is used depending on the sign of $I_\mathrm{B}$ \cite{He:2011, Wehbe:2015, Hinz:2019, Saldana:2019}. 
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_simple_battery_model}
+	\caption{$R_{\mathrm{int}}$ model of a $\mathrm{LiFePO}_4$ battery (electrochemical energy storage device). (Recreated from: \cite{Hinz:2019, Saldana:2019})}
+	\label{fig:tikz_simple_battery_model}
+\end{figure}
+
+Figure \ref{fig:tikz_u_oc_vs_soc} shows the typical behavior of the open-circuit voltage $U_0$ of a $\mathrm{LiFePO}_4$ battery as a function of the $\mathrm{SOC}$. For the electrolyte resistances $R_{\mathrm{e,D}}(\mathrm{SOC})$ and $R_{\mathrm{e,C}}(\mathrm{SOC})$, however, it is more difficult to create a generalized function curve. This is due to their varying behavior for different $\mathrm{LiFePO}_4$ batteries \cite{Mertens:2015, Sterner:2017, Li:2018, Hinz:2019, Hossain:2019}. 
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_u_oc_vs_soc}
+	\caption{Typical behavior of the open-circuit voltage $U_0$ of a $\mathrm{LiFePO}_4$ battery depending on the $\mathrm{SOC}$. $\mathrm{SOC_1}$ to $\mathrm{SOC}_{N_\mathrm{MP}}$ represent the measuring points for the discharging and charging experiment. (Recreated from: \cite{Mertens:2015, Sterner:2017, Li:2018, Hinz:2019, Hossain:2019})}
+	\label{fig:tikz_u_oc_vs_soc}
+\end{figure}
+
+On this basis, the terminal voltage of the battery $U_\mathrm{B}$ as a function of the SOC, and wether it is being discharged or charged, can be obtained after Kirchhoff's second law is applied to the model \cite{He:2011, Wehbe:2015, Hinz:2019, Saldana:2019}:
+	\begin{equation} \label{eq:battery_voltage}
+	\centering
+		U_\mathrm{B}(\mathrm{SOC}) =
+  		\begin{cases}
+   			U_0 - R_{\mathrm{e,D}} \, I_\mathrm{D}\text{,} & \text{when discharging the battery} \\
+    		U_0 + R_{\mathrm{e,C}} \, I_\mathrm{C}\text{,} & \text{when charging the battery.}
+  		\end{cases}
+	\end{equation} 
+	
+At this point it must be made clear that a $\mathrm{LiFePO}_4$ battery is completely discharged when the voltage $U_\mathrm{B} = U_\mathrm{cut-off}$ is reached and fully charged when the voltage $U_\mathrm{B} = U_\mathrm{full}$ is reached \cite{Hinz:2019, Offgridtec:2020}.\footnote{The name \emph{cuf-off voltage} comes from the fact that the BMS turns off the battery to avoid an unsafe state.} If the equations (\ref{eq:battery_voltage}) and (\ref{eq:battery_charge}) are compared, it can be seen that $U_\mathrm{cut-off}$ is reached at a later point in time for smaller currents $I_\mathrm{D}$. This shows that the battery can be discharged more deeply, which manifests itself in a larger total available battery charge $Q_\mathrm{B}$ \cite{Hausmann:2013, Kurzweil:2018}. Here, however, the compromise is made that the cut-off voltage in the proposed model varies for different discharging currents. 
+
+Figure \ref{fig:tikz_pc_pd_battery_curve} shows the behavior of the battery voltage $U_{\mathrm B}(t)$ when it is discharged with a constant current $I_{\mathrm D}$ over the \emph{time interval} $\Delta t_{\mathrm{D}} = t_\mathrm{D, off} - t_\mathrm{D, on}$ in $\left(\mathrm{h}\right)$ and then charged with the constant current $I_{\mathrm C}$ over the time interval $\Delta t_{\mathrm{C}} = t_\mathrm{C, off} - t_\mathrm{C, on}$ in $\left(\mathrm{h}\right)$ \cite{Rahmoun:2012, Hentunen:2014, Li:2018, Kurzweil:2018, Gurjer:2019, Saldana:2019, Hossain:2019}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_pc_pd_battery_curve}
+	\caption{Behavior of the battery voltage $U_{\mathrm B}(t)$ when it is first discharged with $I_{\mathrm D}$ and then charged with $I_{\mathrm C}$. From the resulting voltage drop $\Delta U_{\mathrm D}(t_\mathrm{D, on})$ and voltage rise $\Delta U_{\mathrm C}(t_\mathrm{C, on})$, the $R_{int}$ model's electrolyte resistances $R_{e,\mathrm{D}}$ and $R_{e,\mathrm{C}}$ can be calculated. The turquoise curve represents the behavior of the modeled battery voltage. (Recreated from: \cite{Rahmoun:2012, Hentunen:2014, Li:2018, Kurzweil:2018, Gurjer:2019, Saldana:2019, Hossain:2019})}
+	\label{fig:tikz_pc_pd_battery_curve}
+\end{figure}
+From the \emph{dropping voltages} $\Delta U_{\mathrm D}(t_\mathrm{D, on})$ and $\Delta U_{\mathrm C}(t_\mathrm{C, off})$ or \emph{rising voltages} $\Delta U_{\mathrm D}(t_\mathrm{D, off})$ and $\Delta U_{\mathrm C}(t_\mathrm{C, on})$ in $\left( \mathrm{V} \right)$, the $R_{int}$ model's electrolyte resistances $R_{\mathrm{e,D}}$ and $R_{\mathrm{e,C}}$ can be calculated as shown in the equations (\ref{eq:r_0_d}) and (\ref{eq:r_0_c}) \cite{Rahmoun:2012, Hentunen:2014, Kurzweil:2018, Gurjer:2019}. 
+\begin{equation}\label{eq:r_0_d}
+	\centering
+	R_{\mathrm{e,D}}(t) = \left|\dfrac{\Delta U_{\mathrm D}}{I_{\mathrm D}}\right|
+\end{equation}
+\begin{equation}\label{eq:r_0_c}
+	\centering
+	R_{\mathrm{e,C}}(t) = \left|\dfrac{\Delta U_{\mathrm C}}{I_{\mathrm C}}\right|
+\end{equation}
+For comparison, the thin turquoise curve represents the behavior of the $R_\mathrm{int}$ model for the same discharge and charge currents $I_{\mathrm D}$ and $I_{\mathrm C}$. At times $t_\mathrm{D, on}$, $t_\mathrm{D, off}$, $t_\mathrm{C, on}$ and $t_\mathrm{C, off}$ it has the same dropping and rising voltages $\Delta U_{\mathrm D}$ and $\Delta U_{\mathrm C}$ as $U_{\mathrm B}(t)$ \cite{Saldana:2019}.
+
+Based on the findings in the articles \cite{Hausmann:2013, Ala-A.-Hussein:2015, Nejad:2016, Chin:2018} it is assumed that $U_0$,  $R_{e,\mathrm{D}}$ and $R_{e,\mathrm{C}}$ do not dependent on the ambient temperature $\vartheta_{\mathrm{A}}$ in the range from $5^\circ \mathrm{C}$ to $45^\circ \mathrm{C}$. Therefore, the proposed model does not apply to temperatures below $5^\circ \mathrm{C}$ and above $45^\circ \mathrm{C}$.
+
+In order to complete the $R_{\mathrm{int}}$ model, the missing properties $U_0(\mathrm{SOC})$, $R_{\mathrm{e,D}}(\mathrm{SOC})$ and $R_{\mathrm{e,C}}(\mathrm{SOC})$ must be determined experimentally. For this purpose, two separate experiments must be carried out as explained in the following paragraphs.
+
+\paragraph*{Discharging experiment:} %% PD EXPERIMENT
+The experiment is carried out at the ambient temperature $\vartheta_\mathrm{A} = 25^\circ \mathrm{C}$ with an initially fully charged $\mathrm{LiFePO}_4$ battery ($\mathrm{SOC}_{N_\mathrm{MP}} = 1$) and repeated for the desired \emph{number of measuring points} $N_{\mathrm{MP}}$ in $\left( 1 \right)$, as illustrated in the figure \ref{fig:tikz_u_oc_vs_soc}, until the battery is fully discharged ($\mathrm{SOC}_{1} = 0$) \cite{Rahmoun:2012, Hentunen:2014, Gurjer:2019}. 
+
+A simple measurement setup for this experiment can be seen in the figure \ref{fig:tikz_experiment_1}. $U_\mathrm{shunt}$ in $\left(\mathrm{V}\right)$ is the voltage drop across the shunt resistor $R_\mathrm{shunt}$, measured with \emph{channel 2} (Ch2) of the oscilloscope. On the basis of this voltage drop, $I_\mathrm{L}$ is set so that the battery is discharged with the current:
+\begin{equation}\label{eq_i_d_real}
+	\centering
+I_\mathrm{D} = \dfrac{U_\mathrm{shunt}}{R_\mathrm{shunt}} + I_\mathrm{Ch1} + I_\mathrm{Ch2} \text{.}
+\end{equation}
+The \emph{measuring currents} $I_\mathrm{Ch1}$ and $I_\mathrm{Ch2}$ in $\left(\mathrm{A}\right)$ caused by the internal resistances of the channels of the oscilloscope are small compared to the load current $I_\mathrm{L}$. Depending on the desired accuracy, $I_\mathrm{Ch1}$ and $I_\mathrm{Ch2}$ can either be neglected or determined by measuring the internal resistances of said channels \cite{Schrufer:2014}.  
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_experiment_1}
+	\caption{Measurement setup for the discharge experiment.}
+	\label{fig:tikz_experiment_1}
+\end{figure}
+
+For a certain measuring point $n \in \mathbb{N}$, the battery's open-circuit voltage $U_{0, \mathrm{D}}(\mathrm{SOC}_n)$ in $\left(\mathrm{V}\right)$ is measured with \emph{channel 1} (Ch1) of the oscilloscope. The battery is then discharged using an electronic load in \emph{constant current} (CC) mode\footnote{Even if the battery voltage slowly drops during the course of the experiment, the electronic load will keep the current constant.} with $I_{\mathrm D}$ for $\Delta t_{\mathrm{D}}$ until the desired new measuring point $\mathrm{SOC}_{n-1}$ is reached. At the point in time when the electronic load is switched on, the voltage drop $\Delta U_{\mathrm D}(\mathrm{SOC}_n)$ is measured with Ch1 and the voltage drop $U_\mathrm{shunt}(\mathrm{SOC}_n)$ with Ch2. After the discharge process for $\Delta t_{\mathrm{D}}$ has been completed, the battery must remain idle for the \emph{resting period} $t_\mathrm{rest}$ in $\left( \mathrm{h} \right)$ until the open-circuit voltage has reached an end value (compare to figure \ref{fig:tikz_pc_pd_battery_curve}). When it is reached, the measurements can be repeated for $\mathrm{SOC}_{n-1}$. For the measuring point $\mathrm{SOC}_1$, the load current $I_\mathrm{L}$ can be switched off immediately after the voltage drop $\Delta U_{\mathrm D}$, so that the BMS does not have to switch off the secondary cells \cite{Rahmoun:2012, Hentunen:2014, Gurjer:2019}.
+
+From the Coulomb counting method, the time interval $\Delta t_{\mathrm{D}}$, which in the course of the experiment can be measured with a timer, and the measuring points can be calculated as follows \cite{He:2011, Wehbe:2015, Nejad:2016, Kurzweil:2018, Li:2018}:
+\begin{equation} \label{eq:delta_t_D}
+	\centering
+	\Delta t_{\mathrm{D}} = \dfrac{ Q_\mathrm{tot}}{\eta_\mathrm{C} \, I_\mathrm{D} \left( N_\mathrm{MP} - 1 \right)} \text{.}
+\end{equation}
+\begin{equation} \label{eq:SOC_n_minus_1}
+	\centering
+	\mathrm{SOC}_{n - 1} = \mathrm{SOC}_{n} - \dfrac{\eta_\mathrm{C} \, I_\mathrm{D}}{Q_\mathrm{tot}} \, \Delta t_{\mathrm{D}} \text{.}
+\end{equation}
+
+Finally, if $\Delta U_{\mathrm D}$ and $U_\mathrm{shunt}$ are known for the measuring points $\mathrm{SOC}_1$ to $\mathrm{SOC}_{N_{\mathrm{MP}}}$, the resistance $R_{e,\mathrm{D}}$ can be calculated by using the equation (\ref{eq:r_0_d_soc}) -- which is derived from the equations (\ref{eq:r_0_d}) and (\ref{eq_i_d_real}) \cite{Rahmoun:2012, Hentunen:2014, Kurzweil:2018, Gurjer:2019}.
+\begin{equation}\label{eq:r_0_d_soc}
+	\centering
+	R_{\mathrm{e,D}}(\mathrm{SOC}_n) = \left|\dfrac{\Delta U_{\mathrm D}(\mathrm{SOC}_n)}{\dfrac{U_\mathrm{shunt}(\mathrm{SOC}_n)}{R_\mathrm{shunt}} + I_\mathrm{Ch1} + I_\mathrm{Ch2}}\right|
+\end{equation}
+
+\paragraph*{Charging experiment:} %% PC EXPERIMENT
+Before the course of the experiment is explained, it must first be clarified how a $\mathrm{LiFePO}_4$ battery behaves when charging. Lithium-ion batteries are usually charged with the \emph{constant current}/\emph{constant voltage} (CC/CV) method. As presented in the figure \ref{fig:tikz_cccv_curve}, the battery is first charged with a constant current $I_\mathrm{C}$ for $t_\mathrm{C}$ in $\left(\mathrm{h}\right)$, for which the battery voltage is described with the equation (\ref{eq:battery_voltage}), and then with a constant voltage $U_\mathrm{B}(t) = U_\mathrm{full}$ for $t_\mathrm{V}$ in $\left(\mathrm{h}\right)$. When the charging process is completed, the battery voltage drops to the so called \emph{floating voltage} $U_\mathrm{float}$ in $\left(\mathrm{V}\right)$. This happens when the decreasing charging current $I_\mathrm{B}$ falls below a \emph{minimum current} $I_\mathrm{min}$ in $\left(\mathrm{A}\right)$ \cite{Notten:2005, Mertens:2015, Sterner:2017, Kurzweil:2018, Liu:2020}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_cccv_curve}
+	\caption{An example of the behavior the battery voltage $U_\mathrm{B}(t)$, battery current $I_\mathrm{B}(t)$ and battery charge $Q_\mathrm{B}(t)$ of a $\mathrm{LiFePO}_4$ battery when it is charged with a constant current $I_\mathrm{C}$ and then with a constant voltage $U_\mathrm{full}$ over a longer period of time. At $t_\mathrm{C} + t_\mathrm{V}$ the battery charger switches from $U_\mathrm{full}$ to $U_\mathrm{float}$ to keep the battery in a fully charged state. (Recreated from: \cite{Notten:2005, Sterner:2017, Liu:2020})}
+	\label{fig:tikz_cccv_curve}
+\end{figure} 
+
+With the \emph{charge difference} $\Delta Q = Q_\mathrm{tot} - Q_\mathrm{B}(t_\mathrm{C})$ and the model proposed in \cite{Liu:2020}, the battery charge can be written as a function of the charging time as follows: 
+\begin{equation} \label{eq:battery_charge_cases}
+\centering
+		Q_\mathrm{B}(t) =
+  		\begin{cases}
+   			I_\mathrm{C} \, t \text{,} & \text{for } 0\mathrm{h} \leq t < t_\mathrm{C} 
+			\\
+    		\Delta Q \left( 1 - \exp \left( -\dfrac{t - t_\mathrm{C}}{\tau_\mathrm{B}} \right) \right) + I_\mathrm{C} \, t_\mathrm{C}\text{,} & \text{for } t_\mathrm{C} \leq t < t_\mathrm{C} + t_\mathrm{V} \text{.}
+  		\end{cases}
+\end{equation}
+It is assumed that $Q_\mathrm{B}(t)$ is continuously differentiable for all points in time. Based on this assumption, the model for the charging current results from the time derivative: 
+\begin{equation} \label{current_cases}
+\dfrac{\mathrm{d}Q_\mathrm{B}(t)}{\mathrm{d}t} = 
+	\left\{\begin{array}{ll}
+		I_\mathrm{C}\text{,} & \text{for } 0\mathrm{h} \leq t < t_\mathrm{C} \\[8pt]
+		\dfrac{\Delta Q}{\tau_\mathrm{B}} \exp \left( -\dfrac{t - t_\mathrm{C}}{\tau_\mathrm{B}} \right)\text{,} & \text{for } t_\mathrm{C} \leq t < t_\mathrm{C} + t_\mathrm{V}
+ 	\end{array}\right\} = I_\mathrm{B}(t) \text{.}
+\end{equation}
+If it is further assumed that $I_\mathrm{B}(t)$ is continuous for all points in time -- therefore does not drop at the point in time $t_\mathrm{C}$ -- the \emph{time constant} $\tau_\mathrm{B}$ in $\left(\mathrm{h}\right)$ of a battery can be obtained from:
+\begin{equation}\label{eq:tau_battery}
+	\centering
+	\tau_\mathrm{B} = \dfrac{\Delta Q}{I_\mathrm{C}}\text{.}
+\end{equation}
+If -- in the course of the charge experiment -- it can be shown that the second assumption is correct, then the first assumption follows according to \cite{Taschner:2014}.
+	
+Like the discharge experiment, this experiment is also carried out at $\vartheta_\mathrm{A} = 25^\circ \mathrm{C}$. The $\mathrm{LiFePO}_4$ battery, however, is initially fully discharged ($\mathrm{SOC}_{1} = 0$) and the charging experiment is repeated for the desired number of measuring points $N_{\mathrm{MP}}$ until it is fully charged ($\mathrm{SOC}_{N_\mathrm{MP}} = 1$) \cite{Rahmoun:2012, Hentunen:2014, Gurjer:2019}.
+
+The corresponding measurement setup can be seen in the figure \ref{fig:tikz_experiment_2}. For the currents $I_\mathrm{Ch1}$ and $I_\mathrm{Ch2}$ the same applies as in the discharge experiment since they are small compared to the \emph{battery charger current} $I_\mathrm{BC}$ in $\left(\mathrm{A}\right)$ \cite{Schrufer:2014}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_experiment_2}
+	\caption{Measurement setup for the charge experiment.}
+	\label{fig:tikz_experiment_2}
+\end{figure}
+Based on the figure \ref{fig:tikz_experiment_2}, the actual charging current $I_\mathrm{C}$ can be calculated with the equation (\ref{eq:i_c_real}).
+\begin{equation}\label{eq:i_c_real}
+	\centering
+I_\mathrm{C} = -\dfrac{U_\mathrm{shunt}}{R_\mathrm{shunt}} - I_\mathrm{Ch1} - I_\mathrm{Ch2}
+\end{equation}
+
+Identical to the discharge experiment, the battery's open-circuit voltage $U_{0, \mathrm{C}}(\mathrm{SOC}_n)$ in $\left(\mathrm{V}\right)$ is measured with Ch1. The battery is then charged using a suitable battery charger in (CC/CV) mode with a set $I_{\mathrm C}$, $I_\mathrm{min}$, $U_\mathrm{full}$ and $U_\mathrm{float}$. This is done for the time interval $\Delta t_{\mathrm{C}}$ until the new measuring point $\mathrm{SOC}_{n+1}$ is reached. At the point in time when the battery charger is switched on, the voltage rise $\Delta U_{\mathrm C}(\mathrm{SOC}_n)$ is measured with Ch1 and the voltage drop $U_\mathrm{shunt}(\mathrm{SOC}_n)$ with Ch2. After the charge process for $\Delta t_{\mathrm{C}}$ has been completed, the battery must remain idle for $t_\mathrm{rest}$ until the open-circuit voltage has reached an end value (compare to figure \ref{fig:tikz_pc_pd_battery_curve}). When this value is reached, the measurements can be repeated for $\mathrm{SOC}_{n + 1}$ \cite{Rahmoun:2012, Hentunen:2014, Gurjer:2019}. Based on the previously introduced model $\Delta U_{\mathrm C}(\mathrm{SOC}_{N_\mathrm{MP}})$ cannot be obtained. However, by performing the experiment on a commercially available $\mathrm{LiFePO}_4$ battery, it was found that for longer resting periods $t_\mathrm{rest}$, of up to a few hours, it accepts small charging currents $I_{\mathrm C}$ for a short intervall $\Delta t_\mathrm{C}$ even for $\mathrm{SOC}_{N_\mathrm{MP}}$. It is assumed that this is the consequence of the slow -- almost exponential -- decrease of $U_{0, \mathrm{C}}(\mathrm{SOC}_{_\mathrm{MP}})$ (compare to figure \ref{fig:tikz_pc_pd_battery_curve}) \cite{Kurzweil:2018}. In this case, the equation (\ref{eq:battery_voltage}) is not equal to $U_{\mathrm{full}}$ anymore.
+
+To confirm the previously made assumption that $I_{\mathrm C}(t)$ is continuous for all points in time, it is measured with Ch2 and calculated by using the equation (\ref{eq:i_c_real}) \cite{Notten:2005, Mertens:2015, Sterner:2017, Kurzweil:2018, Liu:2020}. 
+
+The time interval $\Delta t_{\mathrm{C}}$ and the measuring points are calculated -- base on the Coulomb counting method -- as shown below \cite{He:2011, Wehbe:2015, Nejad:2016, Kurzweil:2018, Li:2018}:
+\begin{equation} \label{eq:delta_t_C}
+	\centering
+	\Delta t_{\mathrm{C}} = \dfrac{ Q_\mathrm{tot}}{\eta_\mathrm{C} \, I_\mathrm{C} \left( N_\mathrm{MP} - 1 \right)} \text{.}
+\end{equation}
+\begin{equation} \label{eq:SOC_n_plus_1}
+	\centering
+	\mathrm{SOC}_{n + 1} = \mathrm{SOC}_{n} + \dfrac{\eta_\mathrm{C} \, I_\mathrm{C}}{Q_\mathrm{tot}} \, \Delta t_{\mathrm{C}} \text{.}
+\end{equation}
+
+Similar to $R_{e,\mathrm{D}}$, $R_{e,\mathrm{C}}$ can be obtained -- by using the equations (\ref{eq:r_0_c}) and (\ref{eq:i_c_real}) -- from \cite{Rahmoun:2012, Hentunen:2014, Kurzweil:2018, Gurjer:2019}:
+\begin{equation}\label{eq:r_0_c_soc}
+	\centering
+	R_{\mathrm{e,C}}(\mathrm{SOC}_n) = \left|-\dfrac{\Delta U_{\mathrm C}(\mathrm{SOC}_n)}{\dfrac{U_\mathrm{shunt}(\mathrm{SOC}_n)}{R_\mathrm{shunt}} + I_\mathrm{Ch1} + I_\mathrm{Ch2}}\right| \text{.}
+\end{equation}
+
+Due to the hysteresis effects of the open-circuit voltage $U_0(\mathrm{SOC}_n)$ mentioned in \cite{Hentunen:2014, Wehbe:2015, Gurjer:2019, Saldana:2019}, the battery voltage in the equation (\ref{eq:battery_voltage}) must be adapted to the so-called \emph{zero-state hysteresis model}:
+
+\begin{equation} \label{eq:battery_voltage_adapted}
+	\centering
+		U_\mathrm{B}(\mathrm{SOC}_n) =
+  		\begin{cases}
+   			U_0 (\mathrm{SOC}_n)+ \dfrac{c_{\mathrm{B}}}{2} - R_{\mathrm{e,D}}(\mathrm{SOC}_n) \, I_\mathrm{D}\text{,} \\ \text{when discharging the battery} \\[8pt]
+    		U_0(\mathrm{SOC}_n) + \dfrac{c_{\mathrm{B}}}{2} + R_{\mathrm{e,C}}(\mathrm{SOC}_n) \, I_\mathrm{C}\text{,} \\\text{when charging the battery,}
+  		\end{cases}
+	\end{equation} 
+with: 
+\begin{equation} \label{eq:U_0}
+	\centering
+	U_0(\mathrm{SOC}_n) = \dfrac{U_{0,\mathrm{D}}(\mathrm{SOC}_n) + U_{0,\mathrm{C}}(\mathrm{SOC}_n)}{2}\text{,}
+\end{equation}
+and $c_{\mathrm{B}}$ depending on the sign of $I_\mathrm{B}$:
+\begin{equation} \label{eq:c_B}
+	\centering
+		c_{\mathrm{B}} =
+  		\begin{cases}
+   			\left| U_{0, \mathrm{C}}(\mathrm{SOC}_n) - U_{0, \mathrm{D}}(\mathrm{SOC}_n) \right| \cdot (-1) \text{,} & \text{for } I_\mathrm{B} > 0\mathrm{A} \\
+			0\text{,} & \text{for } I_\mathrm{B} = 0\mathrm{A} \\
+			\left| U_{0, \mathrm{C}}(\mathrm{SOC}_n) - U_{0, \mathrm{D}}(\mathrm{SOC}_n) \right| \text{,} & \text{for } I_\mathrm{B} < 0\mathrm{A}\text{.}
+  		\end{cases}
+	\end{equation} 
+
+

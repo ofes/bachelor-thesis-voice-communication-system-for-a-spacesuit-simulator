@@ -1,0 +1,274 @@
+%% ARCHIVE 1
+
+The \emph{photocurrent} $I_{\mathrm{Ph}}$, as shown in equation \ref{eq:photo_i}, is proportional to the radiation flux $\Phi_{\mathrm{GEN}}$ -- introduced in the previous section -- with $S = \mathrm{const.}$ being the \emph{sensitivity} of the PVC \cite{Mertens:2015}.
+
+\begin{center}
+	\begin{equation} \label{eq:photo_i}
+		 I_{\mathrm{Ph}} = S \, \Phi_{\mathrm{GEN}} 
+	\end{equation}
+\end{center}
+
+If now is accepted, that the diode's \emph{reverse current} $I_{\mathrm{S}}$ (diode in figure \ref{fig:tikz_solar_cell_model}) is small compared to the photocurrent $I_{\mathrm{Ph}}$, so that $I_{\mathrm{S}} + I_{\mathrm{Ph}} \approx I_{\mathrm{Ph}}$ applies, the relationship $I_{\mathrm{SC}} \approx I_{\mathrm{Ph}}$ can be derived. $I_{\mathrm{SC}}$ is the \emph{PVG short circuit current}.
+
+Based on this, the PVG's short circuit current $I_{\mathrm{SC, \vartheta}}$ depending on the \emph{PVC temperature} $\vartheta_{\mathrm{PVC}}$, taking into account the \emph{temperature coefficient} of the short circuit current\footnote{Typical $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ values for Si-PVCs are around $0,06 \% / \mathrm{K}$.} $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$, can be approximated to:
+\begin{center}
+	\begin{equation} \label{eq:i_short_circuit}
+		I_{\mathrm{SC, \vartheta}} \approx I_{\mathrm{Ph}} \, \left[ 1 + \mathrm{TC}\left(I_{\mathrm{SC}}\right) \cdot \left(\vartheta_{\mathrm{PVC}} - \vartheta_{\mathrm{STC}} \right) \right] \text{.}
+	\end{equation}
+\end{center}
+The temperature coefficient $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ can usually be obtained from a PVG's data sheet. And the temperature of the PVCs at \emph{standard test conditions} (STC) $\vartheta_{\mathrm{STC}}$ can be taken from table \ref{tab:table_STC}. These are the conditions under which the paramaters in the data sheet of a PVG apply \cite{Mertens:2015, Wagner:2018}. 
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_STC}
+	\caption{Parameters for the standard test conditions of a photovoltaic generator \cite{Mertens:2015}.}
+	\label{tab:table_STC}
+\end{table}
+
+Furthermore, the PVC temperature $\vartheta_{\mathrm{PVC}}$, depending on the total irradiance $E_{\mathrm{GEN}}$ and the \emph{ambient temperature} $\vartheta_{\mathrm{A}}$, with the \emph{nominal operating cell temperature}\footnote{Typical $\mathrm{NOCT}$ values for c-Si-PVGs are around $45$ to $50^\circ \mathrm{C}$.} $\mathrm{NOCT}$ and the conditions under which it is measured, $\vartheta_{\mathrm{A,NOCT}}$ and $E_{\mathrm{NOCT}}$, can be approximated by assuming that the increase of $\vartheta_{\mathrm{PVC}}$ compared to the ambient temperature $\vartheta_{\mathrm{A}}$ is proportional to $E_{\mathrm{GEN}}$:
+\begin{center}
+	\begin{equation} \label{eq:cell_temp}
+		\vartheta_{\mathrm{PVC}} \approx \vartheta_{\mathrm{A}} + \left(\mathrm{NOCT} - \vartheta_{\mathrm{A,NOCT}}\right) \frac{E_{\mathrm{GEN}}}{E_{\mathrm{NOCT}}} \text{.}
+	\end{equation}
+\end{center}
+The paramateres under which the $\mathrm{NOCT}$ is measured are provided by table \ref{tab:table_NOCT} and -- in addition to $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ -- the $\mathrm{NOCT}$ is usually listed in the PVG's data sheet \cite{Mertens:2015}.
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_NOCT}
+	\caption{Conditions under which the NOCT is measured \cite{Mertens:2015}.}
+	\label{tab:table_NOCT}
+\end{table}
+
+Ambient temperatures $\vartheta_{\mathrm{A}}$ for different locations on Earth can be obtained from climate charts. Figure \ref{fig:temp_vienna} provides data for monthly averages of temperature in $^\circ \mathrm{C}$ and precipitation in $\mathrm{mm}$, collected by the Global Historical Climatology Network, for the Hohe Warte in Vienna, Austria, between 1997 and 2016. Below the chart the percentage of missing data regarding the months of the year, is presented. More climate charts can be found in appendix \ref{ap:solar_resource_maps} \cite{Zepner:2020}.
+
+\begin{figure}[h!]
+	\centering
+  	\includegraphics[width = 0.96\textwidth]{temp_maps/temp_vienna}
+  	\caption{Monthly averages of temperature and precipitation data for the Hohe Warte in Vienna, Austria. (Image credit: \cite{Zepner:2020} and \emph{climatecharts.net})}
+	\label{fig:temp_vienna}
+\end{figure}
+
+After applying Kirchoff's first law to the simplified PVC model in figure \ref{fig:tikz_solar_cell_model} and taking equations \ref{eq:u_pvg_sum_of_pvc} and \ref{eq:i_short_circuit} into account, the PVG's effective current-voltage characteristic, depending on the radiation flux $\Phi_{\mathrm{GEN}}$ and the PVC temperature $\vartheta_{\mathrm{PVC}}$, can be modeled with the following equations:
+\begin{center}
+	\begin{equation} \label{eq:i_of_u}
+		I_{\mathrm{PVG}}\left(U_{\mathrm{PVG}}\right) = I_{\mathrm{SC},\vartheta} - \underbrace{I_{\mathrm{S}} \left( \exp \left( \frac{1}{U_{\mathrm{T}}} \left( \frac{U_{\mathrm{PVG}}}{N_{\mathrm{PVC}}} + I_{\mathrm{PVG}} \, R_{\mathrm{PV}} \right) \right) - 1  \right)}_{I_{\mathrm{D}}} \text{,}
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:u_of_i}
+		U_{\mathrm{PVG}}\left(I_{\mathrm{PVG}}\right) = N_{\mathrm{PVC}} \left( U_{\mathrm{T}} \, \ln \left( \frac{I_{\mathrm{SC}, \vartheta} - I_{\mathrm{PVG}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right) - I_{\mathrm{PVG}} \, R_{\mathrm{PV}} \right) \text{.}
+	\end{equation}
+\end{center}
+$U_{\mathrm{T}}$ is the diodes's \emph{thermal voltage} and it can be obtained from equation \ref{eq:u_temp}, with $k = 1,380649 \cdot 10^{-23} \mathrm{Ws/K}$ being the Bolzmann constant and $e = 1,602176634\cdot10^{-19} \mathrm{As}$ being the elementary charge.
+\begin{center}
+	\begin{equation} \label{eq:u_temp}
+		U_{\mathrm{T}} = \frac{ k \, \left( \vartheta_{\mathrm{PVC}} + 273,15^\circ \mathrm{C} \right) }{e} \cdot \frac{\mathrm{K}}{^\circ \mathrm{C}}
+	\end{equation}
+\end{center}
+The corresponding curve of the PVG current $I_{\mathrm{PVG}}$ as a function of the PVG voltage $U_{\mathrm{PVG}}$, is shown in figure \ref{fig:tikz/tikz_PVG_curve}. MPP is the \emph{maximum power point} for which the greatest electrical power, $P_{\mathrm{MPP}} = U_{\mathrm{MPP}} \, I_{\mathrm{MPP}}$, is provided by the PVG.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVG_curve}
+	\caption{Modeled current-voltage characteristic of a photovoltaic generator depending on the radiation flux $\Phi_{\mathrm{GEN}}$ and the photovoltaic cell temperature $\vartheta_{\mathrm{PVC}}$.}
+	\label{fig:tikz/tikz_PVG_curve}
+\end{figure}
+With the effective current-voltage characteristic, the engineering of the characteristic of the PVG to solve adaptation problem, with an accuracy of 1\% related to $P_{\mathrm{MPP}}$, is possible \cite{Prechtl:2006, Mertens:2015, Tietze:2016, Wagner:2018, Elert:2020}.
+
+Upon closer inspection of equation \ref{eq:i_of_u} for $I_{\mathrm{PVG}} = 0\mathrm{A}$, while taking equation \ref{eq:u_pvg_sum_of_pvc} into account, the diode's reverse current $I_{\mathrm{S}}$ can be derived to:\footnote{As for equation \ref{eq:i_short_circuit}, $I_{\mathrm{S}} + I_{\mathrm{Ph}} \approx I_{\mathrm{Ph}}$, is assumed.}
+\begin{center}
+	\begin{equation} \label{eq:reverse_current}
+		I_{\mathrm{S}} \approx I_{\mathrm{SC, \vartheta}} \, \exp \left(-\frac{U_{\mathrm{OC, \vartheta}}}{U_{\mathrm{T}} \, N_{\mathrm{PVC}}}\right) \text{.}
+	\end{equation}
+\end{center}
+And since $I_{\mathrm{S}}$ depends on the physical structure of the PVC, it can be calcultated with $I_{\mathrm{SC,STC}}$ and $U_{\mathrm{OC,STC}}$ from a PVG's data sheet. Once its value is determined, the temperature dependent \emph{open circuit voltage} $U_{\mathrm{OC,\vartheta}}$ of a PVG can be calculated by transforming this equation \cite{Mertens:2015, Wagner:2018}.\footnote{Equation \ref{eq:reverse_current} can be derived from equation \ref{eq:u_of_i} for $I_{\mathrm{PVG}} = 0\mathrm{A}$.}
+
+It was mentioned earlier, that the simplified model from figure \ref{fig:tikz_solar_cell_model} has a very good approximation quality. This statement is only valid if the \emph{series resistance} $R_{\mathrm{PV}}$ of the PVC is allowed to take on negative values. And since resistors cannot have negative values, it is a fictitious photoelectric component with the aim of approximating the actual current-voltage characteristic of a PVG. Therefore it does not necessarily have to have a physical meaning \cite{Wagner:2018}.
+
+\begin{center}
+	\begin{equation} \label{eq:d_U_to_d_I}
+		M = \frac{\mathrm{d} U_{\mathrm{PVG}}}{\mathrm{d} I_{\mathrm{PVG}}}\left(I_{\mathrm{PVG}} = 0\mathrm{A}\right) = - N_{\mathrm{PVC}} \left( \frac{U_{\mathrm{T}}}{I_{\mathrm{SC, \vartheta}} + I_{\mathrm{S}}} + R_{\mathrm{PV}} \right)
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:r_pv_with_M}
+		R_{\mathrm{PV}} = - M \, \frac{I_{\mathrm{SC, \vartheta}}}{I_{\mathrm{MPP}}} + \frac{U_{\mathrm{MPP}}}{I_{\mathrm{MPP}}} \left(1 - \frac{I_{\mathrm{SC, \vartheta}}}{I_{\mathrm{MPP}}} \right) 
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:r_pv}
+		R_{\mathrm{PV}} = \left[ N_{\mathrm{PVC}} \, U_{\mathrm{T}} \, \frac{I_{\mathrm{SC, \vartheta}}}{I_{\mathrm{SC, \vartheta}} + I_{\mathrm{S}}} + U_{\mathrm{MPP}} \, \left(1 - \frac{I_{\mathrm{SC, \vartheta}}}{I_{\mathrm{MPP}}} \right) \right] \left( I_{\mathrm{MPP}} - N_{\mathrm{PVC}} \, I_{\mathrm{SC, \vartheta}}\right)^{-1}
+	\end{equation}
+\end{center}
+
+%% END ARCHIVE 1
+
+
+
+
+
+
+
+%% ARCHIVE 2
+
+In the next step, the PVCs shown in figure \ref{fig:tikz_PVG_circuit_diagram}, must be modeled. For this, the simplified PVC model\footnote{This model is derived from the PVC standard model for $R_{\mathrm{P}} \to \infty$ \cite{Mertens:2015, Wagner:2018}.} is used, as there is an explicit solution for $U_{\mathrm{PVC}}$, while at the same time an approximation quality similar to the two-diode model can be achieved. This statement however, is only valid if the \emph{series resistance} $R_{\mathrm{PV}}$ of the PVC is allowed to take on negative values. And because resistors cannot have negative values, it is treated as a fictitious photoelectric component that is used to approximate the actual current-voltage characteristic of a PVG. An illustration of the simplified PVC model with $R_{\mathrm{PV}}$ is provided in figure \ref{fig:tikz_PVC_simplified} \cite{Wagner:2018}.
+
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVC_simplified}
+	\caption{Simplified standard model of a photovoltaic cell. (Image credit: \cite{Mertens:2015, Wagner:2018})}
+	\label{fig:tikz_PVC_simplified}
+\end{figure}
+
+After applying Kirchoff's first law to the simplified PVC model and taking equation \ref{eq:u_pvg_sum_of_pvc} into account, the PVG's effective current-voltage characteristic can be modeled with the equation \ref{eq:i_of_u}, in which $I_{\mathrm{S}}$ is the diode's \emph{reverse current}, $U_{\mathrm{T}}$ its \emph{thermal voltage} and $I_{\mathrm{Ph}} = I_{\mathrm{Ph}}\left(\Phi\right)$, depending on the radiation flux $\Phi = \Phi_{\mathrm{GEN}}$, is the PVC's \emph{photocurrent}.
+\begin{center}
+	\begin{equation} \label{eq:i_of_u}
+		I_{\mathrm{PVG}}\left(U_{\mathrm{PVG}}\right) = I_{\mathrm{Ph}} - \underbrace{I_{\mathrm{S}} \left( \exp \left( \frac{1}{U_{\mathrm{T}}} \left( \frac{U_{\mathrm{PVG}}}{N_{\mathrm{PVC}}} + I_{\mathrm{PVG}} \, R_{\mathrm{PV}} \right) \right) - 1  \right)}_{I_{\mathrm{D}}}
+	\end{equation}
+\end{center}
+The explicit solution for $U_{\mathrm{PVC}}$, as shown in equation \ref{eq:u_of_i}, can be derived by transforming equation \ref{eq:i_of_u} \cite{Mertens:2015, Tietze:2016, Wagner:2018}. 
+\begin{center}
+	\begin{equation} \label{eq:u_of_i}
+		U_{\mathrm{PVG}}\left(I_{\mathrm{PVG}}\right) = N_{\mathrm{PVC}} \left( U_{\mathrm{T}} \, \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{PVG}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right) - I_{\mathrm{PVG}} \, R_{\mathrm{PV}} \right)
+	\end{equation}
+\end{center}
+
+Based on equation \ref{eq:i_of_u} the effective current-voltage characteristic can be visualized as shown in figure \ref{fig:tikz/tikz_PVG_curve}. $I_{\mathrm{SC}}\left(\vartheta,\Phi\right)$ and $U_{\mathrm{OC}}\left(\vartheta,\Phi\right)$ are the PVG's \emph{short-circuit} current and \emph{open-circuit} voltage, which depend on the PVC temperature $\vartheta = \vartheta_{\mathrm{PVC}}$ and the radiation flux $\Phi = \Phi_{\mathrm{GEN}}$, and the MPP is the \emph{maximum power point}, for which the PVG provides the greatest electrical power:
+\begin{center}
+	\begin{equation} \label{eq:p_mpp}
+		P_{\mathrm{MPP}} = U_{\mathrm{MPP}} \, I_{\mathrm{MPP}} \text{.}
+	\end{equation}
+\end{center}
+With the effective current-voltage characteristic, the actual current-voltage characteristic of the PVG can be modeled with an accuracy of 1\% related to $P_{\mathrm{MPP}}$ \cite{Prechtl:2006, Mertens:2015, Wagner:2018}.\footnote{A greater accuracy can be achieved by using the Newton-Raphson iteration method to determine the unknown quantities in the following paragraph \cite{Wagner:2018}.}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVG_curve}
+	\caption{Modeled current-voltage characteristic of a photovoltaic generator depending on the radiation flux $\Phi_{\mathrm{GEN}}$ and the photovoltaic cell temperature $\vartheta_{\mathrm{PVC}}$. (Image credit: \cite{Mertens:2015, Wagner:2018})}
+	\label{fig:tikz/tikz_PVG_curve}
+\end{figure}
+
+In order to determine the unknown quantities $I_{\mathrm{Ph}}$, $I_{\mathrm{S}}$, $U_{\mathrm{T}}$ and $R_{\mathrm{PV}}$, it is necessary that the PVG's short-circuit current $I_\mathrm{SC}\left(\vartheta,\Phi\right)$, open-circuit voltage $U_\mathrm{OC}\left(\vartheta,\Phi\right)$, current at MPP $I_\mathrm{MPP}$ and voltage at MPP $U_\mathrm{MPP}$, are known. For the standard test conditions (STC), listed in table \ref{tab:table_STC}, these can be taken directly from the data sheet of the PVG \cite{Mertens:2015, Wagner:2018}. 
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_STC}
+	\caption{Parameters for the standard test conditions of a photovoltaic generator \cite{Mertens:2015}.}
+	\label{tab:table_STC}
+\end{table}
+
+Taking into account the temperature dependence of the PVCs, the \emph{temperature coefficient} for the short-circuit current\footnote{Typical $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ values for Si-PVCs are around $0,06 \% / ^\circ \mathrm{C}$.} $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ and the open-circuit voltage\footnote{Typical $\mathrm{TC}\left(U_{\mathrm{OC}}\right)$ values for Si-PVCs are around $-0,40 \% / ^\circ \mathrm{C}$.} $\mathrm{TC}\left(U_{\mathrm{OC}}\right)$, must also be taken from the data sheet of the PVG. The temperature dependent short-circuit current $I_{\mathrm{SC}}\left(\vartheta\right)$ and open-circuit voltage $U_{\mathrm{OC}}\left(\vartheta\right)$ can then be determined to \cite{Mertens:2015}: 
+
+\begin{center}
+	\begin{equation} \label{eq:i_short_circuit}
+		I_{\mathrm{SC}}\left(\vartheta\right) = I_{\mathrm{SC,STC}} \, \left[ 1 + \mathrm{TC}\left(I_{\mathrm{SC}}\right) \cdot \left(\vartheta_{\mathrm{PVC}} - \vartheta_{\mathrm{STC}} \right) \right] \text{,}
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:i_short_circuit}
+		U_{\mathrm{OC}}\left(\vartheta\right) = U_{\mathrm{OC,STC}} \, \left[ 1 + \mathrm{TC}\left(U_{\mathrm{OC}}\right) \cdot \left(\vartheta_{\mathrm{PVC}} - \vartheta_{\mathrm{STC}} \right) \right] \text{.}
+	\end{equation}
+\end{center}
+
+The PVC temperature $\vartheta_{\mathrm{PVC}}$, depending on the total irradiance $E_{\mathrm{GEN}}$ and the \emph{ambient temperature} $\vartheta_{\mathrm{A}}$, with the \emph{nominal operating cell temperature}\footnote{Typical $\mathrm{NOCT}$ values for c-Si-PVGs are around $45$ to $50^\circ \mathrm{C}$.} $\mathrm{NOCT}$ and the conditions under which it is measured, $\vartheta_{\mathrm{A,NOCT}}$ and $E_{\mathrm{NOCT}}$, can be approximated by assuming that the increase of $\vartheta_{\mathrm{PVC}}$, compared to the ambient temperature $\vartheta_{\mathrm{A}}$, is proportional to $E_{\mathrm{GEN}}$:
+\begin{center}
+	\begin{equation} \label{eq:cell_temp}
+		\vartheta_{\mathrm{PVC}} \approx \vartheta_{\mathrm{A}} + \left(\mathrm{NOCT} - \vartheta_{\mathrm{A,NOCT}}\right) \frac{E_{\mathrm{GEN}}}{E_{\mathrm{NOCT}}} \text{.}
+	\end{equation}
+\end{center}
+The paramateres under which the $\mathrm{NOCT}$ is measured are provided by table \ref{tab:table_NOCT} and the $\mathrm{NOCT}$ is usually listed in the PVG's data sheet as well \cite{Mertens:2015}.
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_NOCT}
+	\caption{Conditions under which the NOCT is measured \cite{Mertens:2015}.}
+	\label{tab:table_NOCT}
+\end{table}
+
+Ambient temperatures $\vartheta_{\mathrm{A}}$ for different locations on Earth can be obtained from climate charts. Figure \ref{fig:temp_vienna}, for example, presents monthly averages for the ambient temperature in $^\circ \mathrm{C}$ and precipitation in $\mathrm{mm}$, collected by the Global Historical Climatology Network, for the Hohe Warte in Vienna, Austria, between 1997 and 2016. Below the chart the percentage of missing data, regarding the months of the year, is presented. More climate charts can be found in appendix \ref{ap:solar_resource_maps} \cite{Zepner:2020}.
+
+\begin{figure}[h!]
+	\centering
+  	\includegraphics[width = 0.96\textwidth]{temp_maps/temp_vienna}
+  	\caption{Monthly averages of temperature and precipitation data for the Hohe Warte in Vienna, Austria. (Image credit: \cite{Zepner:2020} and \emph{climatecharts.net})}
+	\label{fig:temp_vienna}
+\end{figure}
+
+The photocurrent $I_{\mathrm{Ph}}$, as shown in equation \ref{eq:photo_i}, is proportional to the radiation flux $\Phi_{\mathrm{GEN}}$ -- introduced in the previous section -- with $S = \mathrm{const.}$ being the \emph{sensitivity} of the PVC.
+\begin{center}
+	\begin{equation} \label{eq:photo_i}
+		 I_{\mathrm{Ph}} = S \, \Phi_{\mathrm{GEN}} 
+	\end{equation}
+\end{center}
+If now is accepted, that the diode's reverse current $I_{\mathrm{S}}$ is small compared to the photocurrent $I_{\mathrm{Ph}}$ ($I_{\mathrm{S}} \ll I_{\mathrm{Ph}}$), so that $I_{\mathrm{S}} + I_{\mathrm{Ph}} \approx I_{\mathrm{Ph}}$ applies, the relationship $I_{\mathrm{SC}} \approx I_{\mathrm{Ph}}$ can be derived. $I_{\mathrm{SC}}\left(\vartheta\right)$ from equation \ref{eq:i_short_circuit} can then be approximated to:
+\begin{center}
+	\begin{equation} \label{eq:i_short_circuit_phi_gen}
+		I_{\mathrm{SC}}\left(\vartheta,\Phi\right) \approx \underbrace{S \, \Phi_{\mathrm{GEN}}}_{I_\mathrm{Ph}} \, \left[ 1 + \mathrm{TC}\left(I_{\mathrm{SC}}\right) \cdot \left(\vartheta_{\mathrm{PVC}} - \vartheta_{\mathrm{STC}} \right) \right]
+	\end{equation}
+\end{center}
+And since $S$ is a constant value it can be calculated, using the relationship $\Phi_{\mathrm{STC}} = A_{\mathrm{PVG}} \, E_{\mathrm{STC}}$ (compare to equation \ref{eq:radiation_flux}) and the short-circuit current $I_{\mathrm{SC,STC}}$ from the PVG'S data sheet, to \cite{Mertens:2015}:
+\begin{center}
+	\begin{equation} \label{eq:sensitivity}
+		S = \frac{I_{\mathrm{SC,STC}}}{\Phi_{\mathrm{STC}}}
+	\end{equation}
+\end{center}
+
+The slope of the current-voltage characteristic from figure \ref{fig:tikz/tikz_PVG_curve} is presented in equation \ref{eq:du_pvg}.
+\begin{center}
+	\begin{equation} \label{eq:du_pvg}
+		 \frac{\mathrm{d} U_{\mathrm{PVG}}}{\mathrm{d} I_{\mathrm{PVG}}} = - N_{\mathrm{PVC}} \left( \frac{U_{\mathrm{T}}}{I_{\mathrm{Ph}} - I_{\mathrm{PVG}} + I_{\mathrm{S}}}+ R_{\mathrm{PV}} \right)
+	\end{equation}
+\end{center}
+Based on this equation, for $I_{\mathrm{PVG}} = 0\mathrm{A}$ and $I_{\mathrm{S}} \ll I_{\mathrm{Ph}}$, the thermal voltage $U_{\mathrm{T}}$ can be approximated to:
+\begin{center}
+	\begin{equation} \label{eq:u_thermal}
+		 U_{\mathrm{T}} \approx - I_{\mathrm{SC}}\left(\vartheta,\Phi\right) \, \frac{M + N_{\mathrm{PVC}} \, R_{\mathrm{PV}}}{N_{\mathrm{PVC}}} \text{, }
+	\end{equation}
+\end{center}
+with the slope of the current-voltage characteristic for $I_{\mathrm{PVG}} = 0\mathrm{A}$:
+\begin{center}
+	\begin{equation} \label{eq:du_pvg_M}
+		 M = \frac{\mathrm{d} U_{\mathrm{PVG}}}{\mathrm{d} I_{\mathrm{PVG}}} \left( I_{\mathrm{PVG}} = 0\mathrm{A} \right) \text{.}
+	\end{equation}
+\end{center}
+
+The electrical power $P_\mathrm{PVG}$ of the PVG can be calculated by multiplying eqaution \ref{eq:u_of_i} by $I_\mathrm{PVG}$. This results in:
+\begin{center}
+	\begin{equation} \label{eq:p_pvg}
+		 P_{\mathrm{PVG}}\left(I_{\mathrm{PVG}}\right) = I_{\mathrm{PVG}} \, N_{\mathrm{PVC}} \left( U_{\mathrm{T}} \, \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{PVG}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right) - I_{\mathrm{PVG}} \, R_{\mathrm{PV}} \right) \text{.}
+	\end{equation}
+\end{center}
+And its derivative with respect to $I_{\mathrm{PVG}}$ is:
+\begin{center}
+	\begin{equation} \label{eq:dp_pvg}
+		\begin{aligned}
+			&\frac{\mathrm{d} P_{\mathrm{PVG}}}{\mathrm{d} I_{\mathrm{PVG}}} = \\
+			& = N_{\mathrm{PVC}} \left[ U_{\mathrm{T}} \, \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{PVG}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right) - I_{\mathrm{PVG}} \left( \frac{U_{\mathrm{T}}}{I_{\mathrm{Ph}} - I_{\mathrm{PVG}} + I_{\mathrm{S}}} + 2 R_{\mathrm{PV}} \right) \right] \text{.}
+		 \end{aligned}
+	\end{equation}
+\end{center}
+With equation \ref{eq:u_of_i} for $I_\mathrm{MPP}$, and becuase equation \ref{eq:dp_pvg} is $0\mathrm{V}$ for $P_\mathrm{MPP}$, it can furthermore be written:
+\begin{center}
+	\begin{equation} \label{eq:u_mpp_with_dp_zero}
+		\begin{gathered}
+		 U_{\mathrm{PVG}}\left(I_{\mathrm{PVG}} = I_{\mathrm{MPP}}\right) - \underbrace{\frac{\mathrm{d} P_{\mathrm{PVG}}}{\mathrm{d} I_{\mathrm{PVG}}} \left( I_{\mathrm{PVG}} = I_{\mathrm{MPP}} \right)}_{0\mathrm{V}} = U_{\mathrm{MPP}} \\ = I_\mathrm{MPP} \, N_\mathrm{PVC} \left( \frac{U_\mathrm{T}}{I_\mathrm{Ph} - I_\mathrm{MPP} + I_\mathrm{S}} + R_\mathrm{PV} \right) \text{.}
+		 \end{gathered}
+	\end{equation}
+\end{center}
+Inserting equation \ref{eq:u_thermal} into equation \ref{eq:u_mpp_with_dp_zero} and assuming that $I_{\mathrm{S}} \ll I_{\mathrm{Ph}}$, then $R_\mathrm{PV}$ can be approximated to:
+\begin{center}
+	\begin{equation} \label{eq:r_pv}
+		  R_\mathrm{PV} \approx \frac{I_\mathrm{MPP} \left( I_{\mathrm{SC}}\left(\vartheta,\Phi\right) - I_\mathrm{MPP}\right) + M \, I_\mathrm{MPP} \, I_{\mathrm{SC}}\left(\vartheta,\Phi\right)}{I_\mathrm{MPP} \, N_\mathrm{PVC} \left( I_{\mathrm{SC}}\left(\vartheta,\Phi\right) - I_\mathrm{MPP}\right) - I_\mathrm{MPP} \, I_{\mathrm{SC}}\left(\vartheta,\Phi\right) }
+	\end{equation}
+\end{center}
+
+The diode's reverse current $I_\mathrm{S}$ can be approximated by using equation \ref{eq:i_of_u} for $U_\mathrm{PVG} = U_\mathrm{OC}\left(\vartheta,\Phi\right)$ with $I_{\mathrm{S}} \ll I_{\mathrm{Ph}}$, as shown in equation \ref{eq:i_s_reverse_current}.
+\begin{center}
+	\begin{equation} \label{eq:i_s_reverse_current}
+		 I_\mathrm{S} \approx I_{\mathrm{SC}}\left(\vartheta,\Phi\right) \, \exp \left( - \frac{U_{\mathrm{OC}}\left(\vartheta,\Phi\right)}{N_\mathrm{PVC} \, U_\mathrm{T}} \right)
+	\end{equation}
+\end{center}
+
+%% END ARCHIVE 2

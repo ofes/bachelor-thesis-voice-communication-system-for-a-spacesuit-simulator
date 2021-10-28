@@ -1,0 +1,51 @@
+\subsection{Repeater radio infrastructure}
+The main task of the repeater is to receive weak signals and to re-transmit them with increased transmission power. Its radio infrastructure is supplied by electrical energy from the self-sufficient energy distribution system, for which the schematic structure is shown in the figure \ref{fig:tikz_rep_energy}. As it can be seen, an AE Solar AE195SMM6-36 PV generator with pre-mounted cables \circled{\footnotesize{A}}, a Victron BlueSolar MPPT 75/10 SCC and an Offgridtec Smart-Pro $12,8\mathrm{V}$ $50\mathrm{Ah}$ $\mathrm{LiFePO}_4$ battery are used. In addition, the cables \circled{\footnotesize{B}} and \circled{\footnotesize{C}}, which are designed for harsh environments, are used to connect these devices.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_rep_energy}
+	\caption{Schematic structure of the self-sufficient energy distribution system of the repeater radio infrastructure.}
+	\label{fig:tikz_rep_energy}
+\end{figure}
+The SCC and the $\mathrm{LiFePO}_4$ battery are contained in an IP67 certified battery box to protect them from the environment. This IP rating also applies to the connectors in the small green rectangles. 
+
+In the figure \ref{fig:tikz_rep_energy}, only the part necessary for the simulation of the self-sufficient energy distribution system can be seen. In practice, fuses, switches, lightning protection and other important components are also installed. Due to the short length of the cable that connects the $\mathrm{LiFePO}_4$ battery with the SCC, it was neglected. The simulation results of the self-sufficient energy distribution system of the repeater radio infrastructure can be found in the section \ref{sec:energy}. 
+
+Continuing from the SLR 1000, the repeater radio infrastructure further consists of a Diamond SP1000 lightning arrester to protect the SLR 1000 and the self-sufficient energy distribution system from the consequences of a lightning strike and a Diamond BC-101 VHF fixed station antenna. As shown in the figure \ref{fig:tikz_repeater}, additional adapters, connectors and a coaxial cable are required. The adapter \circled{\footnotesize{1}} represents a $90^\circ$ angle.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_repeater}
+	\caption{Schematic structure of repeater radio infrastructure.}
+	\label{fig:tikz_repeater}
+\end{figure}
+
+Using the specifications of the SLR 1000 listed in the table \ref{tab:table_slr1000_specs}, the maximum transmission power is calculated in the equation (\ref{eq:power_rep_tx}). The minimum required reception power for the worst case can be taken from the equation (\ref{eq:power_BSt_min}).
+\begin{table}[h!] % SLR1000
+	\centering
+	\input{tables/table_slr1000_specs}
+	\caption{Excerpt from the data sheet of the Motorola Mototrbo SLR 1000 repeater. \cite{SLR1000:2019}}
+	\label{tab:table_slr1000_specs}
+\end{table}
+\begin{equation} \label{eq:power_rep_tx}
+	\centering
+	P_\mathrm{T,dBW} =  10\mathrm{dBW} \cdot \log_{10} \left( \dfrac{10\mathrm{W}}{1\mathrm{W}} \right) = 10\mathrm{dBW}\text{,}
+\end{equation}
+
+Since the repeater uses the same lightning arrester and the same antenna as the base station, the resulting losses can be taken directly from the equations (\ref{eq:losses_BSt_arr}) and (\ref{eq:losses_BSt_ant}). The antenna of the repeater is always mounted at a height of $h_\mathrm{REP} = 8\mathrm{m}$ above the ground, as a mast is included in the system design. 
+
+As can be seen in the figure \ref{fig:tikz_repeater}, the length of the coaxial cable is $0,5\mathrm{m}$, resulting in an insertion loss of:   
+\begin{equation} \label{eq:losses_BSt_coax}
+	\centering
+	L_\mathrm{coax,dB} = \dfrac{7,2471 \cdot 0,5}{100}\mathrm{dB} = 0,036\mathrm{dB}\text{.}
+\end{equation}
+
+With the number of adapters and connectors $N_\mathrm{I} = 4$, their insertion loss follows to:
+\begin{equation} \label{eq:losses_rep_conn}
+	\centering
+	L_\mathrm{conn/adapt,dB} = 0,4\mathrm{dB}\text{.}
+\end{equation}
+
+Finally, the total loss of the antenna feed line can be calculated with:
+\begin{equation} \label{eq:losses_rep}
+	\centering
+	L_\mathrm{REP,dB} = L_\mathrm{arr,dB} + L_\mathrm{ant,dB} + L_\mathrm{coax,dB} + L_\mathrm{conn/adapt,dB} = 0,849\mathrm{dB}\text{.}
+\end{equation}

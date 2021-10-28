@@ -1,0 +1,53 @@
+\subsection{Free space signal budget}
+This subsection repeats the basics of the free space signal budget. It is assumed that there are no obstacles in the beam path between a transmitter and a receiver radio, and that their antennas are separated by the \emph{distance} $d$ in $\left(\mathrm{m}\right)$. The \emph{available power} $P_\mathrm{R}$ in $\left(\mathrm{W}\right)$ at the receiving antenna with the \emph{gain} $G_\mathrm{R}$ in $\left(\mathrm{1}\right)$ and the \emph{receiving losses} $L_\mathrm{R}$ in $\left(\mathrm{1}\right)$ -- which are caused by, for example, coaxial cables, connectors, adapters or lightning arresters in the antenna feed line -- can then be calculated based on the \emph{transmission power} $P_\mathrm{T}$ in $\left(\mathrm{W}\right)$, the gain of the transmission antenna $G_\mathrm{T}$ in $\left(\mathrm{1}\right)$, the \emph{transmission losses} $L_\mathrm{T}$ in $\left(\mathrm{1}\right)$ -- which are of the same nature as the receiving losses -- and the \emph{free space basic transmission loss} between isotropic antennas $L_\mathrm{ISO}$ in $\left(\mathrm{1}\right)$, while considering the \emph{wavelength} $\lambda_\sim$ in $\left(\mathrm{m}\right)$ of the transmitted electromagnetic wave, as shown in the equation (\ref{eq:free_space}).
+\begin{equation} \label{eq:free_space}
+	\centering
+	P_\mathrm{R} = P_\mathrm{T} \underbrace{\left(\dfrac{\lambda_\sim}{4 \pi \, d}\right)^2}_{L_\mathrm{ISO}^{-1}} L_\mathrm{R} \, L_\mathrm{T} \, G_\mathrm{R} \, G_\mathrm{T}
+\end{equation}
+When the equation (\ref{eq:free_space}) is expressed in decibels, it can be converted into a simple summation:
+\begin{equation} \label{eq:free_space_dB}
+	\centering
+	P_\mathrm{R,dBW} = P_\mathrm{T,dBW} + \underbrace{20\mathrm{dB} \cdot \log_{10} \left(\dfrac{\lambda_\sim}{4 \pi \, d}\right)}_{- L_\mathrm{ISO,dB}} - L_\mathrm{R,dB} - L_\mathrm{T,dB} + G_\mathrm{R,dBi} + G_\mathrm{T,dBi}\text{.}
+\end{equation}
+The transmission and available power $P_\mathrm{T}$ and $P_\mathrm{R}$ use $P_0 = 1\mathrm{W}$ as the reference power. A given power $P$ in $\left(\mathrm{W}\right)$ can therefore be converted into decibels with:
+\begin{equation} \label{eq:p_dBW_calc}
+	\centering
+	P_\mathrm{dBW} = 10\mathrm{dBW} \cdot \log_{10} \left(\dfrac{P}{P_0}\right)\text{.}
+\end{equation}
+$G_\mathrm{T,dBi}$ and $G_\mathrm{R,dBi}$ in $\left(\mathrm{dBi}\right)$ are the antenna gains with respect to the isotropic radiator. The losses in the antenna feed lines are divided into two groups. First, the insertion losses caused by the signal attenuation due to the individual components in the antenna feed lines, and second, the losses caused by a slight mismatch of the impedances of these components. The latter causes reflections which result in a relative loss of $P_\mathrm{T}$ or $P_\mathrm{R}$. Based on the \emph{voltage standing wave ratio} (VSWR) in $\left(\mathrm{1}\right)$ of a component in the antenna feed line, the component's mismatch loss can be calculated as follows:
+\begin{equation} \label{eq:mismatch}
+	\centering
+	L_\mathrm{M,dB} = - 10\mathrm{dB} \cdot \log_{10} \left( 1 - \left( \dfrac{\mathrm{VSWR} - 1}{\mathrm{VSWR} + 1} \right)^2 \right)\text{.}
+\end{equation}
+With the number of occurring insertion and mismatch losses in the feed lines of the transmission and receiving antenna $N_\mathrm{I}$ and $N_\mathrm{M}$ in $\left(1\right)$, $L_\mathrm{R,dB}$ and $L_\mathrm{T,dB}$ can now be calculated with the equations (\ref{eq:losses_TX}) and (\ref{eq:losses_RX}):\footnote{The equations (\ref{eq:losses_TX}) and (\ref{eq:losses_RX}) are the same. This is due to the reciprocity of radio systems. In practice, it makes sense to first calculate the losses in the antenna feed lines of the individual radio devices and then name them $L_\mathrm{T,dB}$ or $L_\mathrm{R,dB}$ in the further calculations.}
+\begin{equation} \label{eq:losses_TX}
+	\centering
+	L_\mathrm{T,dB} = \displaystyle\sum_{i=1}^{N_\mathrm{I}} L_{\mathrm{TI}i,\mathrm{dB}} + \displaystyle\sum_{j=1}^{N_\mathrm{M}} L_{\mathrm{TM}j,\mathrm{dB}}\text{,}
+\end{equation}
+\begin{equation} \label{eq:losses_RX}
+	\centering
+	L_\mathrm{R,dB} = \displaystyle\sum_{i=1}^{N_\mathrm{I}} L_{\mathrm{RI}i,\mathrm{dB}} + \displaystyle\sum_{j=1}^{N_\mathrm{M}} L_{\mathrm{RM}j,\mathrm{dB}}\text{.}
+\end{equation}
+Because digital modulation will be used, it is worth mentioning that the data sheet of a radio receiver contains information about the minimum required reception power $P_\mathrm{min,dBW}$ in $\left(\mathrm{dBW}\right)$ in order not to exceed a certain \emph{bit error rate} (BER). Whereby $P_\mathrm{min,dBW}$ is usually not specified directly, but rather the sensitivity of the receiver in the form of a voltage $U_\mathrm{min}$ in $\left(\mathrm{V}\right)$. With the \emph{system impedance} $Z_\mathrm{Sys}$ in $\left(\Omega\right)$, $P_\mathrm{min,dBW}$ can subsequently be calculated from:
+\begin{equation} \label{eq:min_reception}
+	\centering
+	P_\mathrm{min,dBW} = 10\mathrm{dBW} \cdot \log_{10} \left( \dfrac{U_\mathrm{min}^2}{Z_\mathrm{Sys}} \right)\text{.}
+\end{equation}
+By subtracting $P_\mathrm{min,dBW}$ from $P_\mathrm{R,dBW}$, the fade margin can be obtained. If this margin is negative, the system performance insufficient because the received signal is too weak to be processed. This leads to a higher BER or complete loss of signal. When designing a mission critical voice communication system, this margin must therefore be positive and sufficiently large. Its minimum value should be around $20\mathrm{dB}$ to $30\mathrm{dB}$ \cite{Parsons:2000, Glover:2010, LinkMargin:2016, Tietze:2016, Mecklenbrauker:2017, Goiser:2019, Elert:2020}. 
+
+It is moreover noted, that:
+\begin{equation} \label{eq:path_attenuation}
+	\centering
+	L_\mathrm{dB} = 10\mathrm{dB} \cdot \log_{10} \left(\dfrac{P_\mathrm{R}}{P_\mathrm{T}}\right)
+\end{equation}
+is the \emph{total path attenuation} in $\left(\mathrm{dB}\right)$ and:
+\begin{equation} \label{eq:path_attenuation}
+	\centering
+	\mathrm{EIRP}_\mathrm{dBW} = P_\mathrm{T,dBW} + G_\mathrm{T,dBi}
+\end{equation}
+is the \emph{effective isotropic radiated power} in $\left(\mathrm{dBW}\right)$. The quantities $P_\mathrm{T}$, $U_\mathrm{min}$, $G_\mathrm{R,dBi}$ and $G_\mathrm{T,dBi}$, as well as the insertion losses and the VSWRs can usually be taken from the data sheets of the components and radio devices used in the voice communication system.\footnote{The information in the data sheets applies to $\vartheta_\mathrm{A,K} = 290\mathrm{K}$ ($\vartheta_\mathrm{A} = 16,85^\circ \mathrm{C}$) if no other reference temperature is given.} The wavelength follows from the expression:
+\begin{equation} \label{eq:lambda}
+	\centering
+	\lambda_\sim = \dfrac{c_0}{f_\sim}\text{,}
+\end{equation}
+where $c_0 = 299792458\mathrm{ms^{-1}}$ is the \emph{speed of light} and $f_\sim$ in $\left(\mathrm{Hz}\right)$ is the \emph{frequency} of the transmitted electromagnetic wave \cite{Parsons:2000, Glover:2010, Tietze:2016, Mecklenbrauker:2017, Goiser:2019, Elert:2020}. 

@@ -1,0 +1,23 @@
+\subsection{Communication links and fade margin} \label{sec:comm_link_fade_margin}
+If the radio system parameters in the table \ref{tab:table_system_results} -- for maximum transmission power -- and the distance $d \ \widehat{=} \ r_\mathrm{min} = 7,5\mathrm{km}$ are now used in the equation (\ref{eq:plane_earth_approx_db}), the results in the table \ref{tab:table_link_margin_max} are obtained.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_link_margin_max}
+	\caption{Results of the plane earth signal budget calculation for the designed voice communication system when all participants transmit at maximum power.}
+	\label{tab:table_link_margin_max}
+\end{table}
+The arrows in the column called \textbf{Link} represent the communcation direction.
+
+In the same way the results in the table \ref{tab:table_link_margin_5w} are obtained. However, these apply when the voice communication system is limited to a maximum transmission power of $P_\mathrm{T} = 5\mathrm{W}$. Those radio links on which this has an effect are marked in orange. 
+\begin{table}[h!]
+	\centering
+	\input{tables/table_link_margin_5w}
+	\caption{Results of the plane earth signal budget calculation for the designed voice communication system when all participants are limited to a maximum transmission power of $P_\mathrm{T} = 5\mathrm{W}$.}
+	\label{tab:table_link_margin_5w}
+\end{table}
+
+From both tables it can be seen that the link margins marked in green are above $20\mathrm{dB}$. The lowest link margin is $21,595\mathrm{dB}$ and it occurs when a safety officer is $7,5\mathrm{km}$ away from the repeater and communicates through it.
+
+Due to the fact that the plane earth model is used, these calculations are only estimations. In order to study the performance of the designed voice communication system in more detail, experiments must be carried out on it in order to obtain empirical data. 
+
+In theory, the safety officers and AAs, with each group being located somewhere within a distnace of $r_\mathrm{min} = 7,5\mathrm{km}$ around the repeater, can communicate -- via said repeater -- with each other. In practice, however, it is important that both groups maintain LOS either to the repeater or to each other and that the OeWF uses the topology of the mission area to the advantage of the designed voice communication system. If there are elevations in the mission area, then these should preferably be used as installation sites of the base station and the repeater. This increases their antenna heights and thus their fade margins. Depending on the topology of the mission area, the LOS can be maintained more easily with antennas being mounted at higher locations. If LOS cannot be maintained due to the topology of the mission area, this compromise must be made, and if necessary, the mission planning must be adapted to it. 

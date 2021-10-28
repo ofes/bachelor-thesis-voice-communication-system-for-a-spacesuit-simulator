@@ -1,0 +1,25 @@
+\subsection{On-site support crew radio}
+The on-site support crew, which carries out general tasks in the mission area, uses the DP 3601 handheld radios. These are supplied with electrical energy from their $2,15\mathrm{Ah}$ lithium-ion batteries (Motorola PMNN4103A) which are charged via the local power grid when required.  
+
+According to the same principle as in the previous subsections, the maximum transmission power of the DP 3601 can be calculated using the equation (\ref{eq:power_OSS_tx}), with its specifications being listed in the table \ref{tab:table_dp3601_specs}.
+\begin{table}[h!] % DP3601
+	\centering
+	\input{tables/table_dp3601_specs}
+	\caption{Excerpt from the data sheet of the Motorola Mototrbo DP 3601 handheld radio. \cite{DP3601:2010}}
+	\label{tab:table_dp3601_specs}
+\end{table}
+\begin{equation} \label{eq:power_OSS_tx}
+	\centering
+	P_\mathrm{T,dBW} =  10\mathrm{dBW} \cdot \log_{10} \left( \dfrac{5\mathrm{W}}{1\mathrm{W}} \right) = 6,99\mathrm{dBW}\text{,}
+\end{equation}
+Since the DP 3601 is an older handheld radio, its sensitivity differs from that of the other Motorola Mototrbo radio devices mentioned earlier. By assuming that the antenna impedance is $50\Omega$ -- due to the same reasons as for the SL 2600 -- the minimum required reception power follows to:
+\begin{equation} \label{eq:power_OSS_min}
+	\centering
+	P_\mathrm{min,dBW} = 10\mathrm{dBW} \cdot \log_{10} \left( \dfrac{\left(0,30\cdot10^{-6}\mathrm{V}\right)^2}{50\Omega} \right) = -147,447\mathrm{dBW}\text{.}
+\end{equation}
+
+The antenna of the DP 3601 is directly attached to the radio and it is assumed, that no losses in the antenna feed line occur. Furthermore, its gain is assumed to be $0\mathrm{dBi}$ and, as in the previous subsection, its hight above the ground is assumed to be $h_\mathrm{OSS} = 1,271\mathrm{m}$.
+
+
+
+

@@ -1,0 +1,177 @@
+\documentclass[12pt, twoside]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[a4paper, width = 150mm, top = 25mm, bottom = 25mm, bindingoffset = 6mm]{geometry}	% EDIT page geometry here!
+\usepackage{fancyhdr}
+\usepackage[font = footnotesize, labelfont = bf]{caption}
+\usepackage[font = footnotesize, labelfont = bf]{subcaption}
+\usepackage[backend = biber, bibstyle = ieee, sorting = none, citestyle = ieee, minnames = 3, maxnames = 3]{biblatex}
+\usepackage[intlimits]{amsmath}
+\usepackage{mathtools, nccmath}
+\usepackage[math]{cellspace}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{abbrevs} 
+\usepackage{csquotes}
+\usepackage[colorlinks=true, linkcolor = black, citecolor = blue, urlcolor=blue]{hyperref}
+\usepackage{lipsum} % for more space between footnotes and main text
+\usepackage{xspace}
+\usepackage{listings}
+\usepackage[numbered,autolinebreaks,useliterate]{mcode}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage[detect-all]{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+\usepackage{svg}
+\usepackage{xparse}
+\usepackage{float}
+\usepackage[nottoc,numbib]{tocbibind}
+
+\titleformat{\chapter}{\Huge\bfseries}{\thechapter\ }{0.5em}{}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\setcounter{secnumdepth}{4}
+\addbibresource{references.bib}
+\graphicspath{{images/}{../MATLAB/LiFePO4_data/latex_export/}{../MATLAB/ultraflex_7_coaxial_cable_attenuation/latex_export/}{../MATLAB/pv_generator_model/latex_export/}}
+\pagestyle{fancy}															% EDIT page header and footer here!
+\fancyhead{}																% clearing all the head fields
+\fancyhead[RO]{Voice communication system for a spacesuit simulator}		% RO ... Right Odd, LE ... Left Even
+\fancyhead[LE]{\nouppercase{\leftmark}}										% also try \rightmark, \leftmark and \chaptermark
+\fancyfoot{}
+\fancyfoot[LE, RO]{\thepage}												% \thepage returns page number
+\renewcommand{\headrulewidth}{0.4pt}										% header line thickness
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\arabic{section}.\ #1}}
+\cellspacetoplimit 3pt
+\cellspacebottomlimit 3pt
+\setlength{\arraycolsep}{4pt}
+\interfootnotelinepenalty = 10000	
+\addtolength{\skip\footins}{1pc plus 5pt} % for more space between footnotes and main text	
+\setlength{\jot}{10pt}	
+\newcommand{\MATLAB}{\textsc{\textbf{Matlab}}\xspace}
+\newcommand*{\altmatlab}{{\mdseries\MATLAB}\xspace}
+\newcommand{\MAPLE}{\textsc{\textbf{Maple}}\xspace}
+\newcommand*{\altmaple}{{\mdseries\MAPLE}\xspace}
+\definecolor{mygreen}{RGB}{28,172,0}
+\definecolor{mylilas}{RGB}{170,55,241}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+\NewDocumentCommand{\codeword}{v}{
+\texttt{\textcolor{black}{#1}}
+}
+
+\newfloat{lstfloat}{h!}{lop} 
+\floatname{lstfloat}{Listing} 
+
+            
+\begin{document}
+
+\pagenumbering{Roman}
+\input{titlepage}
+\input{abstract} 
+
+\chapter*{Dedication}
+To my grandfather, in loving memory.
+
+\chapter*{Declaration}
+I declare that the work in this bachelor thesis titled ``Voice communication system for a spacesuit simulator'' has been carried out by me at the Vienna University of Technology in the Faculty of Electrical Engineering and Information Technology at the Department of Telecommunications. The information derived from the literature has been duly acknowledged in the text and a list of references provided. No part of this bachelor thesis was previously presented for another degree or diploma at this or any other institution.
+
+\vspace*{4em}\noindent
+\hfill%
+\begin{tabular}[t]{c}
+	\rule{10em}{0.4pt}\\ Omar Filip El Sendiouny
+\end{tabular}%
+\hfill%
+\begin{tabular}[t]{c}
+  	\rule{10em}{0.4pt}\\ Date
+\end{tabular}%
+\hfill\strut
+
+\chapter*{Acknowledgements}
+I would like to sincerely thank Christoph Mecklenbräuker and Gernot Grömer for making this thesis possible and giving me the opportunity to become part of such an fascinating project.
+\\\\
+\indent I would also like to thank Javier Roldán, Sebastian Sams, Michael Müller and Matthias Mair for allowing me to work alongside them on this project. I was able to learn a lot through their experience and expertise.
+\\\\
+\indent My thanks also go to Sophie Gruber, Franziska Usel and Nadja Keplinger who supported us in a number of organizational tasks related to the project.
+\\\\
+\indent Furthermore I would like to thank Benedikt Stingl, Nina Sejkora, Stefanie Garnitschnig and all other colleagues from the OeWF Suit-laboratory in Innsbruck, who welcomed me with open arms from the first day of my arrival. 
+\\\\
+\indent Finally, I want to thank the sponsors and supporters of this project Robert Neumann, Markus Neuner and Maria Holzknecht. 
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Listings}
+
+\newpage
+\addcontentsline{toc}{chapter}{Abbreviations}
+\input{abbreviation}
+
+\newpage
+\addcontentsline{toc}{chapter}{Symbols}
+\input{symbols}
+
+\newpage
+\fancyhead{}																% clearing all the head fields
+\fancyhead[RE]{Voice communication system for a spacesuit simulator}		% RO ... Right Odd, LE ... Left Even
+\fancyhead[LO]{\nouppercase{\leftmark}}										% also try \rightmark, \leftmark and \chaptermark
+\fancyfoot{}
+\fancyfoot[RE, LO]{\thepage}
+\input{chapters/chapter_1_introduction}
+\input{chapters/chapter_2_methodology/chapter_2_methodology} %OK
+\input{chapters/chapter_3_results/chapter_3_results} %OK
+\input{chapters/chapter_4_conclusion/chapter_4_conclusion}
+
+\clearpage
+\pagenumbering{arabic}	% resets page numbering to 1
+\renewcommand*{\thepage}{A\arabic{page}}
+\appendix
+
+\fancyhead{}																% clearing all the head fields
+\fancyhead[RE]{Voice communication system for a spacesuit simulator}		% RO ... Right Odd, LE ... Left Even
+\fancyhead[LO]{\nouppercase{\leftmark}}										% also try \rightmark, \leftmark and \chaptermark
+\fancyfoot{}
+\fancyfoot[RE, LO]{\thepage}
+
+% Sort:
+\input{chapters/appendix_1_austrian_space_forum/appendix_1_austrian_space_forum}
+\input{chapters/appendix_3_mathematical_basics/appendix_3_mathematical_basics}
+\input{chapters/appendix_2_matlab_maple_source_codes/appendix_2_matlab_maple_source_codes}
+
+\clearpage
+\pagenumbering{arabic}	% resets page numbering to 1
+\renewcommand*{\thepage}{R\arabic{page}}
+
+\fancyhead{}																% clearing all the head fields
+\fancyhead[RO]{Voice communication system for a spacesuit simulator}		% RO ... Right Odd, LE ... Left Even
+\fancyhead[LE]{\nouppercase{\leftmark}}										% also try \rightmark, \leftmark and \chaptermark
+\fancyfoot{}
+\fancyfoot[RO, LE]{\thepage}
+
+\addcontentsline{toc}{chapter}{References}
+\printbibliography[title = References]
+
+\end{document}

@@ -1,0 +1,33 @@
+As part of Serenity's backup voice communication system two different PVGs are used. One polycrystalline PVG sponsored by DAS Energy -- an Austrian manufacturer of flexible photovoltaic generators -- and another monocrystalline PVG from AE Solar. The main PVG used with the self-sufficient BVCR is the monocrystalline PVG, while the polycrystalline PVG acts as a backup in case the main generator gets damaged during a mission.
+
+Detailed specifications of the PVGs can be seen in the tables \ref{tab:table_ae_solar_pvg_specs} and \ref{tab:table_das_energy_pvg_specs}. The electrical data in both tables applies to the standard test conditions (STC) with an irradiance of $E_{\mathrm{STC}} = 1000\mathrm{W/m}^2$, an air mass 1,5 (AM 1,5) spectrum and a PVG temperature of $T_{\mathrm{Module}} = 25^\circ \mathrm{C}$ \cite{Mertens:2015}.
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_ae_solar_pvg_specs}
+	\caption{Specifications of the AE Solar AE195SMM6-36 monocrystalline photovoltaic generator.}
+	\label{tab:table_ae_solar_pvg_specs}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_das_energy_pvg_specs}
+	\caption{Specifications of the DAS Energy DAS145PF polycrystalline photovoltaic generator.}
+	\label{tab:table_das_energy_pvg_specs}
+\end{table}
+
+The power of the PVGs at maximum power point (MPP) is determined using the equations \ref{eq:p_mpp_ae_solar} and \ref{eq:p_mpp_das_energy} \cite{Prechtl:2006}.
+
+\begin{center}
+	\begin{equation} \label{eq:p_mpp_ae_solar}
+		P_{\mathrm{MPP,MN}} = U_{\mathrm{MPP,MN}} \ I_{\mathrm{MPP,MN}} = 21,41 \mathrm{V} \cdot 9,11 \mathrm{A} = 195,05 \mathrm{W_p}
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:p_mpp_das_energy}
+		P_{\mathrm{MPP,BU}} = U_{\mathrm{MPP,B/U}} \ I_{\mathrm{MPP,B/U}} = 18,15 \mathrm{V} \cdot 8,09 \mathrm{A} = 146,83 \mathrm{W_p}
+	\end{equation}
+\end{center}
+
+The results of the equations \ref{eq:p_mpp_ae_solar} and \ref{eq:p_mpp_ae_solar} are going to be used later to estimate the daily average solar energy yield of the self-sufficient BVCR.

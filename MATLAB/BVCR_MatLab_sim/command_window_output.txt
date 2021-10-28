@@ -1,0 +1,80 @@
+*******************************************
+[OUTPUT] PV GENERATOR INSTALLATION:
+
+Mission day | Opt. tilt angle | Orientation
+-------------------------------------------
+01-Apr-2021 |    43.84 deg    |    SOUTH
+02-Apr-2021 |    43.44 deg    |    SOUTH
+03-Apr-2021 |    43.05 deg    |    SOUTH
+04-Apr-2021 |    42.65 deg    |    SOUTH
+05-Apr-2021 |    42.26 deg    |    SOUTH
+06-Apr-2021 |    41.87 deg    |    SOUTH
+07-Apr-2021 |    41.48 deg    |    SOUTH
+08-Apr-2021 |    41.10 deg    |    SOUTH
+09-Apr-2021 |    40.71 deg    |    SOUTH
+10-Apr-2021 |    40.33 deg    |    SOUTH
+11-Apr-2021 |    39.95 deg    |    SOUTH
+12-Apr-2021 |    39.58 deg    |    SOUTH
+13-Apr-2021 |    39.20 deg    |    SOUTH
+14-Apr-2021 |    38.83 deg    |    SOUTH
+15-Apr-2021 |    38.46 deg    |    SOUTH
+16-Apr-2021 |    38.10 deg    |    SOUTH
+17-Apr-2021 |    37.74 deg    |    SOUTH
+18-Apr-2021 |    37.38 deg    |    SOUTH
+19-Apr-2021 |    37.02 deg    |    SOUTH
+20-Apr-2021 |    36.67 deg    |    SOUTH
+21-Apr-2021 |    36.32 deg    |    SOUTH
+22-Apr-2021 |    35.97 deg    |    SOUTH
+23-Apr-2021 |    35.63 deg    |    SOUTH
+24-Apr-2021 |    35.29 deg    |    SOUTH
+25-Apr-2021 |    34.95 deg    |    SOUTH
+26-Apr-2021 |    34.62 deg    |    SOUTH
+27-Apr-2021 |    34.30 deg    |    SOUTH
+28-Apr-2021 |    33.97 deg    |    SOUTH
+29-Apr-2021 |    33.65 deg    |    SOUTH
+30-Apr-2021 |    33.34 deg    |    SOUTH
+-------------------------------------------
+    Mean    |    38.39 deg    |    SOUTH
+
+***************************************************
+[OUTPUT] PV GENERATOR ENERGY YIELD:
+
+Applies for mean tilting angle and orientation.
+The energy yield is the electrical energy yield.
+SOC full shows if the battery could be fully
+charged during the day.
+
+Mission day | Energy yield | SOC full
+-------------------------------------
+01-Apr-2021 |   490.62 Wh  |    NO   
+02-Apr-2021 |   490.80 Wh  |    NO   
+03-Apr-2021 |   490.98 Wh  |   YES   
+04-Apr-2021 |   491.15 Wh  |   YES   
+05-Apr-2021 |   491.31 Wh  |   YES   
+06-Apr-2021 |   491.47 Wh  |   YES   
+07-Apr-2021 |   491.62 Wh  |   YES   
+08-Apr-2021 |   491.78 Wh  |   YES   
+09-Apr-2021 |   491.93 Wh  |   YES   
+10-Apr-2021 |   492.08 Wh  |   YES   
+11-Apr-2021 |   492.23 Wh  |   YES   
+12-Apr-2021 |   492.38 Wh  |   YES   
+13-Apr-2021 |   492.53 Wh  |   YES   
+14-Apr-2021 |   491.98 Wh  |   YES   
+15-Apr-2021 |   492.16 Wh  |   YES   
+16-Apr-2021 |   492.32 Wh  |   YES   
+17-Apr-2021 |   492.48 Wh  |   YES   
+18-Apr-2021 |   492.65 Wh  |   YES   
+19-Apr-2021 |   492.83 Wh  |   YES   
+20-Apr-2021 |   493.01 Wh  |   YES   
+21-Apr-2021 |   492.51 Wh  |   YES   
+22-Apr-2021 |   492.73 Wh  |   YES   
+23-Apr-2021 |   492.94 Wh  |   YES   
+24-Apr-2021 |   493.16 Wh  |   YES   
+25-Apr-2021 |   492.70 Wh  |   YES   
+26-Apr-2021 |   492.94 Wh  |   YES   
+27-Apr-2021 |   493.23 Wh  |   YES   
+28-Apr-2021 |   492.80 Wh  |   YES   
+29-Apr-2021 |   493.09 Wh  |   YES   
+30-Apr-2021 |   493.40 Wh  |   YES   
+
+***************************************************

@@ -1,0 +1,12 @@
+\subsection{Cable losses}
+Cables are used to distribute the generated electrical energy in the self-sufficient voice communication system. The transport of the \emph{electrical charge} $Q$ in $\left( \mathrm{As} \right)$ in a cable, however, causes electrical losses which have to be considered with: 
+	\begin{equation} \label{eq:p_cable}
+	\centering
+		 P_\mathrm{loss}(\vartheta_\mathrm{A}) = \left(\dfrac{\mathrm d Q(A)}{\mathrm d t}\right)^2 R_\mathrm{cable}(\vartheta_\mathrm{A}) \text{.}
+	\end{equation}
+$I(A) = \mathrm d Q(A) / \mathrm d t$ represents the time throughput rate of the electrical charge shifted in a directed manner through the \emph{cross-sectional area} $A$ in $\left( \mathrm{mm}^2 \right)$ of a cable. This corresponds to the electrical current $I$ in $\left( \mathrm{A} \right)$ at the area $A$. The second factor $R_\mathrm{cable}(\vartheta_\mathrm{A})$ in $\left( \Omega \right)$ is the \emph{cable resistance} depending on the ambient temperature $\vartheta_\mathrm{A}$. It can be calculated with the equation (\ref{eq:r_cable}), where $l$ in $\left( \mathrm m \right)$ is the \emph{length} of the cable, $\varrho$ in $\left(\Omega \mathrm{mm}^2\mathrm{m}^{-1}\right)$ is the \emph{specific resistance} and $\alpha$ in $\left( ^\circ \mathrm{C}^{-1} \right)$ is the \emph{temperature coefficient} of the material the cable is made of. $\vartheta_\mathrm{ref}$ in $\left( ^\circ \mathrm{C} \right)$ is the temperature for which $\varrho$ applies.
+	\begin{equation} \label{eq:r_cable}
+	\centering
+		 R_\mathrm{cable}(\vartheta_\mathrm{A}) = \dfrac{\varrho \, l}{A} \, \left[1 + \alpha \left( \vartheta_\mathrm{A} - \vartheta_\mathrm{ref}\right) \right]
+	\end{equation}
+For example, for $\vartheta_\mathrm{ref} = 20^\circ \mathrm{C}$ copper has a specific resistance of $\varrho_\mathrm{Cu,20} = 0,01673 \Omega \mathrm{mm}^2\mathrm{m}^{-1}$ with a temprature coefficient of $\alpha = {4,3 \cdot 10^{-3}}^\circ \mathrm{C}^{-1}$ \cite{Gerhard-Fasching:2005, Prechtl:2006}. Cable heating by solar radiation is neglected due to the complexity of the subject. 

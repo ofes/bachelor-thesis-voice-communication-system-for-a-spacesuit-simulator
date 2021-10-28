@@ -1,0 +1,32 @@
+\subsection{Serenity radio system}
+As mentioned earlier, Serenity is the spacesuit simulator that the AAs use to conduct analog Mars missions. Its radio system consists of a Motorola Mototrbo SL 2600 handheld radio with a Motorola PMAD4156A antenna, a \emph{push-to-talk} (PTT) button and a Jabra Storm Bluetooth headset. The antenna is attached directly to the handheld radio and the entire system is built into the spacesuit simulator with the upper part of the antenna sticking out. Since the SL 2600 radio supports Bluetooth 4.0, it was decided that communication with the headset should take place via Bluetooth. This has two advantages. Firstly, the AA can put on the headset before donning and thus simply step into the spacesuit simulator, and secondly, the amount of cabling is reduced. The PTT button is wired to the outside of the spacesuit so that the AA can press it to communicate. A schematic structure of this system is illustrated in the figure \ref{fig:tikz_serenity_radio_system}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_serenity_radio_system}
+	\caption{Schematic structure of the Serenity radio system.}
+	\label{fig:tikz_serenity_radio_system}
+\end{figure}
+
+Electrical energy is provided to the SL 2600 via its $2,3\mathrm{Ah}$ lithium-ion battery (Motorola PMNN4468B) which is charged with the electrical energy from the local power grid between missions. At a later point in time, the radio system can be upgraded in such a way, that the SL 2600 can be directly charged from the spacesuit simulator. Similar to the SL 2600, the Bluetooth headset is also supplied with electrical energy from its battery, but can only be charged via the local power grid. 
+
+The maximum transmission power of the SL 2600, as shown in the equation (\ref{eq:power_SER_tx}), is calculated based on its specifications in the table \ref{tab:table_sl2600_specs}.
+\begin{table}[h!] % SL2600
+	\centering
+	\input{tables/table_sl2600_specs}
+	\caption{Excerpt from the data sheet of the Motorola Mototrbo SL 2600 handheld radio. \cite{SL2600:2017}}
+	\label{tab:table_sl2600_specs}
+\end{table}
+\begin{equation} \label{eq:power_SER_tx}
+	\centering
+	P_\mathrm{T,dBW} =  10\mathrm{dBW} \cdot \log_{10} \left( \dfrac{3\mathrm{W}}{1\mathrm{W}} \right) = 4,771\mathrm{dBW}\text{,}
+\end{equation}
+As with the SLR 1000, the minimum required reception power for the worst case can be taken from the equation (\ref{eq:power_BSt_min}). At this point, the assumption is made that the antenna impedance is $50\Omega$, as no further specifications could be found. It was furthermore assumed that there are no losses in the antenna feed line and that the antenna has a gain of $0\mathrm{dBi}$. 
+
+
+In cooperation with the Serenity \emph{structures} (STRUC) team, a position for the SL 2600 in the HUT of the spacesuit simulator was found, so that its antenna is upright at a height of $1,65\mathrm{m}$ above the ground for a standard male AA, or at a height of $1,55\mathrm{m}$ above the ground for a standard female AA \cite{Hinker:2007}. Regarding the link budget estimation $h_\mathrm{SER} = 1,55\mathrm{m}$ is used. In its installed position the device can be recharged and, if necessary, removed for maintenance purposes. This fulfills the requirement that the Serenity radio system must fit into the HUT. 
+
+Taking into account the requirements for the operating temperature of the radio system, the data sheets of the SL 2600 (see table \ref{tab:table_sl2600_specs}) and the PTT button, including the wires and connectors involved, show that these are met. Due to the large push area of the PTT button, it was adopted from the Aouda spacesuit simulator, which is the predecessor of Serenity. No specifications were found for the Bluetooth headset and the audio jack that connects the PTT button to the SL 2600. The prototype still needs to be tested in this regard. However, if these do not meet the requirements, a suitable audio jack can be requested directly from Motorola Solutions Inc. and the Motorola EP900w Bluetooth headset can be procured \cite{push_switch:2011, EP900w:2021}.
+
+The most important factor that needed to be considered when developing the radio system was its mass. As stated in the requirements, the combined mass of the W-LAN and VHF based communication systems must not exceed $1000\mathrm{g}$. At the time the Serenity (VHF) radio system was developed, the W-LAN based communication system had a mass of $605,33\mathrm{g}$. The total mass of the (VHF) radio system is $248\mathrm{g}$. This results in a combined mass of $853,33\mathrm{g}$. $9\mathrm{g}$ of this is the mass of the Jabra Storm Bluetooth headset. Should it be replaced by the Motorola EP900w Bluetooth headset, the (VHF) radio system would then have a mass of $261\mathrm{g}$, which results in a combined mass of $866,33\mathrm{g}$. The measurements were conducted with a digital kitchen scale from WMF (Model No.: 06.0873.6040). In the case that the audio jack needs to be changed, its mass is likely to remain the same. Since the W-LAN based communication system is not finished, it cannot be said at this point whether the mass requirement has
+ been met. 
+

@@ -1,0 +1,76 @@
+*******************************************
+[OUTPUT] PV GENERATOR INSTALLATION:
+
+Mission day | Opt. tilt angle | Orientation
+-------------------------------------------
+04-Oct-2021 |    35.78 deg    |    SOUTH
+05-Oct-2021 |    36.18 deg    |    SOUTH
+06-Oct-2021 |    36.57 deg    |    SOUTH
+07-Oct-2021 |    36.96 deg    |    SOUTH
+08-Oct-2021 |    37.34 deg    |    SOUTH
+09-Oct-2021 |    37.73 deg    |    SOUTH
+10-Oct-2021 |    38.11 deg    |    SOUTH
+11-Oct-2021 |    38.49 deg    |    SOUTH
+12-Oct-2021 |    38.87 deg    |    SOUTH
+13-Oct-2021 |    39.25 deg    |    SOUTH
+14-Oct-2021 |    39.62 deg    |    SOUTH
+15-Oct-2021 |    39.99 deg    |    SOUTH
+16-Oct-2021 |    40.36 deg    |    SOUTH
+17-Oct-2021 |    40.72 deg    |    SOUTH
+18-Oct-2021 |    41.08 deg    |    SOUTH
+19-Oct-2021 |    41.44 deg    |    SOUTH
+20-Oct-2021 |    41.80 deg    |    SOUTH
+21-Oct-2021 |    42.15 deg    |    SOUTH
+22-Oct-2021 |    42.50 deg    |    SOUTH
+23-Oct-2021 |    42.84 deg    |    SOUTH
+24-Oct-2021 |    43.18 deg    |    SOUTH
+25-Oct-2021 |    43.52 deg    |    SOUTH
+26-Oct-2021 |    43.86 deg    |    SOUTH
+27-Oct-2021 |    44.19 deg    |    SOUTH
+28-Oct-2021 |    44.51 deg    |    SOUTH
+29-Oct-2021 |    44.83 deg    |    SOUTH
+30-Oct-2021 |    45.15 deg    |    SOUTH
+31-Oct-2021 |    45.46 deg    |    SOUTH
+-------------------------------------------
+    Mean    |    40.80 deg    |    SOUTH
+
+*******************************************
+[OUTPUT] PV GENERATOR ENERGY YIELD:
+
+Applies for mean tilting angle and orientation.
+The energy yield is the electrical energy yield.
+SOC full shows if the battery could be fully
+charged during the day.
+
+Mission day | Energy yield | SOC full
+-------------------------------------
+04-Oct-2021 |   427.74 Wh  |    NO   
+05-Oct-2021 |   428.65 Wh  |    NO   
+06-Oct-2021 |   430.23 Wh  |    NO   
+07-Oct-2021 |   431.09 Wh  |    NO   
+08-Oct-2021 |   431.92 Wh  |    NO   
+09-Oct-2021 |   433.41 Wh  |    NO   
+10-Oct-2021 |   434.17 Wh  |   YES   
+11-Oct-2021 |   435.61 Wh  |   YES   
+12-Oct-2021 |   436.31 Wh  |   YES   
+13-Oct-2021 |   437.69 Wh  |   YES   
+14-Oct-2021 |   438.32 Wh  |   YES   
+15-Oct-2021 |   439.64 Wh  |   YES   
+16-Oct-2021 |   440.21 Wh  |   YES   
+17-Oct-2021 |   441.46 Wh  |   YES   
+18-Oct-2021 |   441.96 Wh  |   YES   
+19-Oct-2021 |   443.15 Wh  |   YES   
+20-Oct-2021 |   443.58 Wh  |   YES   
+21-Oct-2021 |   444.71 Wh  |   YES   
+22-Oct-2021 |   445.80 Wh  |   YES   
+23-Oct-2021 |   446.12 Wh  |   YES   
+24-Oct-2021 |   447.15 Wh  |   YES   
+25-Oct-2021 |   447.40 Wh  |   YES   
+26-Oct-2021 |   448.37 Wh  |   YES   
+27-Oct-2021 |   449.30 Wh  |   YES   
+28-Oct-2021 |   449.44 Wh  |   YES   
+29-Oct-2021 |   450.30 Wh  |   YES   
+30-Oct-2021 |   450.37 Wh  |   YES   
+31-Oct-2021 |   451.16 Wh  |   YES   
+
+*******************************************

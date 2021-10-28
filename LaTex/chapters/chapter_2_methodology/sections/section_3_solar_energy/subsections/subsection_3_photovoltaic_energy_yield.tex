@@ -1,0 +1,71 @@
+\subsection{Photovoltaic energy yield} \label{sec:energy_yield}
+As already mentioned in subsection \ref{sec:solar_irradiation_on_earths_surface} the decisive factors to determine the irradiance at a given location on the Earth's surface are the GHI and the DNI. Building on these, the three-component model as described in \cite{Landis:1995, Mertens:2015}, can be used to calculate the \emph{total irradiance} $E_{\mathrm{G}}$ in $\left( \mathrm{W}\mathrm{m}^{-2} \right)$ received by an inclined PV generator. The \emph{angle of inclination} with respect to the ground is $\beta$ in $\left( ^\circ \right)$. An example for such an inclined PV generator can be seen in the figures \ref{fig:tikz_three_component_model} and \ref{fig:tikz_angle_theta}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_three_component_model}
+	\caption{Solar radiation on an inclined photovoltaic generator with the angle $\beta$. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_three_component_model}
+\end{figure}
+Figure \ref{fig:tikz_three_component_model} illustrates that the total irradiance received by an inlcined PV generator is made up of the sum of the \emph{direct generator irradiance} (DGI) $E_{\mathrm{DGI}}$ in $\left( \mathrm{W}\mathrm{m}^{-2} \right)$, the \emph{diffuse generator irradiance} (DIFG) $E_{\mathrm{DIFG}}$ in $\left( \mathrm{W}\mathrm{m}^{-2} \right)$ and the \emph{reflected generator irradiance} (RGI) $E_{\mathrm{RGI}}$ in $\left( \mathrm{W}\mathrm{m}^{-2} \right)$. The latter is reflected with an \emph{albedo value} $\mathrm{ALB}$ in $\left( 1 \right)$ from plane earth onto the PV generator. This relationship can be written as follows \cite{Bennett:2010, Bertol:2011, Mertens:2015, Bralower:2018}:
+	\begin{equation} \label{eq:e_gen}
+	\centering
+		E_{\mathrm{G}} = E_{\mathrm{DGI}} + E_{\mathrm{DIFG}} + E_{\mathrm{RGI}}
+	\end{equation}
+
+The first component from equation (\ref{eq:e_gen}) can be determined by considering the \emph{angle of incidence} $\theta$ of the solar rays in $\left( ^\circ \right)$ with respect to the normal of the PV generator's energy-converting area $A_{\mathrm{PV}}$, as presented in equation (\ref{eq:e_dgi}). Figure \ref{fig:tikz_angle_theta} provides an illustration of the angle $\theta$ for which the cosine can be obtained from equation (\ref{eq:cos_theta}).
+	\begin{equation} \label{eq:e_dgi}
+	\centering
+		E_{\mathrm{DGI}} = E_{\mathrm{DNI}} \, \cos \theta
+	\end{equation}
+	\begin{equation} \label{eq:cos_theta}
+	\centering
+		\begin{aligned}
+		\cos \theta &= \sin \delta \, \sin \varphi \, \cos \beta - \sin \delta \, \cos \varphi \, \sin \beta \, \cos \alpha_{\mathrm{S}}(t_\mathrm{S} = 12\mathrm{h}) \\
+		&+ \cos \delta \, \cos \varphi \, \cos \beta \, \cos h_{\mathrm{S}} + \cos \delta \, \sin \varphi \, \sin \beta \, \cos \alpha_{\mathrm{S}} \, \cos h_{\mathrm{S}} \\ &+ \cos \delta \, \sin \beta \, \cos h_{\mathrm{S}} \, \sin \alpha_{\mathrm{S}}(t_\mathrm{S} = 12\mathrm{h})
+		\end{aligned}
+	\end{equation}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_angle_theta}
+	\caption{Illustration of the incidence angle $\theta$ of the solar rays with respect to the normal to $A_\mathrm{PV}$. (Recreated from: \cite{Landis:1995})}
+	\label{fig:tikz_angle_theta}
+\end{figure}
+The angle of incidence $\theta$ has a range of $\left[0^\circ \text{, } 90^\circ\right]$ and $\alpha_\mathrm{S}(t_\mathrm{S} = 12\mathrm{h})$ represents the orientation of the normal to $A_\mathrm{PV}$. For completenes it must be mentioned that equation (\ref{eq:sin_gamma_s}) can be derived from equation (\ref{eq:cos_theta}) with $\beta = 0^\circ$, and that in the case $\gamma_{\mathrm{S}} + \beta = 90^\circ$, the Sun's rays are perpendicular to the PV generator's energy-converting area $A_{\mathrm{PV}}$ which results in $E_{\mathrm{DGI}} = E_{\mathrm{DNI}}$ \cite{Landis:1995, Bertol:2011, Mertens:2015, Wagner:2018}.
+
+To determine the second component from equation (\ref{eq:e_gen}) the sky is assumed to be isotropic. This means that the DIFH is evenly distributed in the entire celestial hemisphere above the PV generator. The more the PV generator is inclined the smaller the proportion of DIFG in equation (\ref{eq:e_difg}) becomes (compare to figure \ref{fig:tikz_three_component_model}) \cite{Landis:1995, Mertens:2015}. 
+	\begin{equation} \label{eq:e_difg}
+	\centering
+		E_{\mathrm{DIFG}} = E_{\mathrm{DIFH}} \, \frac{1 + \cos \beta }{2}
+	\end{equation} 
+In the book \cite{Mertens:2015} it is expressly pointed out that the isotropic approach used in equation (\ref{eq:e_difg}) is only a rough approximation. This is because the sky is brighter towards the Sun than towards the horizon.\footnote{More precise equations would be difficult to derive, which would go beyond the scope of this thesis.} 
+
+When examining the last component from equation (\ref{eq:e_gen}) it has to be taken into account that different surfaces -- on which a PV generator is placed -- reflect solar rays differently. In equation (\ref{eq:e_rgi}) this is accomplished with the factor $\mathrm{ALB}$ -- also known as the reflectivity. Similar to equation (\ref{eq:e_difg}) an isotropic approach is used \cite{Landis:1995, Dobos:2011, Mertens:2015, Bralower:2018}. 
+	\begin{equation} \label{eq:e_rgi}
+	\centering
+		E_{\mathrm{RGI}} = E_{\mathrm{GHI}} \, \frac{1 - \cos \beta }{2} \cdot \mathrm{ALB}
+	\end{equation}
+Approximate albedo values for various surfaces are listed in table \ref{tab:table_albedo}. The larger the value the more solar rays are reflected. A blackbody for example has an albedo value of 0 while an absolute white surface has an albedo value of 1. The Earth has an average albedo of 0,31 \cite{Bennett:2010, Dobos:2011, Bralower:2018}.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_albedo}
+	\caption{Albedo values (refelctivity) for different surfaces \cite{Dobos:2011, Bertol:2011, Mertens:2015, Bralower:2018}.}
+	\label{tab:table_albedo}
+\end{table}
+
+If the three derived components $E_{\mathrm{DGI}}$, $E_{\mathrm{DIFG}}$ and $E_{\mathrm{RGI}}$ are now inserted into equation (\ref{eq:e_gen}) while considering the equations (\ref{eq:e_ghi}) and (\ref{eq:e_dni}), the total irradiance $E_{\mathrm{G}}$ received by an inclined PV generator, depending on $E_{\mathrm{GHI}}$, $E_{\mathrm{DNI}}$, $\gamma_{\mathrm{S}}$, $\beta$ and $\mathrm{ALB}$, can be obtained:
+	\begin{equation} \label{eq:e_gen_ghi_dni}
+	\centering
+		\begin{split}
+		E_{\mathrm{G}} = E_{\mathrm{DNI}} \, \cos \theta + \left(E_{\mathrm{GHI}} - E_{\mathrm{DNI}} \, \sin \gamma_{\mathrm{S}}\right) \frac{1 + \cos \beta }{2} \\ 
+		+ E_{\mathrm{GHI}} \, \frac{1 - \cos \beta }{2} \cdot \mathrm{ALB} \text{.}
+		\end{split}
+	\end{equation}
+Regarding this equation it must be noted that the angles $\gamma_{\mathrm{S}}$ and $\theta$ are time dependent and therefore $E_{\mathrm{G}}$ as well. $E_{\mathrm{GHI}}$ and $E_{\mathrm{DNI}}$ on the other hand are average values -- if taken from solar resource maps -- and can therefore be treated as constants. The angle of inclination $\beta$ as well as the albedo value $\mathrm{ALB}$ are also treated as constants. Once the PV generator is installed its inclination angle $\beta$ will not change for the entire duration of the mission. This has the consequence that the PV generator's inclined energy-converting area $A_{\mathrm{PV}}$ is only perpendicular for one pair of $\gamma_{\mathrm{S}}$ and $\alpha_{\mathrm{S}}$ at a given time of the day. Even though $\mathrm{ALB}$ is treated as a constant, there are situations in which the albedo value of a surface can change over the course of a few hours. For instance, if the PV generator is installed on a freshly snowed uncultivated field and the snow melts away. In this case $\mathrm{ALB}$ would change from 0,80 to 0,26. Such situations must be considered while simulating the PV generator's daily energy yield. This can be accomplished by considering the lowest possible albedo value for a given region \cite{Appelbaum:1992, Landis:1995, Mertens:2015}.
+
+As described by \cite{Mertens:2015, Wagner:2018}, the radiation flux $\Phi_{\mathrm{G}}$ onto the PV generator's energy-converting area $A_{\mathrm{PV}}$ -- to be more precise the sum of the energy-converting area of the PV cells -- can be calculated as follows:
+	\begin{equation} \label{eq:radiation_flux}
+	\centering
+		\Phi_{\mathrm{G}} = A_{\mathrm{PV}} \, E_{\mathrm{G}}\text{.} 
+	\end{equation}
+
+How to determine the optimal angle of inclination $\beta$ for a PV generator will be discussed in the next subsection.

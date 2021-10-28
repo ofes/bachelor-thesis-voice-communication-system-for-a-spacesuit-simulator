@@ -1,0 +1,21 @@
+\section{Wind energy}
+A brief investigation of wind energy showed that the \emph{mechanical rotor power} $P_{\mathrm R} = \mathrm{d} T_{\mathrm W}/\mathrm{d} t$ in $\left(\mathrm W \right)$ can be determinerd from the time derivative of the kinetic energy $T_{\mathrm W}$ in $\left(\mathrm{Wh} \right)$ of a flowing gas -- which makes up the atmosphere of a planet and is also known as wind -- with the \emph{mass} $m_{\mathrm {gas}}$ in $\left(\mathrm{kg} \right)$, the uniform and constant \emph{flow velocity} $v_{\mathrm W}$ in $\left(\mathrm{m} \mathrm{s^{-1}}\right)$, the \emph{density} near the ground\footnote{This only applies if the change in gas density at the height of the rotors of the wind turbine is negligible compared to the ground.} $\varrho_{\mathrm {gas}}$ in $\left(\mathrm{kg} \mathrm{m}^{-3}\right)$, the \emph{rotor radius} $r_{\mathrm{R}}$ in $\left(\mathrm{m}\right)$ and the \emph{performance coefficient}\footnote{Modern wind turbines reach a performance coefficient ranging from $0,35$ to $0,45$. According to Betz's law, the ideal perfomance coefficient is $0,5926$.} $c_{\mathrm P}$ in $\left( 1 \right)$. The area $A_\mathrm{W} = r_{\mathrm{R}}^2 \, \pi$ in $\left(\mathrm{m}^2 \right)$ must be perpendicular to the flowing gas. Taking into account the \emph{efficiency} of the mechanical transmission and the electrical generator $\eta_{\mathrm{mech}}$ in $\left( 1 \right)$, the \emph{generated electrical power} $P_{\mathrm{el}}$ in $\left(\mathrm W \right)$ can be calculated. A summary of this can be seen below \cite{Rebhan:2002, Flosdorff:2008, Hau:2016, Gawlik:2018}:
+\begin{equation}
+	\vcenter{\hbox{\begin{minipage}{.5\textwidth}
+		\centering
+		\input{tikz/tikz_wind_energy}
+		\captionof{figure}{Turbine that converts kinetic energy from wind into electrical energy. The dashed circle represents the area $A_\mathrm{W}$ that is perpendicular to a flowing gas.}
+	\end{minipage}}}
+	\qquad\qquad
+		\begin{gathered}
+		T_{\mathrm W} = \frac{1}{2} \, m_{\mathrm {gas}} \, v_{\mathrm W}^3 \text{,}
+		\\
+		\vdots
+		\\
+		\dfrac{\mathrm{d} T_{\mathrm W}}{\mathrm{d} t} = \frac{c_{\mathrm P}}{2} \, \varrho_{\mathrm {gas}} \, v_{\mathrm W}^3 \, \underbrace{\pi \, r_{\mathrm{R}}^2}_{A_\mathrm{W}} \text{,}
+		\\
+		P_{\mathrm{el}} = \eta_{\mathrm{mech}} \, \dfrac{\mathrm{d} T_{\mathrm W}}{\mathrm{d} t} \text{.}
+	\end{gathered}
+\end{equation}
+
+This method of converting electrical energy however, was rejected mainly due to the unpredictability of $v_{\mathrm W}$.\footnote{The direction from which the wind comes is irrelevant for most small-scale wind turbines, as they are rotatably mounted on a mast.} In order to bridge times when no wind blows, a large energy storage device would have to be required, which would be charged in times of strong wind. But due to the high acquisition costs of a large energy storage devices, and the relative short duration of the OeWF's missions, this approach is not practical. Another important aspect that led to the rejection of this method is the fact that mean wind speeds are highly dependent on the location and in most parts of the world, $10 \mathrm m$ above the ground, these are usually between $5 \mathrm m \mathrm s^{-1}$ to less than $2,5 \mathrm m \mathrm s^{-1}$ as shown in maps provided by \cite{Atlas:2020}. In addition it must be added, that the gas density of air on the Earth's surface $\varrho_{\mathrm {gas,E}} = 1,217 \mathrm{kg} \mathrm{m}^{-3}$ is a lot higher than the gas density on the Martian surface $\varrho_{\mathrm {gas,M}} \approx 0,020 \mathrm{kg}  \mathrm{m}^{-3}$ -- which is mainly made up of carbon dioxide $\left( \mathrm{CO}_2 \right)$ -- and that the wind speeds on Mars, measured by NASA's Viking Landers VL1 and VL2, range from $2 \mathrm m  \mathrm s^{-1}$ to $7 \mathrm m \mathrm s^{-1}$ during summer, $5 \mathrm m \mathrm s^{-1}$ to $10 \mathrm m \mathrm s^{-1}$ during fall and $17\mathrm m \mathrm s^{-1}$ to $30 \mathrm m  \mathrm s^{-1}$ during dust storms. It can therefore be seen that -- compared to Earth -- the greatest negative influnece on $P_{\mathrm R}$ is the density of the Martian atmosphere \cite{Grayzeck:2020, Williams:2020}.

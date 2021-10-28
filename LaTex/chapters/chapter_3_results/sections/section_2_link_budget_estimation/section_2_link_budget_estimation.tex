@@ -1,0 +1,24 @@
+\section{Link budget estimation}
+In this section it is examined whether the range of the theoretically covered mission area is fulfilled according to the requirements. For this purpose, the link margins of the participants that can freely move and the base station, at a distance of $r_\mathrm{min}= 7,5\mathrm{km}$ from the repeater, are determined. If their margins are around $20\mathrm{dB}$ to $30\mathrm{dB}$, the range requirement for the case described in the subsection \ref{sec:pepl} is met. Regarding the Motorola Mototrbo radio devices, it can then be said that the BER within the theoretically covered mission area is less than $5\%$. After evaluating the results, the radio device -- from the group of participants that can freely move -- with the smallest fade margin is determined and the radius $r_\mathrm{BSt}$ is calculated.
+
+Table \ref{tab:table_system_results} provides a summary of the designed voice communication system discussed in the previous section in relation to the link budget. For completness it is mentioned that $G_\mathrm{ant,dB}$ in $\left(\mathrm{dBi}\right)$ is the antenna gain, $L_\mathrm{tot,dB}$ in $\left(\mathrm{dB}\right)$ is the total loss of the antenna feed line and $h_\mathrm{ant}$ in $\left(\mathrm{dB}\right)$ is the antenna height above the ground, of a certain radio system.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_system_results}
+	\caption{Specifications of the designed voice communication system when all participants transmit at maximum power.}
+	\label{tab:table_system_results}
+\end{table}
+
+Since the Austrian authorities have only permitted a maximum transmission power of $P_\mathrm{T} = 5\mathrm{W}$, the case in which this is the maximum transmission power of the base station and the repeater is also taken into account. Table \ref{tab:table_system_results_5w} summarizes this with the new $\mathrm{EIRP}_\mathrm{dBW}$ for these radio systems marked in orange. 
+\begin{table}[h!]
+	\centering
+	\input{tables/table_system_results_5w}
+	\caption{Specifications of the designed voice communication system when all participants are limited to a maximum transmission power of $P_\mathrm{T} = 5\mathrm{W}$.}
+	\label{tab:table_system_results_5w}
+\end{table}
+
+\input{chapters/chapter_3_results/sections/section_2_link_budget_estimation/subsections/subsection_1_comm_links}
+\input{chapters/chapter_3_results/sections/section_2_link_budget_estimation/subsections/subsection_2_additional_coverage_area}
+
+ 
+ 

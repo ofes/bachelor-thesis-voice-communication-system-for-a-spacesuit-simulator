@@ -1,0 +1,67 @@
+\subsection{Angular relationships} \label{sec:angular_relationships}
+Before the energy yield of a PV generator can be calculated, it is essential to introduce a few important angles -- of which some were already mentioned -- and define how they are counted in this thesis.
+
+The local latitude $\varphi$ at the equator is $0^\circ$ and it is counted positive towards the north and negative towards the south with a range of $\left[-90^\circ \text{, } 90^\circ\right]$, and the local \emph{longitude} $\lambda$ in $\left(^\circ\right)$ is $0^\circ$ at the reference meridian $\lambda_0$ in $\left(^\circ\right)$ which passes through the Greenwich Observatory in the United Kingdom. $\lambda$ is counted positive east and negative west of Greenwich with a range of $\left(-180^\circ \text{, } 180^\circ\right]$ \cite{Landis:1995, Karttunen:2006, Wagner:2018}. For completens it should be mentioned that the latitude $\varphi$ and the longitude $\lambda$ -- for a given location on Earth -- can be obtained from an atlas or a \emph{global positioning system} (GPS) device.
+
+The Sun's declination $\delta$ indicates how far the Earth's axis of rotations -- which runs through the North and South Poles -- leans towards the Sun at solar noon. Its range is $\left[-90^\circ \text{, } 90^\circ\right]$, although its maximum values for Earth are $-23,45^\circ$ and $23,45^\circ$. $\delta$ is counted negative if the North Pole leans away from the Sun and positive if it leans towards the Sun (compare to figure \ref{fig:tikz_angular_relationship}) \cite{Landis:1995, Karttunen:2006, Mertens:2015, Wagner:2018}. As per \cite{Wagner:2018}, the following approximation for $\delta$ at a given day of the year, with $N_d$ being the \emph{number of days} since January 1\textsuperscript{st} in $\left(\mathrm d \right)$,  $mon$ being the \emph{month} in $\left( 1 \right)$ and $d$ being the \emph{day} in $\left(\mathrm d \right)$, is sufficient for photovoltaic applications: 
+	\begin{equation} \label{eq:delta}
+	\centering
+		\delta \approx 23,45^\circ \cdot \sin \left(360^\circ \cdot \frac{284\mathrm{d} + N_d}{365\mathrm{d}}\right) \text{,} 
+	\end{equation}
+	\begin{equation} \label{eq:delta}
+	\centering
+		N_d \approx 30,3\mathrm{d} \cdot \left(mon - 1\right) + d \text{.}
+	\end{equation}
+
+The altitude $\gamma_{\mathrm{S}}$ and the \emph{azimuth} $\alpha_{\mathrm{S}}$ of the Sun in $\left(^\circ \right)$, presented in the equations (\ref{eq:sin_gamma_s}) and (\ref{eq:cos_alpha_s}), describe its position in the sky over the course of the day, with $\gamma_{\mathrm{S}}$ taking on values within $\left[0^\circ \text{, } 90^\circ\right]$ and $\alpha_{\mathrm{S}}$ taking on values within $\left(-180^\circ \text{, } 180^\circ \right]$. How these angles are measured -- with the corresponding celstial hemisphere of an observer -- is shown in the figure \ref{fig:tikz_gamma_s_alpha_s}. For $\gamma_{\mathrm{S}} = 0^\circ$ the Sun is visible at the horizon and for $\gamma_{\mathrm{S}} = 90^\circ$ it is visible at its zenith. For $\alpha_{\mathrm{S}} = 0^\circ$ the Sun is visible exactly in the south. $\alpha_{\mathrm{S}}$ takes on positive values towards the west and negative values towards the east \cite{Landis:1995, Karttunen:2006, Mertens:2015, Wagner:2018}.
+	\begin{equation} \label{eq:sin_gamma_s}
+	\centering
+		\sin \gamma_{\mathrm{S}} = \sin \varphi \, \sin \delta + \cos \varphi \, \cos \delta \, \cos h_{\mathrm{S}}
+	\end{equation}
+	\begin{equation} \label{eq:cos_alpha_s}
+	\centering
+		\cos \alpha_{\mathrm{S}} = \frac{\sin \varphi \, \cos \delta \, \cos h_{\mathrm{S}} - \cos \varphi \, \sin \delta}{\cos \gamma_{\mathrm{S}}}
+	\end{equation}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_gamma_s_alpha_s}
+	\caption{Angular relationship of the Sun's altitude $\gamma_{\mathrm{S}}$ and azimuth $\alpha_{\mathrm{S}}$ with the corresponding celestial hemisphere of an observer. In this figure the Sun already passed the solar noon. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_gamma_s_alpha_s}
+\end{figure}
+
+It must be noted that $\gamma_{\mathrm{S}}$ and $\alpha_{\mathrm{S}}$ change over the course of the day. By analyzing the equations (\ref{eq:sin_gamma_s}) and (\ref{eq:cos_alpha_s}), while taking into account that $\varphi$ does not change because the self-sufficient voice communication system is stationary for the entire mission and that in this thesis $\delta$ is modeled with a constant value throughout the day -- altough it takes on different values for each day of the year -- it must be the variable $h_{\mathrm{S}}$ in $\left(^\circ\right)$ that is responsible for these changes. It is called the \emph{solar hour angle} and its value is $0^\circ$ when the Sun reaches its greatest daily altitude $\gamma_{\mathrm{S}}$, which occurs at solar noon. This happens for either $\alpha_{\mathrm{S}} = 0^\circ$, $\alpha_{\mathrm{S}} = 180^\circ$ or for $\gamma_{\mathrm{S}} = 90^\circ$, where $\alpha_{\mathrm{S}}$ is undefined. $h_{\mathrm{S}}$ is counted negative before the solar noon and positive after the solar noon with a range of $\left(-180^\circ \text{, } 180^\circ\right]$. \cite{Landis:1995, Karttunen:2006, Mertens:2015, Wagner:2018}.  
+
+For a given \emph{solar time}\footnote{In most cases the solar time $t_\mathrm{S}$ differs from the local time on a wrist watch. For $t_\mathrm{S} = 12\mathrm{h}$ (solar noon) the Sun is either exaclty in the south, in the north or at its zenith, whereas the Sun might not be exactly in the south, in the north or at its zenith for the \emph{local time} $t_\mathrm{local} = 12\mathrm{h}$ on a wrist watch -- no matter how accurate it is set to the local time.} $t_\mathrm{S}$ in $\left(\mathrm h \right)$, the hour angle $h_\mathrm{S}$ can be determined as shown in equation (\ref{eq:solar_hour_angle}). The factor $\frac{15^\circ}{1\mathrm{h}}$ comes about because the Earth rotates $360^\circ$ within $24\mathrm{h}$. Thus the range of the solar time $t_\mathrm{S}$ can be derived to $\left[0\mathrm{h} \text{, } 24\mathrm{h}\right)$. Further, the hour angle for the \emph{solar sunrise time} $t_\mathrm{S,r}$ in $\left(\mathrm h \right)$ and the \emph{solar sunset time} $t_\mathrm{S,s}$ in $\left(\mathrm h \right)$ can be calculated with the equations (\ref{eq:h_sunrise}) and (\ref{eq:h_sunset}) \cite{Landis:1995, Karttunen:2006, Mertens:2015, Wagner:2018}.
+	\begin{equation} \label{eq:solar_hour_angle}
+	\centering
+		h_\mathrm{S} = \left(t_\mathrm{S} - 12\mathrm{h} \right) \cdot \frac{15^\circ}{1\mathrm{h}}
+	\end{equation}
+	\begin{equation} \label{eq:h_sunrise}
+	\centering
+		h_\mathrm{S,r} = - \arccos \left( -\tan \delta \tan \, \varphi \right) \text{,} \quad \text{for } \left|\varphi\right| < 90^\circ - \left|\delta\right|
+	\end{equation}
+	\begin{equation} \label{eq:h_sunset}
+	\centering
+		h_\mathrm{S,s} = \arccos \left( -\tan \delta \, \tan \varphi \right) \text{,} \quad \text{for } \left|\varphi\right| < 90^\circ - \left|\delta\right|
+	\end{equation}
+
+In the article \cite{Landis:1995} a few importnat cases, regarding the equations (\ref{eq:h_sunrise}) and (\ref{eq:h_sunset}), are mentioned which might be of interest when selecting a locations to install the self-sufficient voice communication system:
+%\vspace{2mm}
+\[ \tan \delta \, \tan \varphi \,
+  \begin{cases}
+    > 1       	& \text{polar night, if } \varphi < -90^\circ + \delta \text{ or } \varphi > 90^\circ + \delta \text{,} \\
+    = \pm 1  		& \text{the Sun is only visible at the horizon for an instant,} \\
+    < -1		& \text{polar day, if } \varphi < -90^\circ - \delta \text{ or } \varphi > 90^\circ - \delta \text{.}
+  \end{cases}
+\]
+%\vspace{2mm}
+
+The solar time $t_\mathrm{S}$ can finally be calculated from $t_\mathrm{UTC}$ in $\left(\mathrm h \right)$, which is the \emph{Coordinated Universal Time} (UTC), using the equation (\ref{eq:solar_time}) where $\lambda_0 = 0^\circ$ is the reference meridian for which $t_\mathrm{UTC}$ applies and $Z_{\mathrm{h}}$ in $\left(\mathrm{h}\right)$ is the \emph{equation of time} which serves as a correction factor  \cite{Karttunen:2006, Wagner:2018}.
+	\begin{equation} \label{eq:solar_time}
+	\centering
+		t_\mathrm{S} = t_\mathrm{UTC} + Z_{\mathrm{h}} + \left(\lambda - \lambda_{\mathrm{0}}\right) \cdot \frac{1\mathrm{h}}{15\degree}
+	\end{equation}
+	\begin{equation} \label{eq:time_equation}
+	\centering
+		Z_{\mathrm{h}} \approx 0,123\mathrm{h} \cdot \cos \left(360^\circ \cdot \frac{88\mathrm{d} + N_d}{365\mathrm{d}}\right) - 0,167\mathrm{h} \cdot \sin \left(720^\circ \cdot \frac{10\mathrm{d} + N_d}{365\mathrm{d}}\right) 
+	\end{equation}

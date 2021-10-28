@@ -1,0 +1,173 @@
+\subsection{Photovoltaic generators} \label{sec:photovoltaic_generators}
+The aim of this subsection is to model the \emph{electrical power output} $P_{\mathrm{PV}}$ in $\left( \mathrm W \right)$ of a PV generator based on the previous findings. Since most commercial PV generators consist of PV cells connected in series, only these are going to be covered. Figure \ref{fig:tikz_PVG_circuit_diagram} shows the \emph{electrical equivalent circuit} (EEC) of such a PV generator with a given \emph{number of PV cells} $N_{\mathrm{C}}$ in $\left( 1 \right)$.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVG_circuit_diagram}
+	\caption{Electrical equivalent circuit of a photovoltaic generator. It consists of $N_{\mathrm{C}}$ photovoltaic cells connected in series. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_PVG_circuit_diagram}
+\end{figure}
+As illustrated, $I_{\mathrm{PV}}$ is equal for all PV cells and $U_{\mathrm{PV}}$ is the sum of the \emph{PV cell voltages} $U_{\mathrm{C}}$ in $\left( \mathrm{V} \right)$. It is assumed that all PV cells have the same voltage $U_{\mathrm{C}}$ and therefore $U_{\mathrm{PV}}$ can be written as presented in the equation (\ref{eq:u_pvg_sum_of_pvc}). For the sake of simplicity it is furthermore assumed that the PV generator is installed in a way so that no shadowing occurs during the course of the mission \cite{Prechtl:2006, Mertens:2015}.
+	\begin{equation} \label{eq:u_pvg_sum_of_pvc}
+	\centering
+		U_{\mathrm{PV}} = N_{\mathrm{C}} \, U_{\mathrm{C}}
+	\end{equation}
+
+In the next step the PV cells shown in figure \ref{fig:tikz_PVG_circuit_diagram} must be modeled. For this, the simplified standard model\footnote{This model can be derived from the PV cell standard model for $R_{\mathrm{P}} \to \infty$ and $R_{\mathrm{S}} = 0\Omega$.} is used as there are explicit solutions for $U_{\mathrm{C}}$ and $I_{\mathrm{PV}}$. It represents an ideal PV cell without internal losses. An illustration of this model is provided in figure \ref{fig:tikz_PVC_simplified} \cite{Mertens:2015, Wagner:2018}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVC_simplified}
+	\caption{Simplified standard model of a photovoltaic cell. (Recreated from: \cite{Mertens:2015, Wagner:2018})}
+	\label{fig:tikz_PVC_simplified}
+\end{figure}
+
+After applying Kirchoff's first and second law to the simplified standard model, considering the equation (\ref{eq:u_pvg_sum_of_pvc}) and taking into account that the PV generator's current-voltage characteristic depends on the PV cell temperature $\vartheta_{\mathrm{C}}$ and the radiation flux $\Phi_{\mathrm{G}}$, it can be modeled with the equations (\ref{eq:i_of_u}) and (\ref{eq:u_of_i}).\footnote{Equation (\ref{eq:u_of_i}) can be derived from equations (\ref{eq:i_of_u}).}
+	\begin{equation} \label{eq:i_of_u}
+	\centering
+		I_{\mathrm{PV}}(U_{\mathrm{PV}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = I_{\mathrm{Ph}} - \underbrace{I_{\mathrm{S}} \left( \exp \left(\frac{U_{\mathrm{PV}}}{m \, N_{\mathrm{C}} \, U_{\mathrm{T}} } \right) - 1  \right)}_{I_{\mathrm{D}}}
+	\end{equation}
+	\begin{equation} \label{eq:u_of_i}
+	\centering
+		U_{\mathrm{PV}}(I_{\mathrm{PV}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = m \, N_{\mathrm{C}} \, U_{\mathrm{T}} \, \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{PV}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right)
+	\end{equation}
+The diode's \emph{thermal voltage} $U_{\mathrm{T}} = U_{\mathrm{T}}(\vartheta_{\mathrm{C}})$ in $\left( \mathrm{V} \right)$, with $k_\mathrm{B} = 1,380649 \cdot 10^{-23} \mathrm{WsK^{-1}}$ being the \emph{Bolzmann constant} and $e = 1,602176634\cdot10^{-19} \mathrm{As}$ being the \emph{elementary charge}, can be obtained from the equation (\ref{eq:u_temp}).
+	\begin{equation} \label{eq:u_temp}
+	\centering
+		U_{\mathrm{T}}(\vartheta_{\mathrm{C}}) = \frac{ k_\mathrm{B} \left( \vartheta_{\mathrm{C}} + 273,15^\circ \mathrm{C} \right) }{e} \cdot \frac{\mathrm{1K}}{1^\circ \mathrm{C}}
+	\end{equation}
+$m$ in $\left( 1 \right)$ is the \emph{ideality factor} with the condition $\{m \in \mathbb{R}^+ \mid 2 \geq m \geq 1 \}$. It is an empirical value that is used to model the PV cells more precisely.\footnote{For $m = 1$, $I_\mathrm{D}$ is Shockley's equation.} The quantities $I_{\mathrm{S}} = I_{\mathrm{S}}(\vartheta_{\mathrm{C}})$ in $\left( \mathrm{A} \right)$ and $I_{\mathrm{Ph}} = I_{\mathrm{Ph}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ in $\left( \mathrm{A} \right)$ are the diode's \emph{reverse saturation current} and the PV cell's \emph{photocurrent} \cite{Prechtl:2006, Mertens:2015, Tietze:2016, Wagner:2018, Elert:2020}. 
+
+Based on the equation (\ref{eq:i_of_u}), the modeled current-voltage characteristic can be visualized as shown in the figure \ref{fig:tikz/tikz_PVG_curve}, where $I_{\mathrm{SC}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ in $\left( \mathrm{A} \right)$ and $U_{\mathrm{OC}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ in $\left( \mathrm{V} \right)$ are the PV generator's \emph{short-circuit current} and \emph{open-circuit voltage}. MPP is the \emph{maximum power point} for which the PV generator provides the greatest electrical power in $\left( \mathrm{W} \right)$, with $U_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ being the voltage and $I_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ being the current at MPP \cite{Prechtl:2006, Mertens:2015, Wagner:2018}:
+	\begin{equation} \label{eq:p_mpp}
+	\centering
+		P_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = U_{\mathrm{MPP}} \, I_{\mathrm{MPP}} \text{.}
+	\end{equation}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVG_curve}
+	\caption{Modeled current-voltage characteristic of a photovoltaic generator, depending on the radiation flux $\Phi_{\mathrm{G}}$ and the photovoltaic cell temperature $\vartheta_{\mathrm{C}}$. (Recreated from: \cite{Mertens:2015, Wagner:2018})}
+	\label{fig:tikz/tikz_PVG_curve}
+\end{figure}
+
+The quantity in the simplified standard model that changes with the solar radiation is the photocurrent. It is proportional to the radiation flux $\Phi_{\mathrm{G}}$, with $S = \mathrm{const.}$ in $\left( \mathrm{A}\mathrm{W^{-1}} \right)$ being the \emph{sensitivity} of the PV cell:
+	\begin{equation} \label{eq:photo_i}
+	\centering
+		I_{\mathrm{Ph}}(\vartheta_{\mathrm{STC}}, \Phi_{\mathrm{G}}) = S \, \Phi_{\mathrm{G}} \text{.}
+	\end{equation}
+From the case $I_{\mathrm{PV}}(0\mathrm{V}, \vartheta_{\mathrm{STC}}, \Phi_{\mathrm{STC}}) = I_\mathrm{SC,STC}$, the sensitivity can be obtained as shown in the equation (\ref{eq:sens}).
+	\begin{equation} \label{eq:sens}
+	\centering
+		 S = \frac{I_\mathrm{SC,STC}}{\Phi_{\mathrm{STC}}}
+	\end{equation}
+For the \emph{standard test conditions} (STC), listed in the table \ref{tab:table_STC}, $I_\mathrm{SC,STC}$ can be taken directly from the data sheet of a PV generator and $\Phi_{\mathrm{STC}}$ in $\left( \mathrm{W} \right)$ can be calculated using the equation (\ref{eq:radiation_flux}). In this equation, $A_\mathrm{PV}$ can either be measured or taken from a PV generator's data sheet as well.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_STC}
+	\caption{Parameters for the standard test conditions of a photovoltaic generator \cite{Mertens:2015}.}
+	\label{tab:table_STC}
+\end{table}
+After substituting equation (\ref{eq:sens}) into equation (\ref{eq:photo_i}) and taking the \emph{temperature coefficient} of the short circuit current $\mathrm{TC}(I_{\mathrm{SC}})$ in $\left( \% ^\circ \mathrm{C}^{-1} \right)$ into account, the photocurrent, depending on the PV cell temperature and the radiation flux, follows to:
+	\begin{equation} \label{eq:i_ph_theta_phi}
+	\centering
+		 I_{\mathrm{Ph}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = \underbrace{I_{\mathrm{SC,STC}} \, \frac{E_\mathrm{G}}{E_\mathrm{STC}}}_{I_{\mathrm{Ph}}(\vartheta_{\mathrm{STC}}, \Phi_{\mathrm{G}})} \left[ 1 + \frac{\mathrm{TC}(I_{\mathrm{SC}})}{100\%} \left(\vartheta_{\mathrm{C}} - \vartheta_{\mathrm{STC}} \right) \right] \text{.}
+	\end{equation}
+$\mathrm{TC}(I_{\mathrm{SC}})$ can usually be taken from a PV generator's data sheet.\footnote{Typical $\mathrm{TC}(I_{\mathrm{SC}})$ values for Si-PV cells are around $0,06 \% ^\circ \mathrm{C}^{-1}$.} Because $I_{\mathrm{PV}}(0\mathrm{V}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = I_{\mathrm{SC}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$, $I_{\mathrm{SC}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = I_{\mathrm{Ph}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ applies \cite{Mertens:2015, Tietze:2016, Wagner:2018}. 
+
+Now that $I_{\mathrm{Ph}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ is known, the diode's reverse saturation current can be calculated from the case $I_{\mathrm{PV}}\big(U_{\mathrm{OC}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}), \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}\big) = 0\mathrm{A}$: 
+	\begin{equation} \label{eq:I_S_theta_phi}
+	\centering
+		I_\mathrm{S}(\vartheta_{\mathrm{C}}) = I_{\mathrm{Ph}}( \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) \left( \exp \left( \frac{U_\mathrm{OC}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})}{m \, N_\mathrm{C} \, U_\mathrm{T}} \right) - 1 \right)^{-1} \text{.}
+	\end{equation}
+The open-circuit voltage $U_\mathrm{OC}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ can be derived by subtracting the case $U_{\mathrm{PV}}( 0\mathrm{A}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ from the case $U_{\mathrm{PV}}(0\mathrm{A}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{STC}})$ while taking the temperature coefficient of the open-circuit voltage $\mathrm{TC}(U_{\mathrm{OC}})$ in $\left( \% ^\circ \mathrm{C}^{-1} \right)$ into account:
+	\begin{equation} \label{eq:U_OC_theta_phi}
+	\centering
+		U_\mathrm{OC}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC}) + m \, N_\mathrm{C} \, U_\mathrm{T} \, \ln \left( \frac{I_{\mathrm{Ph}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) + I_{\mathrm{S}}(\vartheta_{\mathrm{C}})}{I_\mathrm{Ph}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC}) + I_{\mathrm{S}}( \vartheta_{\mathrm{C}})} \right) \text{,}
+	\end{equation}
+where $U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC})$ is the temperature dependent open-circuit voltage for the radiation flux $\Phi_\mathrm{STC}$ at STC: 
+	\begin{equation} \label{eq:U_OC_phi_STC}
+	\centering
+		U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC}) = U_\mathrm{OC,STC} \left[ 1 + \frac{\mathrm{TC}(U_{\mathrm{OC}})}{100\%} \left(\vartheta_{\mathrm{C}} - \vartheta_{\mathrm{STC}} \right) \right] \text{.}
+	\end{equation}
+In addition to $\mathrm{TC}(I_{\mathrm{SC}})$, $\mathrm{TC}(U_{\mathrm{OC}})$ can also be taken from a PV generators data sheet.\footnote{Typical $\mathrm{TC}(U_{\mathrm{OC}})$ values for Si-PV cells are around $-0,40 \% ^\circ \mathrm{C}^{-1}$.} Equation (\ref{eq:U_OC_theta_phi}) is only valid because the reverse saturation current $I_\mathrm{S}(\vartheta_{\mathrm{C}})$ does not depend on the radiation flux \cite{Mertens:2015, Tietze:2016, Hering:2017, Wagner:2018}. 
+
+Since the equations (\ref{eq:I_S_theta_phi}) and (\ref{eq:U_OC_theta_phi}) are in a non-linear relationship to one another, the Newton-Raphson method must be used to approximate them numerically (see appendix \ref{sec:newton_raphson_method}). For this, the functions $f_1(\mathrm{\mathbf{x}}_R)$ and $f_2(\mathrm{\mathbf{x}}_R)$ are introduced below. In the equation (\ref{eq:f_1}) an exponential function is used instead of a logarthmic function, since some numerical approximation algorithms do not converge for logarithmic functions.
+	\begin{equation} \label{eq:f_1}
+	\centering
+		\begin{split}
+		f_1(\mathrm{\mathbf{x}}_R) = \exp \left( \frac{U_\mathrm{OC}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) - U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC})}{m \, N_\mathrm{C} \, U_\mathrm{T}} \right) \\ - \frac{I_{\mathrm{Ph}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) + I_{\mathrm{S}}(\vartheta_{\mathrm{C}})}{I_\mathrm{Ph}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC}) + I_{\mathrm{S}}(\vartheta_{\mathrm{C}})} = 0
+		\end{split}
+	\end{equation}
+	\begin{equation} \label{eq:f_2}
+	\centering
+		f_2(\mathrm{\mathbf{x}}_R) = I_\mathrm{S}(\vartheta_{\mathrm{C}}) - I_\mathrm{Ph}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) \left(\exp \left(\frac{U_\mathrm{OC}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})}{m \, N_\mathrm{C} \, U_\mathrm{T}} \right) - 1 \right)^{-1} = 0\mathrm{A}
+	\end{equation}
+The vector $\mathrm{\mathbf{x}}_R$, shown in the equation (\ref{eq:x_r_vector}), contains the zero crossings of the functions $f_1(\mathrm{\mathbf{x}}_R)$ and $f_2(\mathrm{\mathbf{x}}_R)$. 
+	\begin{equation} \label{eq:x_r_vector}
+	\centering
+		\mathrm{\mathbf{x}}_R = \Big( I_\mathrm{S}(\vartheta_{\mathrm{C}}), U_\mathrm{OC}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) \Big)^{\mathrm T}
+	\end{equation}
+Furthermore, the vector $\mathrm{\mathbf{f}}(\mathrm{\mathbf{x}}_R) = \mathbf{0}$, which contains the functions from the equations (\ref{eq:f_1}) and (\ref{eq:f_2}), must be introduced for the Newton-Raphson method:
+	\begin{equation} \label{eq:f_vector}
+	\centering
+		\mathrm{\mathbf{f}}(\mathrm{\mathbf{x}}_R) = 
+  			\Big( f_{1}(\mathrm{\mathbf{x}}_R), f_{2}(\mathrm{\mathbf{x}}_R) \Big)^{\mathrm T} = \mathrm{\mathbf{0}} \text{.}
+	\end{equation}
+With the help of the Jacobian matrix $\mathrm{\mathbf{J}} = \partial \mathrm{\mathbf{f}}(\mathrm{\mathbf{x}}) / \partial \mathrm{\mathbf{x}}$ for $\mathrm{\mathbf{x}} = \mathrm{\mathbf{x}}_R$, the $\left(n + 1\right)$\textsuperscript{th} approximation with $n \in \mathbb{N}$ can be determined as follows:
+	\begin{equation} \label{eq:vect_U_I_approx}
+	\centering
+		\mathrm{\mathbf{x}}_{R, n + 1} = \mathrm{\mathbf{x}}_{R,n} 	- \mathrm{\mathbf{J}}^{-1}(\mathrm{\mathbf{x}}_{R,n}) \, \mathrm{\mathbf{f}}(\mathrm{\mathbf{x}}_{R,n}) \text{,}
+	\end{equation}
+	\begin{equation} \label{eq:jacobian_for_PVG}
+	\centering
+		\mathrm{\mathbf{J}} =  
+ 		\begin{pmatrix}
+  			\dfrac{\partial f_1\big( I_\mathrm{S}(\vartheta_{\mathrm{C}}), U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_{\mathrm{G}}) \big)}{\partial I_\mathrm{S}(\vartheta_{\mathrm{C}})}  & \dfrac{\partial  f_1\big( I_\mathrm{S}(\vartheta_{\mathrm{C}}), U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_{\mathrm{G}}) \big)}{\partial U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_{\mathrm{G}})} \\
+			\dfrac{\partial f_2\big( I_\mathrm{S}(\vartheta_{\mathrm{C}}), U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_{\mathrm{G}}) \big)}{\partial I_\mathrm{S}(\vartheta_{\mathrm{C}})} & \dfrac{\partial f_2\big( I_\mathrm{S}(\vartheta_{\mathrm{C}}), U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_{\mathrm{G}}) \big)}{\partial U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_{\mathrm{G}})} 
+ 		\end{pmatrix} \text{.}
+ 	\end{equation}
+Starting values for the Newton-Raphson method can be obtained from the expressions in the equation (\ref{eq:U_OC_I_S_zero}), if it is accepted that the diode's reverse saturation current $I_{\mathrm{S}}$ is small compared to the photocurrent $I_{\mathrm{Ph}}$, so that $I_{\mathrm{S}} + I_{\mathrm{Ph}} \approx I_{\mathrm{Ph}}$ applies.\footnote{These expressions can be derived from the equations (\ref{eq:U_OC_theta_phi}) and (\ref{eq:I_S_theta_phi}).}
+	\begin{equation} \label{eq:U_OC_I_S_zero}
+	\centering
+		\begin{gathered}
+		 U_{\mathrm{OC,0}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = U_\mathrm{OC}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC}) + m \, N_\mathrm{C} \, U_\mathrm{T} \, \ln \left( \frac{I_\mathrm{Ph}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})}{I_\mathrm{Ph}(\vartheta_{\mathrm{C}},\Phi_\mathrm{STC})} \right)\text{,} \\
+		 I_\mathrm{S,0}(\vartheta_{\mathrm{C}}) = I_{\mathrm{Ph}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) \, \exp \left( - \frac{U_\mathrm{OC,0}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})}{m \, N_\mathrm{C} \, U_\mathrm{T}} \right)\text{,} \\ \text{for } I_\mathrm{S} \ll I_\mathrm{Ph}
+		 \end{gathered}
+	\end{equation}
+With these, the starting vector $\mathrm{\mathbf{x}}_{R,0} = \big( I_\mathrm{S,0}(\vartheta_{\mathrm{C}}), U_\mathrm{OC,0}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) \big)^{\mathrm T}$ for the first iteration can be obtained. Finally, it has to mentioned that the functions $f_1(\mathrm{\mathbf{x}}_R)$ and $f_2(\mathrm{\mathbf{x}}_R)$ are continuously differentiable for the required number of iteration steps $n + 1$. This is a requirement for the Newton-Raphson method \cite{Schwarz:2011, Rudolf:2014, Taschner:2014, Mertens:2015, Wagner:2018, Kugi:2021}.
+
+The PV cell temperature $\vartheta_{\mathrm{C}}$, depending on the irradiance $E_{\mathrm{G}}$ and the \emph{ambient temperature} $\vartheta_{\mathrm{A}}$ in $\left( ^\circ \mathrm{C} \right)$, with the \emph{nominal operating cell temperature}\footnote{Typical $\mathrm{NOCT}$ values for c-Si-PV generators are around $45$ to $50^\circ \mathrm{C}$.} $\mathrm{NOCT}$ in $\left( ^\circ \mathrm{C} \right)$ and the conditions under which it is measured, $\vartheta_{\mathrm{A,NOCT}}$ in $\left( ^\circ \mathrm{C} \right)$ and $E_{\mathrm{NOCT}}$ in $\left( \mathrm{W} \mathrm{m}^{-2} \right)$, can be approximated by assuming that the increase of $\vartheta_{\mathrm{C}}$, compared to the ambient temperature $\vartheta_{\mathrm{A}}$, is proportional to $E_{\mathrm{G}}$:
+	\begin{equation} \label{eq:cell_temp}
+	\centering
+		\vartheta_{\mathrm{C}} \approx \vartheta_{\mathrm{A}} + \left(\mathrm{NOCT} - \vartheta_{\mathrm{A,NOCT}}\right) \frac{E_{\mathrm{G}}}{E_{\mathrm{NOCT}}} \text{.}
+	\end{equation}
+The paramateres under which the $\mathrm{NOCT}$ is measured are provided by the table \ref{tab:table_NOCT} and the $\mathrm{NOCT}$ is usually listed in the data sheet of a PV generator \cite{Mertens:2015}.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_NOCT}
+	\caption{Conditions under which the NOCT is measured \cite{Mertens:2015}.}
+	\label{tab:table_NOCT}
+\end{table}
+
+Ambient temperatures $\vartheta_{\mathrm{A}}$ for different locations on Earth can be obtained from climate charts. For example, figure \ref{fig:temp_vienna} presents monthly averages for the ambient temperature in $\left( ^\circ \mathrm{C} \right)$ and precipitation in $\left( \mathrm{mm} \right)$ collected by the Global Historical Climatology Network for the Hohe Warte in Vienna, Austria, between 1997 and 2016. Below the chart, the percentage of missing data regarding the months of the year is presented \cite{Zepner:2020}.
+\begin{figure}[h!]
+	\centering
+  	\includegraphics[width = 0.96\textwidth]{temp_maps/temp_vienna}
+  	\caption{Monthly averages of temperature and precipitation data for the Hohe Warte in Vienna, Austria. (Image credit: \cite{Zepner:2020})}
+	\label{fig:temp_vienna}
+\end{figure}
+
+Building on the previous findings, the electrical power output of a PV generator can be calculted by using one of the following equations:
+	\begin{equation} \label{eq:p_pv_i}
+	\centering
+		P_{\mathrm{PV}}(I_{\mathrm{PV}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = m \, N_{\mathrm{C}} \, U_{\mathrm{T}} \, I_{\mathrm{PV}} \, \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{PV}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right) \text{,}
+	\end{equation}
+	\begin{equation} \label{eq:p_pv_u}
+	\centering
+		 P_{\mathrm{PV}}(U_{\mathrm{PV}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = U_{\mathrm{PV}} \left[ I_{\mathrm{Ph}} - I_{\mathrm{S}} \left( \exp \left(\frac{U_{\mathrm{PV}}}{m \, N_{\mathrm{C}} \, U_{\mathrm{T}} } \right) - 1  \right) \right] \text{.}
+	\end{equation}
+Typically, $P_{\mathrm{PV}}$ is plotted as a function of $U_{\mathrm{PV}}$, which results in a curve as shown in the figure \ref{fig:tikz_PVG_power_curve} \cite{Prechtl:2006, Mertens:2015, Wagner:2018}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVG_power_curve}
+	\caption{Electrical power output of a photovoltaic generator as a function of $U_{\mathrm{PV}}$. It is further dependent on the photovoltaic cell temperature $\vartheta_{\mathrm{C}}$ and the radiation flux $\Phi_{\mathrm{G}}$. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_PVG_power_curve}
+\end{figure}

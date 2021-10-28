@@ -1,0 +1,62 @@
+\begin{center}
+	\begin{equation} \label{eq:battery_voltage}
+		U_\mathrm{B}\left(t\right) =
+  		\begin{cases}
+   			\left(\dfrac{Q_\mathrm{rem}}{C} + I_\mathrm{C} \, R_2\right) \, \exp \left( -\dfrac{t}{R_2 \, C} \right) + U_0 - I_\mathrm{C} \left( R_1 + R_2 \right) \\ \\
+    		\left(\dfrac{Q_\mathrm{rem}}{C} + I_\mathrm{D} \, R_2\right) \, \exp \left( -\dfrac{t}{R_2 \, C} \right) + U_0 - I_\mathrm{D} \left( R_1 + R_2 \right)
+  		\end{cases}
+	\end{equation} 
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:parameters_r_1}
+		R_1 = \left( a_1 + a_2 \, x + a_3 \, x^2 \right) \, \exp\left( - a_4 \, y \right) + a_5 + a_6 \, x + a_7 \, x^2
+	\end{equation} 
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:parameters_r_2}
+		R_2 = \left( a_8 + a_9 \, x + a_{10} \, x^2 \right) \, \exp\left( - a_{11} \, y \right) + a_{12} + a_{13} \, x + a_{14} \, x^2
+	\end{equation} 
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:parameters_c}
+		C = - \left( a_{15} + a_{16} \, x + a_{17} \, x^2 \right) \, \exp\left( - a_{18} \, y \right) + a_{19} + a_{20} \, x + a_{21} \, x^2
+	\end{equation} 
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:parameters_u_0}
+		\begin{aligned} 
+		U_0 = \left( a_{22} + a_{23} \, x + a_{24} \, x^2 \right) \, \exp\left( - a_{25} \, y \right) + a_{26} + a_{27} \, y + &a_{28} \, y^2 + a_{29} \, y^3 \\ &- a_{30} \, x + a_{31} \, x^2
+		\end{aligned}
+	\end{equation} 
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:battery_x}
+		x =
+  		\begin{cases}
+   			\dfrac{I_\mathrm{C}}{Q_\mathrm{rem}} \\ \\
+			\dfrac{I_\mathrm{D}}{Q_\mathrm{rem}}
+  		\end{cases}
+	\end{equation} 
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:battery_y}
+		y =
+  		\begin{cases}
+   			\mathrm{SOC_{cr}} \\
+			\mathrm{1 - DOD_{cr}}
+  		\end{cases}
+	\end{equation} 
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_battery}
+	\caption{Simple electrical equivalent circuit of a $\mathrm{LiFePO}_4$ electrochemical energy storage device. (Recreated from: \cite{})}
+	\label{fig:tikz_battery}
+\end{figure}

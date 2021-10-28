@@ -1,0 +1,106 @@
+\subsection{Base station radio infrastructure}
+The task of the base station crew is to monitor and coordinate both an ongoing mission and the on-site support crew. It is thus the central link of the voice communication system. The base station radio infrastructure is supplied by electrical energy from the local power grid and it consists of a Motorola Mototrbo DM 2600 mobile radio, a Diawa CN-501VN cross needle VSWR \& power meter to monitor the VSWR of the antenna feed line and detect possible errors, a Diamond SP1000 lightning arrester to protect the base station crew, the DM 2600 and the CN-501VN from the consequences of a lightning strike\footnote{It is not recommended to use the voice communication system in situations where lightning strikes may occur.} and a Diamond BC-101 VHF fixed station antenna. Besides that, several adapters and coaxial cables with different lengths $l$ in $\left(\mathrm{m}\right)$ are used to connect these devices and components with each other. 
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_base_camp_radio}
+	\caption{Schematic structure of the base station radio infrastructure.}
+	\label{fig:tikz_base_camp_radio}
+\end{figure}
+Figure \ref{fig:tikz_base_camp_radio} provides an illustration. There are gaps between the devices and components to make the schematic structure easier to read.\footnote{In practice these are connected.} Green connectors represent a BNC plug or socket, turquoise connectors represent a PL plug or socket and pink connectors represent a N plug or socket. For more information on whether it is a socket or a plug, see figure \ref{fig:tikz_base_camp_radio} and tables \ref{tab:table_dm2600_specs} through \ref{tab:table_ultraflex_7_specs}. Adapters -- such as \circled{\footnotesize{1}} and \circled{\footnotesize{3}} -- are characterized by a rectangle with a diagonal drawn in. The colors in the resulting right-angled triangles indicate which connectors an adapter has. Coaxial cables are drawn with a thicker line and trapezoids as connectors -- for example \circled{\footnotesize{2}}, \circled{\footnotesize{5}} and \circled{\footnotesize{6}}. Because the coaxial cables were delivered without connectors, they were installed afterwards. The connectors of the DM 2600, Diawa CN-501VN, Diamond SP1000 and Diamond BC-101 are marked by a small rectangle which is in direct contact with the associated device or component. These have factory-installed connectors which their data sheets already take into account.
+
+From the data sheet of the DM 2600, from which an excerpt is provided in table \ref{tab:table_dm2600_specs}, it can be seen that its maximum transmission power is $25\mathrm{W}$ and its sensitivity -- in the worst case -- is $0,25\mathrm{\mu V}$.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_dm2600_specs}
+	\caption{Excerpt from the data sheet of the Motorola Mototrbo DM 2600 mobile radio. \cite{DM2600:2013}}
+	\label{tab:table_dm2600_specs}
+\end{table}
+Its maximum transmission and minimum required reception power therefore follow to:
+\begin{equation} \label{eq:power_BSt_tx}
+	\centering
+	P_\mathrm{T,dBW} =  10\mathrm{dBW} \cdot \log_{10} \left( \dfrac{25\mathrm{W}}{1\mathrm{W}} \right) = 13,979\mathrm{dBW}\text{,}
+\end{equation}
+\begin{equation} \label{eq:power_BSt_min}
+	\centering
+	P_\mathrm{min,dBW} = 10\mathrm{dBW} \cdot \log_{10} \left( \dfrac{\left(0,25\cdot10^{-6}\mathrm{V}\right)^2}{50\Omega} \right) = -149,031\mathrm{dBW}\text{.}
+\end{equation}
+
+It is assumed that the CN-501VN will not cause any loss or gain in the antenna feed line as its data sheet does not contain any specifications on this matter. An excerpt of said data sheet can be seen in the table \ref{tab:table_daiwa_cn_501}.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_daiwa_cn_501}
+	\caption{Excerpt from the data sheet of the Daiwa CN-501VN cross needle VSWR \& power meter.\cite{Daiwa-industry-co.:2016}}
+	\label{tab:table_daiwa_cn_501}
+\end{table}
+
+The SP1000 has an insertion loss of less than $0,2\mathrm{dB}$ and a VSWR of less than $1,2$ as shown in the table \ref{tab:table_lightning_arrestor_specs}.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_lightning_arrestor_specs}
+	\caption{Excerpt from the data sheet of the Diamond SP1000 lightning arrester. \cite{SP1000:2020}}
+	\label{tab:table_lightning_arrestor_specs}
+\end{table}
+If now the worst case is assumed -- which means that the insertion loss is exactly $0,2\mathrm{dB}$ and the VSWR is exactly $1,2$ -- then the total loss caused by this component is the sum of the insertion and the mismatch loss:
+\begin{equation} \label{eq:losses_BSt_arr}
+	\centering
+	L_\mathrm{arr,dB} = 0,2\mathrm{dB} - 10\mathrm{dB} \cdot \log_{10} \left(1 - \left(\dfrac{1,2 - 1}{1,2 + 1}\right)^2\right) = 0,236\mathrm{dB}\text{.}
+\end{equation}
+
+As can be seen in the table \ref{tab:table_bc101_specs}, the BC-101 has a gain of $G_\mathrm{ant,dBi} = 3,5\mathrm{dBi}$ and a VSWR of less than $1,5$.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_bc101_specs}
+	\caption{Excerpt from the data sheet of the Diamond BC-101 VHF fixed station antenna.\cite{antenna:2020}}
+	\label{tab:table_bc101_specs}
+\end{table}
+With $\mathrm{VSWR} = 1,5$, the mismatch loss in the worst case can be calculated as shown in the equation (\ref{eq:losses_BSt_ant}).
+\begin{equation} \label{eq:losses_BSt_ant}
+	\centering
+	L_\mathrm{ant,dB} = - 10\mathrm{dB} \cdot \log_{10} \left(1 - \left(\dfrac{1,5 - 1}{1,5 + 1}\right)^2\right) = 0,177\mathrm{dB}
+\end{equation}
+Regarding this antenna, it should also be mentioned that a mast will be made available at the mission site. Therefore, the height of the mast can vary from mission to mission. An antenna, which is set up on a $1\mathrm{m}$ high tripod on a freight container in accordance with ISO 668, has approximately a height of $h _\mathrm{BSt} = 3,6\mathrm{m}$ above the ground. This height is used for the link budget estimation. 
+
+All coaxial cables used for the voice communication system are Messi \& Paoloni Ultraflex 7 coaxial cables. An excerpt of the data sheet of this coaxial cable can be found in the table \ref{tab:table_ultraflex_7_specs} and the attenuation as a function of the frequency -- interpolated with a \MATLAB program -- according to its data sheet, in the figure \ref{fig:image_attenuation_UF7}. 
+\begin{table}[h!]
+	\centering
+	\input{tables/table_ultraflex_7_specs}
+	\caption{Excerpt from the data sheet of the Messi \& Poloni Ultraflex 7 coaxial cable. \cite{Paoloni:2021}}
+	\label{tab:table_ultraflex_7_specs}
+\end{table}
+\begin{figure}[h!]
+	\centering
+  	\includegraphics[width = 0.67\textwidth]{image_attenuation_UF7.eps}
+  	\caption{Attenuation of the Messi \& Paoloni Ultraflex 7 coaxial cable for $20^\circ \mathrm{C}$. For the frequency $f_\sim = 158,950\mathrm{MHz}$, the attenuation is around $7,2471\mathrm{dB/100m}$. (Recreated from: \cite{Paoloni:2021})}
+	\label{fig:image_attenuation_UF7}
+\end{figure}
+Based on this, an attenuation of $7,2471\mathrm{dB/100m}$ was determined for the frequency $f_\sim = 158,950\mathrm{MHz}$. The cable lengths of the individual coaxial cables in the systems can be taken from the figure \ref{fig:tikz_base_camp_radio}. This results in an insertion loss -- without connectors -- of:
+\begin{equation} \label{eq:losses_BSt_coax}
+	\centering
+	L_\mathrm{coax,dB} = \dfrac{7,2471 \cdot 9,3}{100}\mathrm{dB} = 0,674\mathrm{dB}\text{.}
+\end{equation}
+It is noted, that $L_\mathrm{coax,dB}$ increases as the cable length increases. It can become significantly greater if the antenna is mounted at a location further away from the base station. 
+
+Regarding the attenuation of the numbered adapters and connectors, which also includes the connectors of the coaxial cables in the figure \ref{fig:tikz_base_camp_radio}, it is assumed that each of these has an attenuation of $0,1 \mathrm{dB}$ \cite{LinkMargin:2016}. With $N_\mathrm{I} = 9$, the total insertion loss caused by the connectors and adapters follows to:
+\begin{equation} \label{eq:losses_BSt_conn}
+	\centering
+	L_\mathrm{conn/adapt,dB} = 0,9\mathrm{dB}\text{.}
+\end{equation}
+An assumption was made because no data sheets for the adapters and connectors were found. 
+
+From the above, the total loss of the antenna feed line now results in:
+\begin{equation} \label{eq:losses_BSt}
+	\centering
+	L_\mathrm{BSt,dB} = L_\mathrm{arr,dB} + L_\mathrm{ant,dB} + L_\mathrm{coax,dB} + L_\mathrm{conn/adapt,dB} = 1,987\mathrm{dB}\text{.}
+\end{equation}
+
+
+
+
+
+
+
+
+%\textcolor{rgb, 255:red, 80; green, 227; blue, 194 }{turquoise} 
+
+
+

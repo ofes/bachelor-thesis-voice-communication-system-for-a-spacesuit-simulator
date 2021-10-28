@@ -1,0 +1,31 @@
+\section{System design} \label{sec:system_design}
+In order to meet the requirements mentioned in the introduction, a topology of the voice communication system as shown in the figure \ref{fig:tikz_system_topology} was chosen. Voice communication takes place via the frequency $f_\sim = 158,950\mathrm{MHz}$ and the system consists of a \emph{base station} (BSt) -- which the OeWF refers to as \emph{operations} (OPS) -- an \emph{on-site support} (OSS) crew with handheld radios, a self-sufficient voice communication repeater -- which from now on will simply be refered to as \emph{repeater} (REP) -- \emph{analog astronauts} (AAs) using the \emph{Serenity} (SER) spacesuit simulator and the safety officers for the AAs. The latter also carry handheld radios.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_system_topology}
+	\caption{Proposed topology for the designed voice communication system.}
+	\label{fig:tikz_system_topology}
+\end{figure}
+The green arrows indicate that voice communication can take place in both directions. Furthermore, all participants within the dashed green circle can either commuicatate directly with the base station, or via the repeater. If the communication takes place via the repeater, the distance between the base station and the dashed circle can be increased. The same applies for the on-site support crew. During an ongoing mission the on-site support crew does not communicate with the participants within the dashed circle, but only with the base station. 
+
+In essence, the proposed topology is a mesh topology with digital voting. The latter means that a receiver in the system only accepts the strongest source of a particular transmitted signal and ignores the others. This has the major advantage that both the participants within the dashed circle and the on-site support crew can move freely within the range of the base station and the repeater without having to change the channels on their radios \cite{Parsons:2000, SystemPlanner:2018}.
+
+In practice several channels for communication are used so that the traffic over the repeater is kept to a minimum. Radio traffic must therefore be kept low, as the repeater is operated in the so-called \emph{extended range direct mode} which is its simplex mode. In this mode only one participant of the voice communication system can communicate via the repeater at a time. This approach was chosen because the extended range direct mode requires only one frequency and therefore only one antenna \cite{SystemPlanner:2018}. However, this is not dealt with in more detail in this thesis, as it does not affect the link budget.\footnote{Further information can be found in the user manual once it has been completed.} 
+
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_range}
+	\caption{Top view of the mission area covered by the voice communication system.}
+	\label{fig:tikz_range}
+\end{figure}
+Figure \ref{fig:tikz_range} shows the top view of the mission area that is theoretically covered by the voice communication system \cite{Lange:1992}. The border of the mission area covered is illustrated with the dashed purple line. In it, the brown rounded square represents the base station, the green dot represents the repeater and the gray dotted square represents the mission area specified by the system requiremnts. According to these requiremnts the minimum radius is $r_\mathrm{min} = 7,5\mathrm{km}$, as a total mission area of approximately $10\mathrm{km}$ by $10\mathrm{km}$ has to be covered. Furthermore, the system was designed in such a way that the requiremnts are met for the least powerful radio device. 
+
+Since the base station, like the repeater, uses an omnidirectional antenna, the participants of the voice communication system also have reception in an area with a radius $r_\mathrm{BSt}$ in $\left(\mathrm{m}\right)$ around it. By transforming the equation (\ref{eq:plane_earth_approx_db}) and assuming that the fade margin of the least powerful radio device stays the same for the entire coverage area, $r_\mathrm{BSt}$  can be calculated.\footnote{In the equation (\ref{eq:plane_earth_approx_db}), $r_\mathrm{BSt}$ corresponds to the distance $d$.} Although this extends the mission area, it must be taken into account that it may interfere with a neighboring radio system.
+
+In the following subsections each part of the voice communication system will be introduced.
+
+\input{chapters/chapter_3_results/sections/section_1_system_design/subsections/subsection_1_base_station_radio_infrastructure}
+\input{chapters/chapter_3_results/sections/section_1_system_design/subsections/subsection_2_repeater_radio_infrastructure}
+\input{chapters/chapter_3_results/sections/section_1_system_design/subsections/subsection_3_serenity_radio_system}
+\input{chapters/chapter_3_results/sections/section_1_system_design/subsections/subsection_4_safety_officer_radio}
+\input{chapters/chapter_3_results/sections/section_1_system_design/subsections/subsection_5_on_site_support_crew_radio}

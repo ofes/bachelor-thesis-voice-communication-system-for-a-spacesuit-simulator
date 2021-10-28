@@ -1,0 +1,73 @@
+\chapter{Introduction}
+\pagenumbering{arabic}
+When we talk about communication we often mean the transfer or exchange of information between two subjects or groups. What sounds so simple takes on a new meaning when one understands how we managed to overcome immense distances to get closer together.
+
+Since life evolved on Earth, communication has always been present. For example nerve cells use electrical or chemical synapses to communicate, animals communicate through a variety of different methods including pheromones and sounds and humans mainly communicate through the advantageous construct of language \cite{Christian:2004}.
+
+Due to the limitation to communicate over long distances our ancestors invented different techniques to exchange information. One of the oldest known methods of such communication is that of smoke signals which were used to send messages in form of binary information. Much later, with the discovery of electricity, a new era for human communication began when Samuel Finley Breese Morse perfected line telegraphy in the 1830s \cite{Glover:2010}. Suddenly we were able to instantly exchange complex information over immense distances. From that point on, communication, or more precisely telecommunication, got more and more important and has developed rapidly in recent centuries. 
+
+Nowadays telecommunication is an integral part of everyday life. A phone call connects us over several thousand kilometres, scientists can share their research through the vast network of the Internet globally and space probes, like NASA's Voyager 1 and Voyager 2, send us data and images from places, a few centuries ago, we never thought we could ever explore. 
+
+For the future we can only dream. But with new knowledge, new technologies emerge.
+
+\section{About the thesis}
+This thesis about a voice communication system for a spacesuit simulator was not only proposed to design and build a working backup system for the Serenity spacesuit simulator of the Austrian Space Forum (OeWF), but also to continue humanity's ventures to explore the planet Mars and to add a tiny bit to the long history of telecommunication and space exploration. More about the OeWF and the Serenity spacesuit simulator can be found the appendix \ref{ap:oewf}.
+
+\subsection{Motivation} 
+The voice communication system described in this thesis is closely related to amateur radio systems. This brings an enormous advantage in the form of a solid market for components and the availability of knowledge from experienced amateur radio operators.
+
+Over the years, amateur radios remained popular due to their reliability and independence from cellular networks and the Internet. Large communities enthusiastically take care of this independent infrastructure around the globe. But not only amateur radio operators use this infrastructure, emergency services such as the red cross, the police and fire departments as well as armed forces use professional radio equipment. It is therefore still considered a crucial infrastructure. 
+
+This thinking can be applied to Serenity's backup voice communication system as well. The infrastructure that is used consists of commercially available equipment which can be procured, maintained, repaired and set up easily. Due to its close relation to amateur radio systems it can be used for local emergencies apart from the missions of the OeWF. In addition to these points, the repeater radio infrastructure of Serenity's backup voice communication system is designed to be completely self-sufficient which allows it to be operated in the field without an external power supply. This enables use in remote areas as well as on construction sites, for corporate communication, for disaster relief and for everyday communication by amateur radio operators.
+
+\subsection{Backup voice communication system}
+Analog astronauts rely on many critical subsystems, like the voice communication system, to keep them safe and protected while performing simulations. This system is so to speak the lifeline of the analog astronauts which helps them to keep in touch with each other, their safety officers and the base camp crew. For completeness it is noted that the safety officers are trained emergency first responders and the base camp crew monitors and coordinates analog Mars field  locally 
+
+To guarantee flawless missions, a robust communication system is required. Therefore, the OeWF developed a primary voice communication system which is currently used in the Aouda spacesuit simulator. With several upgrades this system will be used in the Serenity spacesuit simulator as well. It is based on a \emph{wireless local area network} (WLAN) with a range of $15\mathrm{km}$ including a field infrastructure \cite{Groemer:2020}. Should this link fail, a dangerous situation for the analog astronauts can arise. In order to prevent such a situation, it is crucial to add redundancy in the form of a second, completely independent, voice communication system that serves as a backup. 
+
+To keep up with the primary W-LAN based voice communication system, the OeWF decided to redesign and improve the backup voice communication system for the second generation of its spacesuit simulators. Serenity's backup voice communication system has to be more powerful and reliant than Aouda's. To achieve this goal, the OeWF came up with the requirements listed in the table \ref{tab:table_serenity_bu_comms_requirements}.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_serenity_bu_comms_requirements}
+	\caption{Requirements for the voice communication systems of the Serenity spacesuit simulator.}
+	\label{tab:table_serenity_bu_comms_requirements}
+\end{table}
+
+The backup voice communication system must cover at least a mission area that is created by a square with a diagonal of $15\mathrm{km}$. With regard to the Serenity spacesuit simulator, its designed backup radio system must fit into its \emph{hard upper torso} (HUT). Within the HUT it must function for the specified operating temperatures and the combined mass of the primary and backup radio systems must not exceed $1000\mathrm{g}$. 
+
+\section{Aim}
+The aim of this thesis is to design the backup voice communication system, which from now on will simply be referred to as voice communication system, for the Serenity spacesuit simulator and to carry out a performance estimation based on the design. This must be accomplished while taking into account the requirements mentioned in the table \ref{tab:table_serenity_bu_comms_requirements}. Since a repeater radio infrastructure for the voice communication system is necessary to meet the range requirement, a suitable self-sufficient energy distribution system is also designed alongside the voice communication system. A performance estimation is carried out for this system as well. In addition, it will be investigated how the designed voice communication system must be adapted so that it can be used on the Martian surface.
+
+\subsection{Literature review}
+Planning voice communication systems is explained in detail in various literatures. Depending on the application, different frequencies and directional characteristics of the antennas involved are used \cite{Lange:1992, Parsons:2000, Glover:2010, Goiser:2019, Mecklenbrauker:2017}. For voice communication, however, frequencies in the \emph{very high frequency} (VHF) and \emph{ultra high frequency} (UHF) bands are mostly used in combination with omnidirectional antennas, as the participants of the voice communication system usually move freely within a local covered area \cite{Parsons:2000}. Depending on the required planning accuracy, either a performance estimation is carried out with the plane earth signal budget, or with more complex caluculations that take the ground roughness, objects in the beam path between the transmitter and the receiver and atmopsheric effect into account \cite{Parsons:2000, Glover:2010, LinkMargin:2016, Mecklenbrauker:2017}.
+
+There are also numerous books for planning energy distribution systems. The books \cite{Rebhan:2002, Gawlik:2018}, for example, provide an overview of how various forms of energy can be converted into electrical energy. Then works like \cite{Mertens:2015, Hau:2016, Wagner:2018} can be used to read into the energy conversion method that is ultimately used to supply a load with electrical energy. Apart from that, the works \cite{Sterner:2017, Kurzweil:2018} describe how the electrical energy can be stored if this is necessary. 
+
+Regarding the planning of a voice communication and an energy distribution system on Mars, publications such as \cite{Appelbaum:1990, Appelbaum:1992, Landis:1995, Ho:2002} can be used. 
+
+\subsection{Deliverables}
+This subsection now summarizes the deliverables of the thesis.
+\begin{enumerate}
+  \item Design the backup voice communication system for the Serenity spacesuit simulator.
+  \item Design a self-sufficient energy distribution system for the repeater radio infrastructure of the backup voice communication system.
+  \item Provide a performance estimation of the voice communication system.
+  \item Provide a performance estimation of the self-sufficient energy distribution system.
+  \item Investigate the usability of the designed voice communication and energy distribution system on Mars.
+\end{enumerate} 
+The flowcharts in the figures \ref{fig:tikz_flowchart_1} and \ref{fig:tikz_flowchart_2}, illustrate which steps were taken to achieve these.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_flowchart_1}
+	\caption{Part one of the flowchart of this thesis. It illustartes which steps were taken in order to achieve the deliverables.}
+	\label{fig:tikz_flowchart_1}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_flowchart_2}
+	\caption{Part two of the flowchart of this thesis. It illustartes which steps were taken in order to achieve the deliverables.}
+	\label{fig:tikz_flowchart_2}
+\end{figure}
+
+\subsection{Thesis Structure}
+The first part of this thesis contains the \textbf{Methodology} in which the mathematical fundamentals for the system design and the performance estimations of the self-sufficient energy distribution and the voice communication system are explained. This is followed by the \textbf{Results}, presenting the system design and the results of the performance estimations. Finally, the \textbf{Conclusion and critical reflecion} summarizes and interprets the results and provides a critical reflection of this thesis. The appendices contain information about the OeWF and the Serenity spacesuit simulator, mathematical basics and the developed \MATLAB simulation for the performance estimation of the self-sufficient energy distribution system.
+

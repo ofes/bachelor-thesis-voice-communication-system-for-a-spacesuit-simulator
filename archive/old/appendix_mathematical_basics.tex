@@ -1,0 +1,174 @@
+\chapter{Mathematical basics}
+This appendix covers the most important mathematical basics, that were used in this thesis. More information can be found in the books \cite{Durandi:2009, Schwarz:2011, Rudolf:2014, Taschner:2014, Taschner:2015, Kugi:2021}.
+
+%% Trigonometry %%
+\section{Trigonometry} \label{sec:trigonometry}
+
+\begin{center}
+	\begin{equation} \label{eq:addition_theorem_cos}
+		\cos \left(x \pm y\right) = \cos x \, \cos y \mp \sin x \, \sin y
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:addition_theorem_sin}
+		\sin \left(x \pm y\right) = \sin x \, \cos y \pm \cos x \, \sin y
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:reduction_formula}
+		\sin \left(90^\circ - x \right) = \cos x
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:sin_squared}
+		\sin^2 \frac{\beta}{2} = \frac{1 - \cos \beta}{2}
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:cos_squared}
+		\cos^2 \frac{\beta}{2} = \frac{1 + \cos \beta}{2}
+	\end{equation}
+\end{center}
+
+%% Integral of the Gaussian bell function %%
+
+\section{Integral of the Gaussian bell curve} \label{sec:gauss_general}
+In this thesis, the shifted Gaussian bell function, shown in figure \ref{fig:tikz_gauss_curve_general}, is used to model the solar energy curve (see subsection \ref{sec:solar_energy_curve}). Therefore the mathematical approach of calculating the area of the Gaussian bell function -- enclosed by the curve and the x-axis -- will be explained.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_gauss_curve_general}
+	\caption{Shifted Gauss bell.}
+	\label{fig:tikz_gauss_curve_general}
+\end{figure}
+
+In general the function of the Gaussian bell function can be written as shown in equation \ref{eq:gauss_curve}, with its corresponding indefinite Integral shown in equation \ref{eq:integral_gauss}.
+\begin{center}
+	\begin{equation} \label{eq:gauss_curve}
+		f\left(x\right) = C \, \exp\left(-\frac{(x - x_0)^2}{a}\right)
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:integral_gauss}
+		F\left(x\right) = C \int\limits_{-\infty}^{\infty} \exp\left(-\frac{(x - x_0)^2}{a}\right)\,\mathrm{d}x
+	\end{equation}
+\end{center}
+Since the integral in equation \ref{eq:integral_gauss} cannot be solved, an approach is used in which the integral is squared. How this works is presented in the following steps.
+\begin{center}
+	\begin{equation} \label{eq:integral_gauss_partly_solved}
+		\begin{aligned}
+		F\left(x\right)^2 &= C^2 \left( \, \int\limits_{-\infty}^{\infty} \exp\left(-\frac{(x - x_0)^2}{a}\right)\,\mathrm{d}x\right)^2 \\
+		&= C^2 \int\limits_{-\infty}^{\infty} \exp\left(-\frac{(u - u_0)^2}{a}\right)\,\mathrm{d}u \int\limits_{-\infty}^{\infty} \exp\left(-\frac{(v - v_0)^2}{a}\right)\,\mathrm{d}v \\ 
+		&= C^2 \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} \exp\left(-\frac{(u - u_0)^2}{a}\right) \, \exp\left(-\frac{(v - v_0)^2}{a}\right) \,\mathrm{d}u \cdot \mathrm{d}v \\
+		&= C^2 \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} \exp\left(-\frac{(u - u_0)^2 + (v - v_0)^2}{a}\right) \,\mathrm{d}u \cdot \mathrm{d}v
+		\end{aligned}
+	\end{equation}
+\end{center}
+If now $x = u - u_0$ and $y = v - v_0$ are substituted in the last step of equation \ref{eq:integral_gauss_partly_solved}, the integrals can be written as presented on the left side of equation \ref{eq:integral_gauss_not_shifted}. Due to the substitutions, the equations \ref{eq:diff} to \ref{eq:lim_y} have to be considered. 
+\begin{center}
+	\begin{equation} \label{eq:diff}
+		\mathrm{d}x = \mathrm{d}u \text{, } \mathrm{d}y = \mathrm{d}v
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:lim_x}
+		\lim\limits_{u \to \infty} x = \infty \text{, } \lim\limits_{u \to -\infty} x = -\infty
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:lim_y}
+		\lim\limits_{v \to \infty} y = \infty \text{, } \lim\limits_{v \to -\infty} y = -\infty
+	\end{equation}
+\end{center}
+Transforming the integrals on the left side of equation \ref{eq:integral_gauss_not_shifted} into polar coordinates, by using the expressions from equation \ref{eq:polar}, the integrals on the right side of equation \ref{eq:integral_gauss_not_shifted} follows.
+\begin{center}
+	\begin{equation} \label{eq:polar}
+		x^2 + y^2 = r^2 \text{, } \mathrm{d}x \, \mathrm{d}y = r \, \mathrm{d}r \,\mathrm{d}\phi
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:integral_gauss_not_shifted}
+		\begin{aligned}
+		F\left(x\right)^2 &= C^2 \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} \exp\left(-\frac{x^2 + y^2}{a}\right) \,\mathrm{d}x \cdot \mathrm{d}y \\
+		&= C^2 \int\limits_{0}^{2\pi} \int\limits_{0}^{\infty} \exp\left(-\frac{r^2}{a}\right) \, r \,\mathrm{d}r \cdot \mathrm{d}\phi
+		\end{aligned}
+	\end{equation}
+\end{center}
+With a final substitution of $w = -\frac{r^2}{a}$, form which the equations \ref{eq:diff_r} to \ref{eq:lim_r} derive, the integrals can be solved as shown in equation \ref{eq:integral_gauss_solved}.
+\begin{center}
+	\begin{equation} \label{eq:diff_r}
+		r\,\mathrm{d}r = -\frac{a}{2} \, \mathrm{d}u
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:lim_r}
+		\lim\limits_{r \to \infty} w = -\infty \text{, } \lim\limits_{r \to 0} w = 0
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:integral_gauss_solved}
+		\begin{split}
+		F\left(x\right)^2 = -\frac{a \, C^2}{2}\int\limits_{0}^{2\pi} \underbrace{\int\limits_{0}^{-\infty} \mathrm{e}^w \,\mathrm{d}w}_{-1} \cdot \mathrm{d}\phi = \frac{a \, C^2}{2}\int\limits_{0}^{2\pi} 1 \, \mathrm{d}\phi = a \, C^2 \, \pi
+		\end{split}
+	\end{equation}
+\end{center}
+Therefore the result of the indefinite integral of the Gaussian bell function must be:
+\begin{center}
+	\begin{equation} \label{eq:lim_r}
+		F(x) = C \sqrt{a \, \pi} \text{.}
+	\end{equation}
+\end{center}
+It is positive because the area enclosed by the curve and the x-axis cannot be negative. 
+
+%% Newton method %%
+
+\section{Newton-Raphson method} \label{sec:newton_raphson_method}
+The zero crossing $x = x_R$ of a function $f\left( x \right) : \mathbb{R} \to \mathbb{R}$, for which $f\left( x_R \right) = 0$ aplies, can be approximated with the Newton-Raphson method as shown in equation \ref{eq:x_iteration}.
+\begin{center}
+	\begin{equation} \label{eq:x_iteration}
+		\begin{gathered}
+			x_1 = x_0 - \frac{f\left( x_0 \right)}{f'\left( x_0 \right)} \\
+			x_2 = x_1 - \frac{f\left( x_1 \right)}{f'\left( x_1 \right)} \\
+			\vdots \\
+			x_{n + 1} = x_n - \frac{f\left( x_n \right)}{f'\left( x_n \right)}
+		\end{gathered}
+	\end{equation}
+\end{center}
+This algorithm can be derived with figure \ref{fig:tikz_newton_method}, whereby the requirement must be met that the function $f\left( x \right)$ must be continuously differentiable for the required number of iteration steps $n + 1$ with $n \in \mathbb{N}$.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_newton_method}
+	\caption{Newton-Raphson method to approximate the zero crossing of a function.}
+	\label{fig:tikz_newton_method}
+\end{figure}
+The approximation of the zero crossing $x_R$ -- taking into account the just mentioned requirement -- can be determined with any specified precision $\left| x_{n + 1} - x_n \right| < \varepsilon$. In order for the algorithm to converge towards the zero crossing, the start value $x_0$ must be found accordingly.
+
+Based on the previous findings, the elements of the vector of zero crossings $\mathrm{\mathbf{x}} = \mathrm{\mathbf{x}}_R$ of the vector of functions $\mathrm{\mathbf{f}} \left( \mathrm{\mathbf{x}} \right) : \mathbb{R}^m \to \mathbb{R}^m$ with $m \in \mathbb{N}$, for which $\mathrm{\mathbf{f}}\left( \mathrm{\mathbf{x}}_R \right) = \mathbf{0}$ applies, can be approximated as shown below.
+\begin{center}
+	\begin{equation} \label{eq:vect_x_approx}
+		\mathrm{\mathbf{x}}_{R, n + 1} = \mathrm{\mathbf{x}}_{R,n} 	- \mathrm{\mathbf{J}}^{-1}\left( \mathrm{\mathbf{x}}_{R,n} \right) \, \mathrm{\mathbf{f}}\left( \mathrm{\mathbf{x}}_{R,n} \right) 
+	\end{equation}
+\end{center}
+The Jacobian matrix $\mathrm{\mathbf{J}}$ contains all partial derivatives of the function vector with respect to the vector of the zero crossings.
+\begin{center}
+	\begin{equation} \label{eq:jacobian}
+		\mathrm{\mathbf{J}} = \left. \dfrac{\partial \mathrm{\mathbf{f}}\left(\mathrm{\mathbf{x}}\right)}{\partial \mathrm{\mathbf{x}}} \right|_{\mathrm{\mathbf{x}} = \mathrm{\mathbf{x}}_R} = 
+ 		\begin{pmatrix}
+  			\dfrac{\partial}{\partial x_1} f_1\left( \mathrm{\mathbf{x}}_R \right) & \dfrac{\partial}{\partial x_2} f_1\left( \mathrm{\mathbf{x}}_R \right) & \cdots & \dfrac{\partial}{\partial x_m} f_1\left( \mathrm{\mathbf{x}}_R \right) \\
+			\dfrac{\partial}{\partial x_1} f_2\left( \mathrm{\mathbf{x}}_R \right) & \dfrac{\partial}{\partial x_2} f_2\left( \mathrm{\mathbf{x}}_R \right) & \cdots & \dfrac{\partial}{\partial x_m} f_2\left( \mathrm{\mathbf{x}}_R \right) \\
+			\vdots & \vdots & \ddots & \vdots \\
+  			\dfrac{\partial}{\partial x_1} f_m\left( \mathrm{\mathbf{x}}_R \right) & \dfrac{\partial}{\partial x_2} f_m\left( \mathrm{\mathbf{x}}_R \right) & \cdots & \dfrac{\partial}{\partial x_m} f_m\left( \mathrm{\mathbf{x}}_R \right) 
+ 		\end{pmatrix}
+ 	\end{equation}
+\end{center}
+For completeness it shall be mentioned, that $ \mathrm{\mathbf{x}}_R = \big( x_1, \dotsc, x_m \big)^{\mathrm T } $ does not correspond to figure \ref{fig:tikz_newton_method}. The elements $x_1$ to $x_m$ of the vector $\mathrm{\mathbf{x}}_R$ are zero crossings of the functions contained by the vector $\mathrm{\mathbf{f}} \left( \mathrm{\mathbf{x}}_R \right) = \big( f_1\left( \mathrm{\mathbf{x}}_R \right), \dotsc, f_m\left( \mathrm{\mathbf{x}}_R \right) \big)^{\mathrm T } = \mathbf{0}$. Their $\left(n + 1\right)$\textsuperscript{th} approximation is $\mathrm{\mathbf{x}}_{R,n + 1} = \big( x_{1,n + 1}, \dotsc, x_{m,n + 1} \big)^{\mathrm T}$.
+
+
+
+
+
+
+

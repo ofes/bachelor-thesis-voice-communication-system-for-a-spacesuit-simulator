@@ -1,0 +1,41 @@
+\section{Newton-Raphson method} \label{sec:newton_raphson_method}
+The zero crossing $x = x_R$ of a function $f\left( x \right) : \mathbb{R} \to \mathbb{R}$, for which $f\left( x_R \right) = 0$ applies, can be approximated with the Newton-Raphson method as shown in the equation \ref{eq:x_iteration}.
+\begin{center}
+	\begin{equation} \label{eq:x_iteration}
+		\begin{gathered}
+			x_1 = x_0 - \frac{f\left( x_0 \right)}{f'\left( x_0 \right)} \\
+			x_2 = x_1 - \frac{f\left( x_1 \right)}{f'\left( x_1 \right)} \\
+			\vdots \\
+			x_{n + 1} = x_n - \frac{f\left( x_n \right)}{f'\left( x_n \right)}
+		\end{gathered}
+	\end{equation}
+\end{center}
+This algorithm can be derived by using the figure \ref{fig:tikz_newton_method}, whereby the requirement must be met that the function $f\left( x \right)$ is continuously differentiable for the required number of iteration steps $n + 1$ with $n \in \mathbb{N}$.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_newton_method}
+	\caption{Newton-Raphson method to approximate the zero crossing of a function.}
+	\label{fig:tikz_newton_method}
+\end{figure}
+The approximation quality of the zero crossing $x_R$ can be determined with the specified precision $\left| x_{n + 1} - x_n \right| < \varepsilon$. In order for the algorithm to converge towards the zero crossing, the start value $x_0$ must be found accordingly.
+
+Based on the previous findings, the elements of the vector of zero crossings $\mathrm{\mathbf{x}} = \mathrm{\mathbf{x}}_R$ of the vector of functions $\mathrm{\mathbf{f}} \left( \mathrm{\mathbf{x}} \right) : \mathbb{R}^m \to \mathbb{R}^m$ with $m \in \mathbb{N}$, for which $\mathrm{\mathbf{f}}\left( \mathrm{\mathbf{x}}_R \right) = \mathbf{0}$ applies, can be approximated as shown below.
+\begin{center}
+	\begin{equation} \label{eq:vect_x_approx}
+		\mathrm{\mathbf{x}}_{R, n + 1} = \mathrm{\mathbf{x}}_{R,n} 	- \mathrm{\mathbf{J}}^{-1}\left( \mathrm{\mathbf{x}}_{R,n} \right) \, \mathrm{\mathbf{f}}\left( \mathrm{\mathbf{x}}_{R,n} \right) 
+	\end{equation}
+\end{center}
+The Jacobian matrix $\mathrm{\mathbf{J}}$ contains all partial derivatives of the function vector with respect to the vector of the zero crossings.
+\begin{center}
+	\begin{equation} \label{eq:jacobian}
+		\mathrm{\mathbf{J}} = \left. \dfrac{\partial \mathrm{\mathbf{f}}\left(\mathrm{\mathbf{x}}\right)}{\partial \mathrm{\mathbf{x}}} \right|_{\mathrm{\mathbf{x}} = \mathrm{\mathbf{x}}_R} = 
+ 		\begin{pmatrix}
+  			\dfrac{\partial}{\partial x_1} f_1\left( \mathrm{\mathbf{x}}_R \right) & \dfrac{\partial}{\partial x_2} f_1\left( \mathrm{\mathbf{x}}_R \right) & \cdots & \dfrac{\partial}{\partial x_m} f_1\left( \mathrm{\mathbf{x}}_R \right) \\
+			\dfrac{\partial}{\partial x_1} f_2\left( \mathrm{\mathbf{x}}_R \right) & \dfrac{\partial}{\partial x_2} f_2\left( \mathrm{\mathbf{x}}_R \right) & \cdots & \dfrac{\partial}{\partial x_m} f_2\left( \mathrm{\mathbf{x}}_R \right) \\
+			\vdots & \vdots & \ddots & \vdots \\
+  			\dfrac{\partial}{\partial x_1} f_m\left( \mathrm{\mathbf{x}}_R \right) & \dfrac{\partial}{\partial x_2} f_m\left( \mathrm{\mathbf{x}}_R \right) & \cdots & \dfrac{\partial}{\partial x_m} f_m\left( \mathrm{\mathbf{x}}_R \right) 
+ 		\end{pmatrix}
+ 	\end{equation}
+\end{center}
+For completeness it is noted that $ \mathrm{\mathbf{x}}_R = \big( x_1, \dotsc, x_m \big)^{\mathrm T } $ does not correspond to the figure \ref{fig:tikz_newton_method}. The elements $x_1$ to $x_m$ of the vector $\mathrm{\mathbf{x}}_R$ are zero crossings of the functions contained by the vector $\mathrm{\mathbf{f}} \left( \mathrm{\mathbf{x}}_R \right) = \big( f_1\left( \mathrm{\mathbf{x}}_R \right), \dotsc, f_m\left( \mathrm{\mathbf{x}}_R \right) \big)^{\mathrm T } = \mathbf{0}$. Their $\left(n + 1\right)$\textsuperscript{th} approximation is $\mathrm{\mathbf{x}}_{R,n + 1} = \big( x_{1,n + 1}, \dotsc, x_{m,n + 1} \big)^{\mathrm T}$.
+

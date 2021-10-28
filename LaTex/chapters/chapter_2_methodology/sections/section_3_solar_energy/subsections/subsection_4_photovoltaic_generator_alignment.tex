@@ -1,0 +1,58 @@
+\subsection{Photovoltaic generator alignment} \label{sec:photovoltaic_generator_alignment}
+Simply put, the alignment of a stationary PV generator -- which does not actively track the Sun throughout the day, but is installed with a fixed orientation of the normal to $A_{\mathrm{PV}}$, with respect to the cardinal directions, and a constant inclination angle $\beta$ -- depends on two basic factors.
+
+The first factor regards the Sun's direct irradiance, which reaches its greatest daily value for clear skies at solar noon ($t_{\mathrm{S}} = 12\mathrm{h}$). This is the point in time, in which $\gamma_{\mathrm{S}}$ reaches its greatest daily value, and thus the Sun's rays have the shortest path through Earth's atmosphere to the surface. The path becomes longer, the smaller $\gamma_{\mathrm{S}}$ becomes -- regardless of whether it is before or after solar noon.\footnote{Regarding the optimal inclination angle of a PV generator for clear skies, the authors of \cite[7]{Landis:1995} write: \begin{displayquote}\textit{``For clear days, the solar irradiance is symmetrical around noon and is maximum at true solar noon, $\omega = 0$.''}\end{displayquote} The angle $\omega$ represents the solar hour angle $h_{\mathrm{S}}$.} Using the \emph{air mass} (AM) value $x$, this can be expressed as follows:
+	\begin{equation} \label{eq:air_mass}
+	\centering
+		x = \frac{1}{\sin \gamma_{\mathrm{S}}} \text{.}
+	\end{equation}
+For example, for $\gamma_{\mathrm{S}} = 90^\circ$  the Sun is at its zenith. This results in $x = 1$ and therefore its rays have the shortest possible path through Earth's atmosphere to the surface. Since the spectrum of the Sun on the Earth's surface changes, depending on the length of the path of the Sun's rays, this spectrum is called AM 1. The AM 0 specturm would be outside the Earth's atmosphere which corresponds to the previously mentioned solar constant $E_{\mathrm{S}}$.  \cite{Landis:1995, Bertol:2011, Mertens:2015, Wagner:2018}. 
+
+Besides this, the second factor regards the fact that the self-sufficent voice communication system will be in use for the entire duration of a mission. Therefore it requires electrical energy throughout the day.
+
+Based on these findings it can be said that a stationary PV generator must be aligned in a way, so that its energy-converting area $A_{\mathrm{PV}}$ is perpendicular to the Sun's rays when it reaches its greatest daily irradiance value. This occurs when the Sun's rays have the shortest path through Earth's atmosphere. As a result, the normal to $A_{\mathrm{PV}}$ must be aligned with the incoming rays for this specific point in time, hence for $t_{\mathrm{S}} = 12\mathrm{h}$. In this case, the daily electrical energy yield of a stationary PV generator can be maximized \cite{Landis:1995, Mertens:2015, Wagner:2018}.
+
+As mentioned in subsection \ref{sec:energy_yield}, the Sun's rays are perpendicular to the energy-converting area $A_{\mathrm{PV}}$ for $\beta = 90^\circ - \gamma_{\mathrm{S}}$. After applying this to equation (\ref{eq:sin_gamma_s}) and simplifying it with trigonometric functions, the PV generator's angle of inclinations $\beta$ at a latitude $\varphi$, with Earth's axis of rotation inclined towards the Sun with the angle $\delta$, can be derived as shown in equation (\ref{eq:beta_with_delta_and_phi}) \cite{Landis:1995, Mertens:2015, Wagner:2018}.
+	\begin{equation} \label{eq:beta_with_delta_and_phi}
+	\centering
+		\beta = \left|\varphi - \delta\right|
+	\end{equation}
+The \MATLAB simulation in the appendix \ref{sec:matlab_code} showed that using the absolute value of $\beta$, it can be obtained for every installation site on Earth and for every season of the year. This is also shown by the authors of \cite{Karafil:2016}.\footnote{Nevertheless, the result of $\tan \delta \, \tan \varphi$ must be taken into account.} %However, for the equation (\ref{eq:cos_theta}) the absolute value should not be used. % CHANGE
+
+Determining how the normal to $A_{\mathrm{PV}}$ must be oriented with respect to the cardinal directions can be accomplished by solving the equations (\ref{eq:sin_gamma_s}) and (\ref{eq:cos_alpha_s}) for $t_{\mathrm{S}} = 12\mathrm{h}$. With the help of trigonometric functions this results in:
+	\begin{equation} \label{eq:gamma_s_align}
+	\centering
+		\gamma_{\mathrm{S}} = 90^\circ - \varphi + \delta \text{,} \quad \text{for } t_{\mathrm{S}} = 12\mathrm{h}
+	\end{equation}
+	\begin{equation} \label{eq:alpha_s_align}
+	\centering
+		\alpha_{\mathrm{S}} = \arccos \left(\frac{\sin \left(\varphi - \delta\right)}{\cos \gamma_{\mathrm{S}}}\right) \text{,} \quad \text{for } t_{\mathrm{S}} = 12\mathrm{h} \text{.}
+	\end{equation}
+For $\alpha_{\mathrm{S}} = 0^\circ$ the Sun is visible in the south and therefore a PV generator must be oriented in a way so that the normal to $A_{\mathrm{PV}}$ points towards the south, and for $\alpha_{\mathrm{S}} = 180^\circ$ the Sun is visible in the north and therefore the normal to $A_{\mathrm{PV}}$ must point towards the north. When the Sun is at its zenith $\alpha_{\mathrm{S}}$ cannot be solved because $\gamma_{\mathrm{S}} = 90^\circ$. In this case $\varphi = \delta$, from which $\beta = 0^\circ$ follows, and therefore the normal to $A_{\mathrm{PV}}$ must point to the Sun's zenith.
+
+A more practical approach to this can be achieved by comparing the latitude of a PV generator's installation site to the latitude $\varphi_{\mathrm{Z}}$ in $\left(^\circ\right)$, where the Sun is at its zenith for $t_{\mathrm{S}} = 12\mathrm{h}$, using a GPS device. Figure \ref{fig:crucial_latitudes} compares the three different cases of the Sun's location in the sky, depending on the installation site of a PV generator, in which $\varphi_{\mathrm{S}}$ in $\left(^\circ\right)$ is an installation site to the south and $\varphi_{\mathrm{N}}$ in $\left(^\circ\right)$ to the north of $\varphi_{\mathrm{Z}}$.
+
+\begin{figure}[h!]
+	\centering
+		\begin{subfigure}[b]{0.3\linewidth}
+			\input{tikz/tikz_northern_hemisphere}
+			\caption{Northern latitude.}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\input{tikz/tikz_phi_z}
+			\caption{Sun is at its zenith.}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\input{tikz/tikz_southern_hemisphere}
+			\caption{Southern latitude.}
+		\end{subfigure}
+	\caption{Illustration of the latitude $\varphi_{\mathrm{Z}}$ on Earth at which the Sun is at its zenith for $t_{\mathrm{S}} = 12\mathrm{h}$. By comparing the latitude of the installation site of a photovoltaic generator it can be determined how it must be aligned, so that the electrical energy yield can be maximized.}
+	\label{fig:crucial_latitudes}
+\end{figure}
+
+Inserting $\gamma_{\mathrm{S}} = 90^\circ$ and $t_{\mathrm{S}} = 12\mathrm{h}$ into equation (\ref{eq:sin_gamma_s}), the latitude $\varphi_{\mathrm{Z}}$ can be determined -- after applying trigonometric functions -- to:
+	\begin{equation} \label{eq:phi_z}
+	\centering
+		\varphi_{\mathrm{Z}} = \delta \text{.}
+	\end{equation}
+If a PV generator is installed at a latitude south of $\varphi_{\mathrm{Z}}$, the normal to $A_{\mathrm{PV}}$ must point towards the north, and if it is installed north of $\varphi_{\mathrm{Z}}$, the normal to $A_{\mathrm{PV}}$ must point towards the south. In case the PV generator is installed at the latitude $\varphi_{\mathrm{Z}}$, then $\beta = \varphi_{\mathrm{Z}} - \delta = 0^\circ$ applies, which means that the normal to $A_{\mathrm{PV}}$ points to the Sun's zenith. The normal to $A_{\mathrm{PV}}$ can be aligned using a simple compass.

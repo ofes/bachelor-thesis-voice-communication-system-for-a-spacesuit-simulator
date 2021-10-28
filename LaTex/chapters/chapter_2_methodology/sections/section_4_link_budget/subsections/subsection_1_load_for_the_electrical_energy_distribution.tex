@@ -1,0 +1,13 @@
+\subsection{Load for the electrical energy distribution} \label{sec:load_radio}
+In the section \ref{sec:methodology} the self-sufficient energy distribution system for the voice communication system was presented. The electrical load of the energy distribution system is a radio device -- for example a repeater or a mobile radio -- that operates independently of other energy sources with a certain duty cycle $a_\mathrm{T}/a_\mathrm{R}/a_\mathrm{Stby}$ in $\left(\%\right)$. The duty cycle gives an indication of what percentage of the operating time the device is in transmission, receiving or standby mode. Since its current consumption is usually specified in the data sheet together with the associated operating mode, the load current $I_\mathrm{L}$ can be generalized as follows \cite{DM2600:2013, SLR1000:2019}: 
+\begin{equation} \label{eq:battery_current}
+	\centering
+	I_\mathrm{L}(t) =
+  	\begin{cases}
+   		I_\mathrm{T}(t)\text{,} & \text{when the load transmits} \\
+    	I_\mathrm{R}(t)\text{,} & \text{when the load receives} \\
+		I_\mathrm{Stby}(t)\text{,} & \text{when the load is in standby}
+ 	\end{cases}
+\end{equation}  
+
+For a desired duty cycle, the current consumption of the device can then be modeled with a simple step function. It is assumed that the device installed on site -- which is supplied by the self-sufficient energy distribution system -- is not shut down outside of operating hours. During these hours it consumes $I_\mathrm{Stby}$. 

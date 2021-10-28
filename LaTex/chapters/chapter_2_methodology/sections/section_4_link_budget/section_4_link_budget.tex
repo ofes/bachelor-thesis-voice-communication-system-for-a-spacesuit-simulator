@@ -1,0 +1,21 @@
+\section{Voice communication system} \label{sec:link_budget}
+In order to establish voice communication -- and at a later stage data communication\footnote{Data communication is not covered in this thesis.} -- it was decided to use the VHF band.\footnote{The VHF band has a frequency range from $30\mathrm{MHz}$ to $300\mathrm{MHz}$.} It is preferred for mobile and handheld radio applications, as the range is relatively short and only extends over a few tens of kilometers. With regard to this, the possible interference with neighboring communication systems can be kept to a minimum \cite{Parsons:2000}. Since the OeWF already uses handheld radios that operate in the VHF band, it was decided to incorporate them into the voice communication system due to their good condition.
+
+In the past, VHF radios mainly used analog modulation methods for signal transmission. Nowadays, however, it is an increasing trend in this industry to use digital modulation methods. These have the decisive advantage that the signal quality -- for example the audio quality -- remains relatively constant up to a certain distance and then deteriorated drastically. In the case of radios that transmit an analog modulated signal, the quality of the signal constantly deteriorates with increasing distance \cite{SystemPlanner:2018}. So that good audio quality over longer distances can be guaranteed the decision was made to use a radio infrastructure based on digital modulation. 
+
+In combination with the aforementioned infrastructure, vertically polarized omnidirectional antennas were preferred because the field strength near the ground is stronger than that of horizontally polarized antennas. Moreover, these antennas are often more convenient to use and their directivity is the same for all cardinal directions -- in relation to the insatallation site of a radio system or the current location of a handheld radio \cite{Parsons:2000}. 
+
+Communication with frequencies in the VHF range has the consequence that the radio waves only propagate -- from the transmitter to the receiver -- via a direct \emph{line of sight} (LOS) and above the ground as ground waves. As will be shown later, the latter contribute more to the link budget. Ionospheric propagation does not occur in this band because the frequencies are too high \cite{Parsons:2000}. 
+
+The following subsections deal with the important equations and relationships required to model a voice communication system based on the facts just mentioned. 
+
+% ADD HERE
+
+\input{chapters/chapter_2_methodology/sections/section_4_link_budget/subsections/subsection_1_load_for_the_electrical_energy_distribution}
+\input{chapters/chapter_2_methodology/sections/section_4_link_budget/subsections/subsection_2_free_space_signal_budget}
+\input{chapters/chapter_2_methodology/sections/section_4_link_budget/subsections/subsection_3_plane_earth_signal_budget}
+\input{chapters/chapter_2_methodology/sections/section_4_link_budget/subsections/subsection_4_martian_application}
+
+
+
+

@@ -1,0 +1,44 @@
+\section{Solar energy} \label{sec:solar_energy}
+The Sun constantly emits a \emph{radiation flux} of around $\Phi_{\mathrm{S}} = 3,845 \cdot 10^{26} \mathrm{W}$ into space. Without any doubt it is the greatest source of renewable energy in our solar system. To determine the \emph{solar irradiance} $E_\mathrm{S}$ in $\left( \mathrm{W} \mathrm{m}^{-2} \right)$ that arrives at the top of Earth's atmosphere, the mean distance between the Sun and Earth $r_{\mathrm{SE}} = 149,597870 \cdot 10^{6} \mathrm{km}$ -- which is often reffered to as \emph{astronomical unit} (AU) -- needs to be taken into account as shown in the equation (\ref{eq:e_sun}) \cite{Karttunen:2006, Bertol:2011, Mertens:2015, Wagner:2018}. 
+	\begin{equation} \label{eq:e_sun}
+	\centering
+		E_{\mathrm{S}} = \frac{\Phi_{\mathrm{S}}}{4 \pi \, r_{\mathrm{SE}}^2} = \frac{3,845 \cdot 10^{26} \mathrm{W}}{4 \pi \cdot (1,49597870 \cdot 10^{11} \mathrm{m})^2} = 1367,21 \frac{\mathrm{W}}{\mathrm{m}^2}
+	\end{equation}
+
+Figure \ref{fig:tikz_angular_relationship} provides an illustration of the Sun and the Earth with consideration of the angular relationships, in which $\delta$ is the \emph{declination} of the Sun in $\left( ^\circ \right)$, $\varphi$ is the local \emph{latitude} of an observer on Earth in $\left( ^\circ \right)$ and $\gamma_{\mathrm{S}}$ is the \emph{altitude} of the Sun in $\left( ^\circ \right)$ at said latitude. The incident rays on the hemisphere facing the Sun (separated by the dashed line in figure \ref{fig:tikz_angular_relationship}) can be assumed to be parallel to each other due to the enormous distance between the Sun and Earth \cite{Landis:1995, Karttunen:2006, Mertens:2015, Wagner:2018}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_angular_relationship}
+	\caption{Angular relationship between the Sun and Earth. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_angular_relationship}
+\end{figure} 
+
+A great advantage of solar energy is that its source, the Sun, is highly predictable. This results in the fact, that the electrical energy supply of the self-sufficient voice communication system can be planned relatively well, as shown in the following subsections. In theory, it can be installed in almost any location where solar rays reach the surface of the Earth. A high modularity of \emph{photovoltaic} (PV) generators -- which are used to convert solar energy into electrical energy -- furthermore allows the system to be scaled up by connecting them in series for a higher voltage, or in parallel for a higher current. In both cases the power delivered by the connected PV generators is increased. In addition, PV generators have a very long service life of at least 30 years on Earth. This is due to their structure. Furthermore, compared to wind turbines, they do not have any moving mechanical parts which can be worn down over time. Finally, PV generators have a high power-to-weight ratio, which is prefered for mobile systems \cite{Landis:1995, Rebhan:2002, Mertens:2015}.\footnote{The self-sufficient voice communication system is referred to as mobile because the OeWF will conduct missions in different Mars analog regions on Earth, which requires it to be installed in different locations and therefore be shipped frequently.}
+
+Basic stand-alone systems, as shown in figure \ref{fig:tikz/tikz_solar_energy_distribution}, mainly require a PV generator, a \emph{solar charging controller} (SCC) and an electrochemical energy storage device. In this case the electrochemical energy storage device is a rechargeable battery with a \emph{number of secondary cells} $N_\mathrm{SC}$ in $\left( 1 \right)$. The SCC is responsible for the charging process of the battery and the electrical supply of the load $R_\mathrm{L}$ in $\left( \Omega \right)$.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_solar_energy_distribution}
+	\caption{Basic structure of an electrical stand-alone system which is supplied with electrical energy by a photovoltaic generator. The energy is stored in an electrochemical energy storage device.}
+	\label{fig:tikz/tikz_solar_energy_distribution}
+\end{figure}
+As illustrated in figure \ref{fig:tikz/tikz_solar_energy_distribution}, the radiation flux $\Phi_{\mathrm{G}}$ in $\left( \mathrm{W} \right)$ onto the PV generator's \emph{energy-converting area} $A_{\mathrm{PV}}$ in $\left( \mathrm{m}^2 \right)$ can be converted into electrical energy. This results in the \emph{PV generator current} $I_{\mathrm{PV}}\left( U_{\mathrm{PV}}, \vartheta_\mathrm{C}, \Phi_\mathrm{G} \right)$ in $\left( \mathrm{A} \right)$. In addition to the radiation flux $\Phi_\mathrm{G}$, this current depends on the \emph{PV generator voltage}\footnote{$I_{\mathrm{PV}}\left( U_{\mathrm{PV}} \right)$ defines the current-voltage characteristic of a PV generator.} $U_{\mathrm{PV}}$ in $\left( \mathrm{V} \right)$ and the \emph{temperature} of the PV cells -- of which the PV generator consists -- $\vartheta_{\mathrm{C}}$ in $\left( ^\circ \mathrm{C} \right)$, as this temperature plays an important role in the power output of a PV generator. For both, the PV generator and the load, the upper electrical connection (circle) represents the positive electric potential, from which the reference directions for the electrical currents directly follow. $I_\mathrm{B}$ in $\left( \mathrm{A}\right)$ is the \emph{battery current} and $I_\mathrm{L}$ in $\left( \mathrm{A}\right)$ is the \emph{load current}. \cite{Ley:2011, Bertol:2011, Mertens:2015}.
+
+With regard to future Mars missions the authors of the articles \cite{Appelbaum:1990, Appelbaum:1992, Landis:1995} found out, that even during prolonged Martian dust storms -- when the Martian atmosphere becomes almost opaque -- a PV generator could still convert electrical energy, due to the diffuse component of sunlight. This is suppored by empirical data measured with PV generators on Earth as shown in the book \cite{Mertens:2015} and by solar resource maps for Earth's surface provided by \cite{SolargisMaps:2020, GlobalSolarAtlas:2020, Union:2020}. The authors of the article \cite[1]{Landis:1995} furthermore state: \textit{``Solar energy is likely to be an important power source for surface-bound operations on Mars.''}, which is another reason why solar energy was selected as a renewable energy source to supply the self-sufficient voice communication system.
+
+In the following subsections the modeling of the self-sufficient energy distribution system of the voice communication system on Earth will be explained. The last subsection adapts these findings to a Martian application. % Change this if necessary
+
+% Subsections:
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_1_angular_relationships}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_2_solar_irradiance_on_earths_surface}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_3_photovoltaic_energy_yield}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_4_photovoltaic_generator_alignment}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_5_modeling_the_solar_energy_curve}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_6_photovoltaic_generators}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_7_solar_charging_controller}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_8_electrochemical_energy_storage}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_9_cable_losses}
+\input{chapters/chapter_2_methodology/sections/section_3_solar_energy/subsections/subsection_10_martian_application}
+
+
+

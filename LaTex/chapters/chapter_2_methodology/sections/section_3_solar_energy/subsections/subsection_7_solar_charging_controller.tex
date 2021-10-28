@@ -1,0 +1,51 @@
+\subsection{MPP tracking solar charging controllers}
+The aim of a SCC is to distribute a PV generator's electrical energy to supply one or more electrical consumers and to recharge an electrochemical energy storage device. The latter is required to supply electrical consumers during times without sunlight. SCCs that can track the MPP of a PV generator, thus providing the greatest electrical energy to the load and the electrochemical energy storage device (compare to figure \ref{fig:tikz/tikz_solar_energy_distribution}), determine the current $I_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ and voltage $U_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$. This can be accomplished by analyzing the equation (\ref{eq:p_pv_i}) from which the derivative of $P_{\mathrm{PV}}(I_{\mathrm{PV}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$, with respect to $I_{\mathrm{PV}}$, results in the equation (\ref{eq:dp_pv}).
+	\begin{equation} \label{eq:dp_pv}
+	\centering
+		 \dfrac{\mathrm d P_{\mathrm{PV}}(I_{\mathrm{PV}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})}{\mathrm d I_{\mathrm{PV}}} = m \, N_{\mathrm{C}} \, U_{\mathrm{T}} \left( \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{PV}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right) - \frac{I_{\mathrm{PV}}}{I_{\mathrm{Ph}} - I_{\mathrm{PV}} + I_{\mathrm{S}}} \right)
+	\end{equation}
+Since the slope of the curve $P_{\mathrm{PV}}(I_{\mathrm{PV}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ becomes $0\mathrm{V}$ for its maxima, $I_{\mathrm{PV}} = I_{\mathrm{MPP}}$ applies as shown below:
+	\begin{equation} \label{eq:dp_pv_zero}
+	\centering
+		 m \, N_{\mathrm{C}} \, U_{\mathrm{T}} \left( \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{MPP}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right) - \frac{I_{\mathrm{MPP}}}{I_{\mathrm{Ph}} - I_{\mathrm{PV}} + I_{\mathrm{S}}} \right) = 0\mathrm{V} \text{.}
+	\end{equation}
+If now the equation (\ref{eq:dp_pv_zero}) is subtracted from the equation (\ref{eq:u_of_i}) for the case $U_{\mathrm{PV}}(I_{\mathrm{MPP}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = U_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$, the voltage at MPP can be rewritten as follows \cite{Mertens:2015, Wagner:2018}:
+	\begin{equation} \label{eq:u_mpp_i_mpp}
+	\centering
+		 U_{\mathrm{MPP}}(I_{\mathrm{MPP}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = \frac{m \, N_{\mathrm{C}} \, U_{\mathrm{T}} \, I_{\mathrm{MPP}}}{I_{\mathrm{Ph}} - I_{\mathrm{MPP}} + I_{\mathrm{S}}} \text{.}
+	\end{equation}
+
+In addition to the equation (\ref{eq:p_mpp}), $P_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ can directly be obtained from $\Phi_{\mathrm G}$ as presented in the equation (\ref{eq:p_mpp_phi_temp}). For this, however, the PV generator's \emph{efficiency} $\eta_{\mathrm{PV}}$ in $\left(1\right)$ and its temperature coefficient $\mathrm{TC}(P_{\mathrm{MPP}})$ in $\left( \% ^\circ \mathrm{C}^{-1}\right)$ for the electrical power output at MPP must be known.\footnote{Typical $\mathrm{TC}(P_{\mathrm{MPP}})$ values for Si-PV cells are around $-0,4$ to $-0,5$ $\% ^\circ \mathrm{C}^{-1}$.} These quantities can be found in the data sheet of a PV generator. 
+	\begin{equation} \label{eq:p_mpp_phi_temp}
+	\centering
+		 P_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = \eta_{\mathrm{PV}} \, \Phi_{\mathrm G} \left[ 1 + \frac{\mathrm{TC}(P_{\mathrm{MPP}})}{100\%} \left(\vartheta_{\mathrm{C}} - \vartheta_{\mathrm{STC}} \right) \right]
+	\end{equation}
+Alternatively, $\eta_{\mathrm{PV}}$ can be calculated by using the equation (\ref{eq:p_mpp_phi_temp}) and the table \ref{tab:table_STC}, while regarding the expression $P_\mathrm{MPP,STC} = U_\mathrm{MPP,STC} \, I_\mathrm{MPP,STC}$. This is because $\eta_{\mathrm{PV}}$ depends exclusively on the material and the structure of a PV cell. Moreover, it is assumed that the PV cell is ideal and that every photon which hits the semiconductor and fulfills $W_{\mathrm{Ph}} > \Delta W_{\mathrm{gap}}$, is absorbed and leads to an electron which contributes to $I_\mathrm{Ph}$. In the mentioned inequality $W_{\mathrm{Ph}}$ is the \emph{energy of a photon} in $\left(\mathrm{eV}\right)$ and $\Delta W_{\mathrm{gap}}$ is the \emph{band gap} in $\left(\mathrm{eV}\right)$ of the semiconductor \cite{Mertens:2015, Wagner:2018}.
+
+With the equations (\ref{eq:p_mpp}), (\ref{eq:u_mpp_i_mpp}) and (\ref{eq:p_mpp_phi_temp}), the PV generator's current at MPP can be converted into the following quadratic equation:
+	\begin{equation} \label{eq:i_mpp_quadratic}
+	\centering
+		 I_{\mathrm{MPP}}^2 + c_{\mathrm{PV}} \, I_{\mathrm{MPP}} - c_{\mathrm{PV}} \left(I_{\mathrm{Ph}} + I_{\mathrm{S}}\right) = 0\mathrm{A}^2 \text{, }
+	\end{equation}
+with $c_{\mathrm{PV}}$ being:
+	\begin{equation} \label{eq:c_pv}
+	\centering
+		 c_{\mathrm{PV}} = \dfrac{\eta_{\mathrm{PV}} \, \Phi_{\mathrm G} \left[ 1 + \dfrac{\mathrm{TC}(P_{\mathrm{MPP}})}{100\%} \left(\vartheta_{\mathrm{C}} - \vartheta_{\mathrm{STC}} \right) \right]}{m \, N_{\mathrm{C}} \, U_{\mathrm{T}}} \text{.}
+	\end{equation}
+Finally, $I_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$ can be solved to:
+	\begin{equation} \label{eq:i_mpp_sqr_root}
+	\centering
+		 I_{\mathrm{MPP}}(\vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}}) = \sqrt{\frac{c_{\mathrm{PV}}^2}{4} + c_{\mathrm{PV}} \left(I_{\mathrm{Ph}} + I_{\mathrm{S}}\right)} - \frac{c_{\mathrm{PV}}}{2} \text{.}
+	\end{equation}
+The PV generator's voltage at MPP can consequently be calculated using the equation (\ref{eq:i_of_u}) for the case $U_{\mathrm{PV}}(I_{\mathrm{MPP}}, \vartheta_{\mathrm{C}}, \Phi_{\mathrm{G}})$, or using the equation (\ref{eq:u_mpp_i_mpp}).
+
+Due to the fact that real MPP tracking SCCs do not have information about the connected PV generator, a \emph{shunt resistor} $R_\mathrm{shunt}$ in $\left( \Omega \right)$ is used to find the MPP. A charging- and MPP-controller inside the SCC then controls the \emph{duty cycle} $a$ in $\left( \% \right)$ of a DC/DC converter, so that the load and the electrochemical energy storage device are supplied with the greatest electrical energy. An illustration of the basic structure of such a MPP tracking SCC can be seen in the figure \ref{fig:tikz_SCC}. $I_\mathrm{SCC}$ in $\left(\mathrm{A}\right)$ is the current that is consumed by the charging- and MPP-controller \cite{Mertens:2015}. 
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_SCC}
+	\caption{The basic structure of a maximum power point tracking solar charging controller. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_SCC}
+\end{figure}
+
+
+

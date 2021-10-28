@@ -1,0 +1,643 @@
+\section{Energy distribution}
+
+%
+%
+%
+
+%% Photovoltaic energy potential%%
+
+\subsection{Photovoltaic energy potential}
+
+The Sun constantly emits around $P_{\mathrm{S}} = 3,845 \cdot 10^{26} \mathrm{W}$ into space \cite{Mertens:2015}. Without any doubt it is the greatest source of energy in our solar system. To determine the \emph{solar irradiance} $E_\mathrm{S}$, that arrives directly outside the Earth's atmosphere, the mean distance between the Sun and Earth $r_{\mathrm{SE}} = 149,597870 \cdot 10^{6} \mathrm{km}$ -- which is often reffered to as \emph{astronomical unit} (AU) -- needs to be taken into account as shown in equation \ref{eq:e_sun}. The result of this equation is called \emph{solar constant} \cite{Karttunen:2006, Mertens:2015, Wagner:2018}. 
+
+\begin{center}
+	\begin{equation} \label{eq:e_sun}
+		E_{\mathrm{S}} = \frac{P_{\mathrm{S}}}{4 \pi \, r_{\mathrm{SE}}^2} = \frac{3,845 \cdot 10^{26} \mathrm{W}}{4 \pi \cdot (1,49597870 \cdot 10^{11} \mathrm{m})^2} = 1367,21 \frac{\mathrm{W}}{\mathrm{m}^2}
+	\end{equation}
+\end{center}
+
+Figure \ref{fig:tikz_angular_relationship} provides an illustration of the Sun and the Earth with consideration of the angular relationships, in which $\delta$ is the \emph{declination} of the Sun, $\varphi$ is the local \emph{latitude} of an observer on Earth and $\gamma_{\mathrm{S}}$ is the \emph{altitude} of the Sun at said latitude \cite{Appelbaum:1993, Karttunen:2006, Mertens:2015, Wagner:2018}. 
+
+The incident rays on the hemisphere facing the Sun (separated by the dashed line in figure \ref{fig:tikz_angular_relationship}) can be assumed to be parallel to each other due to the enormous distance between the Sun and Earth \cite{Mertens:2015, Wagner:2018}.
+
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_angular_relationship}
+	\caption{Angular relationship between the Sun and Earth. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_angular_relationship}
+\end{figure} 
+
+%
+%
+%
+
+%% Angular relationships %%
+
+\subsection{Angular relationships}
+Before the energy yield of a photovoltaic generator (PVG) can be calculated, it is essential to introduce a few important angles -- of which some were already mentioned in the previous subsection -- and define how they are counted in this thesis.
+
+The local latitude $\varphi$ at the equator is $0^\circ$ and it is counted positive towards the north and negative towards the south, with a range of $\left[-90^\circ \text{, } 90^\circ\right]$. And the local \emph{longitude} $\lambda$ is $0^\circ$ at the reference meridian $\lambda_0$ which passes through the Greenwich Observatory in the United Kingdom. $\lambda$ is counted positive east and negative west of Greenwich, with a range of $\left(-180^\circ \text{, } 180^\circ\right]$ \cite{Appelbaum:1993, Karttunen:2006, Wagner:2018}. For completens it shall be mentioned that the latitude $\varphi$ and the longitude $\lambda$ -- for a given location on Earth -- can be obtained from geographical maps or a global positioning system (GPS) device.
+
+The Sun's declination $\delta$ indicates how far the Earth's axis of rotations -- which runs trough the North and South Poles -- leans towards the Sun at solar noon.\footnote{The definition of the solar noon will be explained in the following paragraphs.} Its range is $\left[-90^\circ \text{, } 90^\circ\right]$, although its maximum values for Earth are $-23,45^\circ$ and $23,45^\circ$. $\delta$ is counted negative if the North Pole leans away from the Sun and positive if it leans towards the Sun (compare to figure \ref{fig:tikz_angular_relationship}) \cite{Appelbaum:1993, Karttunen:2006, Mertens:2015, Wagner:2018}. As per \cite{Wagner:2018}, the following approximation for $\delta$ at a given day of the year, with $N_d$ being the \emph{number of days} since January 1\textsuperscript{st},  $mon$ being the \emph{month} and $d$ being the \emph{day}, is sufficient for photovoltaic applications: 
+
+\begin{center}
+	\begin{equation} \label{eq:delta}
+		\delta = 23,45^\circ \cdot \sin \left(360^\circ \cdot \frac{284\mathrm{d} + N_d}{365\mathrm{d}}\right) \text{,} 
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:delta}
+		N_d = 30,3\mathrm{d} \cdot \left(mon - 1\right) + d \text{.}
+	\end{equation}
+\end{center}
+
+The altitude $\gamma_{\mathrm{S}}$ and the \emph{azimuth} $\alpha_{\mathrm{S}}$ of the Sun, presented in equations \ref{eq:sin_gamma_s} and \ref{eq:cos_alpha_s}, describe its position in the sky over the course of the day, with $\gamma_{\mathrm{S}}$ taking on values within $\left[0^\circ \text{, } 90^\circ\right]$ and $\alpha_{\mathrm{S}}$ taking on values within $\left(-180^\circ \text{, } 180^\circ \right]$. How these angles are measured -- with the corresponding celstial hemisphere of an observer -- is shown in figure \ref{fig:tikz_gamma_s_alpha_s}. For $\gamma_{\mathrm{S}} = 0^\circ$ the Sun is visible at the horizon and for $\gamma_{\mathrm{S}} = 90^\circ$ it is visible at its zenith. For $\alpha_{\mathrm{S}} = 0^\circ$ the Sun is visible exactly in the south and it takes on positive values towards the west and negative values towards the east \cite{Appelbaum:1993, Karttunen:2006, Mertens:2015, Wagner:2018}.
+
+\begin{center}
+	\begin{equation} \label{eq:sin_gamma_s}
+		\sin \gamma_{\mathrm{S}} = \sin \varphi \, \sin \delta + \cos \varphi \, \cos \delta \, \cos h_{\mathrm{S}}
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:cos_alpha_s}
+		\cos \alpha_{\mathrm{S}} = \frac{\sin \varphi \, \cos \delta \, \cos h_{\mathrm{S}} - \cos \varphi \, \sin \delta}{\cos \gamma_{\mathrm{S}}}
+	\end{equation}
+\end{center}
+
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_gamma_s_alpha_s}
+	\caption{From the view of an observer on Earth, the Sun reaches its greates altitude at the solar noon ($h_{\mathrm{S}} = 0^\circ$) in the south. In this figure the Sun already passed the solar noon. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_gamma_s_alpha_s}
+\end{figure}
+
+It must be noted that $\gamma_{\mathrm{S}}$ and $\alpha_{\mathrm{S}}$ change over the course of the day. By analyzing equations \ref{eq:sin_gamma_s} and \ref{eq:cos_alpha_s}, while taking into account that $\varphi$ does not change because the self-sufficient BVCR is stationary, and that, in this thesis, $\delta$ is modeled with a constant value throughout the day -- altough it takes on different values for each day of the year -- it must be the variable $h_{\mathrm{S}}$ that is responsible for these changes. It is called the \emph{solar hour angle} and its value is $0^\circ$ when the Sun reaches its greatest daily altitude $\gamma_{\mathrm{S}}$ at solar noon. This happens for either $\alpha_{\mathrm{S}} = 0^\circ$, $\alpha_{\mathrm{S}} = 180^\circ$ or for $\gamma_{\mathrm{S}} = 90^\circ$ where $\alpha_{\mathrm{S}}$ is undefined. $h_{\mathrm{S}}$ is counted negative before the solar noon and positive after the solar noon, with a range of $\left(-180^\circ \text{, } 180^\circ\right]$. \cite{Appelbaum:1993, Karttunen:2006, Mertens:2015, Wagner:2018}.  
+
+For a given \emph{solar time}\footnote{In the most cases the solar time $t_\mathrm{S}$ differs from the local time on a wrist watch. For $t_\mathrm{S} = 12\mathrm{h}$ (noon) the Sun is either exaclty in the south or in the north, whereas the Sun might not be exactly in the south, nor in the north, for the \emph{local time} $t_\mathrm{local} = 12\mathrm{h}$, on a wrist watch -- no matter how accurate it is set to the local time. More information can be obtained from \cite{Mertens:2015, Wagner:2018}.} $t_\mathrm{S}$, the hour angle $h_\mathrm{S}$ can be determined as shown in equation \ref{eq:solar_hour_angle}. The factor $\frac{15^\circ}{1\mathrm{h}}$ comes about because the Earth rotates $360^\circ$ within $24\mathrm{h}$, thus the range of the solar time $t_\mathrm{S}$ can be derived to $\left[0\mathrm{h} \text{, } 24\mathrm{h}\right)$. And the hour angle for the \emph{solar sunrise time} $t_\mathrm{S,r}$ and the \emph{solar sunset time} $t_\mathrm{S,s}$ can be calculated with the equations \ref{eq:h_sunrise} and \ref{eq:h_sunset} \cite{Appelbaum:1993, Karttunen:2006, Mertens:2015, Wagner:2018}.
+
+\begin{center}
+	\begin{equation} \label{eq:solar_hour_angle}
+		h_\mathrm{S} = \left(t_\mathrm{S} - 12\mathrm{h} \right) \cdot \frac{15^\circ}{1\mathrm{h}}
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:h_sunrise}
+		h_\mathrm{S,r} = - \arccos \left( -\tan \delta \tan \, \varphi \right) \text{,} \quad \text{for } \left|\varphi\right| < 90^\circ - \left|\delta\right|
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:h_sunset}
+		h_\mathrm{S,s} = \arccos \left( -\tan \delta \, \tan \varphi \right) \text{,} \quad \text{for } \left|\varphi\right| < 90^\circ - \left|\delta\right|
+	\end{equation}
+\end{center}
+
+In \cite{Appelbaum:1993} a few special cases for equations \ref{eq:h_sunrise} and \ref{eq:h_sunset} are mentioned which, might be of interest when choosing mission locations for the self-sufficient BVCR:
+
+%\vspace{2mm}
+\[ \tan \delta \, \tan \varphi \,
+  \begin{cases}
+    > 1       	& \quad \text{polar night, if } \varphi < -90^\circ + \delta \text{ or } \varphi > 90^\circ + \delta \text{,} \\
+    = \pm 1  		& \quad \text{the Sun is only visible at the horizon for an instant,} \\
+    < -1		& \quad \text{polar day, if } \varphi < -90^\circ - \delta \text{ or } \varphi > 90^\circ - \delta \text{.}
+  \end{cases}
+\]
+%\vspace{2mm}
+
+The solar time $t_\mathrm{S}$ can furthermore be calculated from $t_\mathrm{UTC}$, which is the \emph{Coordinated Universal Time} (UTC), using the equation \ref{eq:solar_time}, where $\lambda_0 = 0^\circ$ is the reference meridian for which $t_\mathrm{UTC}$ applies and $Z_{\mathrm{h}}$ is the \emph{equation of time} which serves as a correction factor. More information about these equations is provided by \cite{Karttunen:2006, Wagner:2018}.
+
+\begin{center}
+	\begin{equation} \label{eq:solar_time}
+		t_\mathrm{S} = t_\mathrm{UTC} + Z_{\mathrm{h}} + \left(\lambda - \lambda_{\mathrm{0}}\right) \cdot \frac{1\mathrm{h}}{15\degree}
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:time_equation}
+		Z_{\mathrm{h}} = 0,123\mathrm{h} \cdot \cos \left(360^\circ \cdot \frac{88\mathrm{d} + N_d}{365\mathrm{d}}\right) - 0,167\mathrm{h} \cdot \sin \left(720^\circ \cdot \frac{10\mathrm{d} + N_d}{365\mathrm{d}}\right) 
+	\end{equation}
+\end{center}
+
+%
+%
+%
+
+%% Solar irradiation on Earth's surface %%
+
+\subsection{Solar irradiation on Earth's surface} \label{sec:solar_irradiation_on_earths_surface}
+Compared to equation \ref{eq:e_sun}, determining the Sun's irradiance arriving on the ground is rather complex.\footnote{In \cite{Appelbaum:1989, Appelbaum:1992} this topic is investigated for the planet Mars.} Precise calculations depend on many different factors such as the changing angular relationship between the Earth and the Sun throughout the year, the composition of the Earth's atmosphere -- which changes the Sun's spectrum due to absorbtion and scattering effects -- and many more \cite{Appelbaum:1993, Mertens:2015, Wagner:2018}. 
+
+\begin{figure}[h!]
+	\centering
+  	\includegraphics[width = 0.96\textwidth]{solar_maps/austria/austria_ghi}
+  	\caption{Solar resource map of the long term average global horizontal irradiation of Austria. (Image credit: \emph{www.solargis.com} and \emph{www.globalsolaratlas.info})}
+	\label{fig:ghi_austria}
+\end{figure}
+
+With solar resource maps however, this problem can be circumvented. They are based on satellite and atmospheric solar irradiance models and meteorological data, that were designed and collected over several years. By using these maps, the compromise is made, that the following calculations and estimates are performed with average irradiance values instead of exact ones.\footnote{If exact irradiance values are known, the equations presented in the following subsections can provide more accurate estimates.} Figures \ref{fig:ghi_austria} and \ref{fig:dni_austria} provided by \cite{SolargisMaps:2020, GlobalSolarAtlas:2020} show the solar resource maps of the long term average global horizontal and direct normal irradiation, from 1994 until 2018, of Austria. The scale below the maps shows daily and annual total irradiation in $\mathrm{kWh}/\mathrm{m}^2$ \cite{MeteorologicalModeling:2020, SolarRadiationModeling:2020, SolargisData:2020}. 
+
+\begin{figure}[h!]
+	\centering
+  	\includegraphics[width = 0.96\textwidth]{solar_maps/austria/austria_dni}
+	\caption{Solar resource map of the long term average direct normal irradiation of Austria. (Image credit: \emph{www.solargis.com} and \emph{www.globalsolaratlas.info})}
+	\label{fig:dni_austria}
+\end{figure}
+
+It can be clearly seen that the values for both the global horizontal and the direct normal irradiation tend to be higher in the south and lower in the north of Austria. This can be partly explained by a greater latitude $\varphi$ which results in a lower altitude of the Sun $\gamma_{\mathrm{S}}$ during the winter months on the northern hemisphere ($\delta < 0$). Because of this, the Sun's incoming rays need to penetrate a thicker atmopshere and it is visible above the horizon for a shorter period of time over the course of the day. For locations in the south, such as the region around Klagenfurt, daily global horizontal irradiation totals of up to $3,50\mathrm{kWh}/\mathrm{m}^2$ and direct normal irradiation totals of up to $3,55\mathrm{kWh}/\mathrm{m}^2$ and higher can be expected, whereas loactions in the north, for example Linz, only reach daily global horizontal irradiation totals of around $3,25\mathrm{kWh}/\mathrm{m}^2$ and daily direct normal irradiation totals of around $2,9\mathrm{kWh}/\mathrm{m}^2$. Another notable feature are valleys bordered by mountains in the south. In these valleys, and on the bounding north-facing mountain slopes, the daily global horizontal irradiation total drops to less than $2,5\mathrm{kWh}/\mathrm{m}^2$ and the daily direct normal irradiation total drops even further down to around $1,5\mathrm{kWh}/\mathrm{m}^2$. Examples for such valleys can be located all across the Alps and they highlight, that locations, with geographical features that block the direct path of the sunlight, should be discarded as installation sites for a PVG \cite{Karttunen:2006, Mertens:2015, Wagner:2018}.
+
+Using solar resource maps, the \emph{global horizontal irradiance} (GHI) $E_{\mathrm{GHI}}$ and the \emph{direct normal irradiance} (DNI) $E_{\mathrm{DNI}}$ -- at a given location on Earth -- can be determined by either, dividing the values of the global horizontal and the direct normal irradiation by $24\mathrm{h}$, or by $365\mathrm{d} \cdot 24\mathrm{h}$ -- depending on the used scale. Therefore the unit of the GHI and the DNI is $\mathrm{W}/\mathrm{m}^2$ \cite{Mertens:2015, SolargisData:2020}.
+
+As mentioned in \cite{Mertens:2015, SolarRadiationModeling:2020} and shown in equation \ref{eq:e_ghi}, the GHI results from the \emph{direct horizontal irradiance} (DHI) $E_{\mathrm{DHI}}$ and the \emph{diffuse horizontal irradiance} (DIFH) $E_{\mathrm{DIFH}}$. The latter is caused by the scattering of sunlight by Earth's atmosphere.
+
+\begin{center}
+	\begin{equation} \label{eq:e_ghi}
+		E_{\mathrm{GHI}} = E_{\mathrm{DHI}} + E_{\mathrm{DIFH}}
+	\end{equation}
+\end{center}
+
+In comparison to the GHI -- which applies to a horizontal surface -- the DNI applies to a flat surface element perpendicular to the incoming Sun rays, and it only consideres the direct irradiance \cite{Mertens:2015, SolarRadiationModeling:2020}. With simple trigonometry as shown in \cite{Mertens:2015}, the relationship between $E_{\mathrm{DNI}}$ and $E_{\mathrm{DHI}}$ can be written as:
+
+\begin{center}
+	\begin{equation} \label{eq:e_dni}
+		E_{\mathrm{DNI}} = E_{\mathrm{DHI}} \, \frac{1}{\sin \gamma_{\mathrm{S}}} \text{.}
+	\end{equation}
+\end{center}
+
+Since solar resource maps are used in this thesis to obtain the irradiance values presented in the equations \ref{eq:e_ghi} and \ref{eq:e_dni}, more global horizontal and direct normal irradiation solar resource maps of Israel, Oman and Chile as well as for Europe and the World, can be found in appeendix \ref{ap:solar_resource_maps}. More precise solar resource maps for daily and monthly global horizontal and direct normal irradiation are provided by \cite{Union:2020}.
+
+%
+%
+%
+
+%% Photovoltaic energy yield %%
+
+\subsection{Photovoltaic energy yield} \label{sec:energy_yield}
+As already mentioned in subsection \ref{sec:solar_irradiation_on_earths_surface} the decisive factors to determine the irradiance at a given location on the Earth's surface, are the GHI and the DNI. Based on these, the three-component model as described in \cite{Appelbaum:1993, Mertens:2015}, can be used to calculate the \emph{total irradiance} $E_{\mathrm{GEN}}$ received by an inclined PVG. In this thesis, the angle of inclination, with respect to the ground, is $\beta$. An example for such an inclined PVG is shown in figure \ref{fig:tikz_three_component_model}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_three_component_model}
+	\caption{Solar radiation on an inclined photovoltaic generator with the angle $\beta$. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_three_component_model}
+\end{figure}
+Furthermore, figure \ref{fig:tikz_three_component_model} illustrates, that the total irradiance received by an inlcined PVG is made up of the sum of the \emph{direct generator irradiance} (DGI) $E_{\mathrm{DGI}}$, the \emph{diffuse generator irradiance} (DIFG) $E_{\mathrm{DIFG}}$ and the \emph{reflected generator irradiance} (RGI) $E_{\mathrm{RGI}}$. The latter is reflected with a reflectance value $ALB$ from plane earth onto the generator. This relationship can also be written as follows \cite{Bennett:2010, Bertol:2011, Mertens:2015, Bralower:2018}:
+\begin{center}
+	\begin{equation} \label{eq:e_gen}
+		E_{\mathrm{GEN}} = E_{\mathrm{DGI}} + E_{\mathrm{DIFG}} + E_{\mathrm{RGI}}
+	\end{equation}
+\end{center}
+
+The first component from eaquation \ref{eq:e_gen} can be determined by considering the \emph{angle of incident} $\theta$ of the solar rays with respect to the normal of the PVG's surface area $A_{\mathrm{PVG}}$, as presented in equation \ref{eq:e_dgi}. Figure \ref{fig:tikz_angle_theta} provides an illustration of the angle $\theta$, for which the cosine can be obtained from equation \ref{eq:cos_theta} \cite{Appelbaum:1993, Bertol:2011, Mertens:2015, Wagner:2018}.
+\begin{center}
+	\begin{equation} \label{eq:e_dgi}
+		E_{\mathrm{DGI}} = E_{\mathrm{DNI}} \, \cos \theta
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:cos_theta}
+		\begin{aligned}
+		\cos \theta &= \sin \delta \, \sin \varphi \, \cos \beta - \sin \delta \, \cos \varphi \, \sin \beta \, \cos \alpha_{\mathrm{S}} \\
+		&+ \cos \delta \, \cos \varphi \, \cos \beta \, \cos h_{\mathrm{S}} + \cos \delta \, \sin \varphi \, \sin \beta \, \cos \alpha_{\mathrm{S}} \, \cos h_{\mathrm{S}} \\ &+ \cos \delta \, \sin \beta \, \sin \alpha_{\mathrm{S}} \, \cos h_{\mathrm{S}}
+		\end{aligned}
+	\end{equation}
+\end{center}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_angle_theta}
+	\caption{Illustration of the incident angle $\theta$ of the solar rays. (Recreated from: \cite{Appelbaum:1993})}
+	\label{fig:tikz_angle_theta}
+\end{figure}
+The angle on incident $\theta$, has the range $\left[0^\circ \text{, } 90^\circ\right]$. For completenes it must be mentioned, that equation \ref{eq:sin_gamma_s} can be derived from equation \ref{eq:cos_theta} with $\beta = 0^\circ$ and for $\gamma_{\mathrm{S}} + \beta = 90^\circ$ the Sun's rays are perpendicular to the PVG's surface area $A_{\mathrm{PVG}}$, which results in $E_{\mathrm{DGI}} = E_{\mathrm{DNI}}$ \cite{Appelbaum:1993, Mertens:2015, Wagner:2018}.
+
+To determine the second component from eaquation \ref{eq:e_gen}, the sky is assumed to be isotropic. This means, that the DIFH is evenly distributed in the entire celestial hemisphere above the PVG. The more the PVG is inclined, the smaller the proportion of DIFG in equation \ref{eq:e_difg} becomes (compare to figure \ref{fig:tikz_three_component_model}) \cite{Appelbaum:1993, Mertens:2015}. 
+\begin{center}
+	\begin{equation} \label{eq:e_difg}
+		E_{\mathrm{DIFG}} = E_{\mathrm{DIFH}} \, \frac{1 + \cos \beta }{2}
+	\end{equation}
+\end{center} 
+In \cite{Mertens:2015} it is expressly pointed out that the isotropic approach used in equation \ref{eq:e_difg} is only a rough approximation. This is because the sky is brighter towards the Sun than towards the horizon.\footnote{More precise equations would be difficult to derive, which would go beyond the scope of this thesis.} 
+
+When examining the last component from equtaion \ref{eq:e_gen}, it has to be taken into account, that different surfaces reflect solar radiation differently. In equation \ref{eq:e_rgi} this is accomplished with the factor $ALB$ -- also known as the albedo. Similar to equation \ref{eq:e_difg}, an isotropic approach is used \cite{Appelbaum:1993, Dobos:2003, Mertens:2015, Bralower:2018}. 
+\begin{center}
+	\begin{equation} \label{eq:e_rgi}
+		E_{\mathrm{RGI}} = E_{\mathrm{GHI}} \, \frac{1 - \cos \beta }{2} \cdot ALB
+	\end{equation}
+\end{center}
+Approximate albedo values for various surfaces are listed in table \ref{tab:table_albedo}. The larger the value, the more solar radiation is reflected. A blackbody for example, has an albedo value of 0 while an absolute white surface has an albedo value of 1. The Earth has an average albedo of 0,31 \cite{Dobos:2003, Bennett:2010, Bralower:2018}.
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_albedo}
+	\caption{Albedo (refelctivity) values for different surfaces \cite{Dobos:2003, Bertol:2011, Mertens:2015, Bralower:2018}.}
+	\label{tab:table_albedo}
+\end{table}
+
+If the three derived components $E_{\mathrm{DGI}}$, $E_{\mathrm{DIFG}}$ and $E_{\mathrm{RGI}}$ are now inserted into equation \ref{eq:e_gen} while considering equations \ref{eq:e_ghi} and \ref{eq:e_dni}, the total irradiance $E_{\mathrm{GEN}}$ received by an inclined PVG, depending on $E_{\mathrm{GHI}}$, $E_{\mathrm{DNI}}$, $\gamma_{\mathrm{S}}$ and its angle of inclination $\beta$, can be obtained \cite{Appelbaum:1992, Appelbaum:1993, Mertens:2015}:
+
+\begin{center}
+	\begin{equation} \label{eq:e_gen_ghi_dni}
+		\begin{split}
+		E_{\mathrm{GEN}} = E_{\mathrm{DNI}} \, \cos \theta + \left(E_{\mathrm{GHI}} - E_{\mathrm{DNI}} \, \sin \gamma_{\mathrm{S}}\right) \frac{1 + \cos \beta }{2} \\ 
+		+ E_{\mathrm{GHI}} \, \frac{1 - \cos \beta }{2} \cdot ALB \text{.}
+		\end{split}
+	\end{equation}
+\end{center}
+
+Regarding this equation, it must be noted, that the angles $\gamma_{\mathrm{S}}$ and $\theta$ are time dependent and therefore the equation is time dependent. $E_{\mathrm{GHI}}$ and $E_{\mathrm{DNI}}$ on the other hand, are daily average values -- if taken from the solar resource maps shown previously -- and can therefore be treated as constants. And the angle of inclination $\beta$ as well as the albedo value $ALB$ are treated as constants as well. Because in theory, once the PVG of the self-sufficient BVCR is installed, its inclination angle $\beta$ will not change throughout the OeWF's mission. This has the consequence, that the PVG's inclined surface area $A_{\mathrm{PVG}}$ is only perpendicular for one pair of $\gamma_{\mathrm{S}}$ and $\alpha_{\mathrm{S}}$ at a given time of the day. 
+
+And for completeness it should be mentioned, that even though $ALB$ is treated as a constant, there are situations, in which the albedo value of a surface can change drastically over the course of a few hours. For example if the PVG is installed on a freshly snowed uncultivated field and the snow melts away. In that case the $ALB$ would change from 0,80 down to 0,26. Such situations must be considered while simulating the PVG's daily energy yield, by for example simulating the worst case scenario.
+
+As described by \cite{Mertens:2015, Wagner:2018}, the \emph{radiation flux} $\Phi_{\mathrm{GEN}}$ onto the PVG's surface area $A_{\mathrm{PVG}}$ -- to be more precise, the sum of the energy generating surface area of the PVG's solar cells -- can be calculated as follows:
+
+\begin{center}
+	\begin{equation} \label{eq:radiation_flux}
+		\Phi_{\mathrm{GEN}} = A_{\mathrm{PVG}} \, E_{\mathrm{GEN}} \text{,}
+	\end{equation}
+\end{center}
+
+How to determine the angle of inclination $\beta$ of the PVG, will be discussed in the next subsection.
+
+%
+%
+%
+
+%% Photovoltaic generator alignment %%
+
+\subsection{Photovoltaic generator alignment} \label{sec:photovoltaic_generator_alignment}
+The Sun's direct irradiance for clear skies reaches its greates daily value at solar noon for $t_{\mathrm{S}} = 12\mathrm{h}$. This is the point in time, in which $\gamma_{\mathrm{S}}$ reaches its greates daily value as well, and thus the Sun's rays have the shortest path through the Earth's atmosphere to the surface. It is longer, the smaller $\gamma_{\mathrm{S}}$ becomes -- regardless of whether it is before or after solar noon.\footnote{Regarding the optimal angles of a PVG for clear skies, the authors of \cite{Appelbaum:1993} write: \begin{displayquote}\textit{"For clear days, the solar irradiance is symmetrical around noon and is maximum at true solar noon, $\omega = 0$."}\end{displayquote} With $\omega$ being the solar hour angle $h_{\mathrm{S}}$.} The factor responsible for this is the air mass (AM) value $x$ \cite{Appelbaum:1993, Bertol:2011, Mertens:2015, Wagner:2018}:
+
+\begin{center}
+	\begin{equation} \label{eq:air_mass}
+		x = \frac{1}{\sin \gamma_{\mathrm{S}}} \text{.}
+	\end{equation}
+\end{center}
+
+For example, for $\gamma_{\mathrm{S}} = 90^\circ$ the Sun is at its zenith and therefore its rays have the shortest possible path through the Earth's atmosphere to the surface. And since the spectrum of the Sun on Earth's surface changes, depending on the length of the path of the Sun's rays, this spectrum is called AM1 spectrum. The AM0 specturm would be outside the Earth's atmosphere which corresponds to the previously mentioned solar constant $E_{\mathrm{S}}$ \cite{Mertens:2015, Wagner:2018}. 
+
+Besides this, the self-sufficent BVCR and therefore the PVG will be in use for the entire duration of the OeWF's missions -- in other words, it is constantly active and therefore needs energy throughout the day.
+
+Based on these findings it can be said, that a stationary PVG must be aligned in a way, that its suface area $A_{\mathrm{PVG}}$ is perpendicular to the Sun's rays when it reaches its greates daily irradiance value -- so the normal to $A_{\mathrm{PVG}}$ aligns with the incoming rays. In this way it can achieve maximum daily energy yield. With stationary it is meant, that the PVG does not actively track the Sun throughout the day, but is installed with a fixed orientation of the normal to $A_{\mathrm{PVG}}$ and a constant inclination angle $\beta$ \cite{Appelbaum:1993, Mertens:2015, Wagner:2018}.
+
+As mentioned in subsection \ref{sec:energy_yield}, the Sun's rays are perpendicular to the surface area $A_{\mathrm{PVG}}$ for $\beta = 90^\circ - \gamma_{\mathrm{S}}$. After applying this to equation \ref{eq:sin_gamma_s} and simplifying it with trigonometric functions (see appendix \ref{sec:trigonometry}), the PVG's angle of inclinations $\beta$ at a latitude $\varphi$, with Earth's axis of rotation inclined towards the Sun with the angle $\delta$, can be derived as shown in equation \ref{eq:beta_with_delta_and_phi} \cite{Appelbaum:1993, Mertens:2015, Wagner:2018}.
+
+\begin{center}
+	\begin{equation} \label{eq:beta_with_delta_and_phi}
+		\beta = \varphi - \delta
+	\end{equation}
+\end{center}
+
+Determining how the normal to $A_{\mathrm{PVG}}$ must be oriented, is accomplished by using the equations \ref{eq:sin_gamma_s} and \ref{eq:cos_alpha_s}, and solving them for $t_{\mathrm{S}} = 12\mathrm{h}$. With the help of trigonometric functions (see appendix \ref{sec:trigonometry}), this results in:
+
+\begin{center}
+	\begin{equation} \label{eq:gamma_s_align}
+		\gamma_{\mathrm{S}} = 90^\circ - \varphi + \delta \text{,} \quad \text{for } t_{\mathrm{S}} = 12\mathrm{h}
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:alpha_s_align}
+		\alpha_{\mathrm{S}} = \arcsin \left(\frac{\sin \left(\varphi - \delta\right)}{\cos \gamma_{\mathrm{S}}}\right) \text{,} \quad \text{for } t_{\mathrm{S}} = 12\mathrm{h} \text{.}
+	\end{equation}
+\end{center}
+
+For $\alpha_{\mathrm{S}} = 0^\circ$ the Sun is visible in the south and therefore the PVG must be oriented in a way, so that the normal to $A_{\mathrm{PVG}}$ points towards the south. And for $\alpha_{\mathrm{S}} = 180^\circ$ the Sun is visible in the north and therefore the normal to $A_{\mathrm{PVG}}$ must point towards the north. For the last possible case, when the Sun is at its zenith, $\alpha_{\mathrm{S}}$ cannot be solved, because $\gamma_{\mathrm{S}} = 90^\circ$.
+
+A more practical approach to this can be achieved by comparing the latitude of the PVG's installation site, to the latitude $\varphi_{\mathrm{Z}}$ where the Sun is at its zenith for $t_{\mathrm{S}} = 12\mathrm{h}$, using a GPS device. Figure \ref{fig:crucial_latitudes} compares the three different cases of the Sun's location in the sky, depending on the installation site of the PVG, in which $\varphi_{\mathrm{S}}$ is an installation site to the south and $\varphi_{\mathrm{N}}$ to the north of $\varphi_{\mathrm{Z}}$.
+
+\begin{figure}[h!]
+	\centering
+		\begin{subfigure}[b]{0.3\linewidth}
+			\input{tikz/tikz_northern_hemisphere}
+			\caption{Northern latitude.}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\input{tikz/tikz_phi_z}
+			\caption{Sun is at its zenith.}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\input{tikz/tikz_southern_hemisphere}
+			\caption{Southern latitude.}
+		\end{subfigure}
+	\caption{Illustration of the latitude $\varphi_{\mathrm{Z}}$ on Earth, which determines if a photovoltaic generator should be aligned to the north or to the south.}
+	\label{fig:crucial_latitudes}
+\end{figure}
+
+Using equation \ref{eq:sin_gamma_s} for $\gamma_{\mathrm{S}} = 90^\circ$ and $t_{\mathrm{S}} = 12\mathrm{h}$ -- after applying trigonometric functions from appendix \ref{sec:trigonometry} -- the latitude $\varphi_{\mathrm{Z}}$ can be determined to:
+\begin{center}
+	\begin{equation} \label{eq:phi_z}
+		\varphi_{\mathrm{Z}} = \delta \text{.}
+	\end{equation}
+\end{center}
+If a PVG is installed at a latitude south of $\varphi_{\mathrm{Z}}$, the normal to $A_{\mathrm{PVG}}$ must point towards the north and if it is installed north of $\varphi_{\mathrm{Z}}$ the normal to $A_{\mathrm{PVG}}$ must point towards the south. In case the PVG is set up at the latitude $\varphi_{\mathrm{Z}}$ it does not matter how it is aligned because $\beta = \varphi_{\mathrm{Z}} - \delta = 0^\circ$, which means, that the PVG lays flat on plane earth. For completeness it shall be mentioned, that the normal to $A_{\mathrm{PVG}}$ can be aligned using a simple compass.
+
+%
+%
+%
+
+%% Modeling the solar radiation curve %%
+
+\subsection{Modeling the solar energy curve} \label{sec:solar_energy_curve}
+To estimte the behavior of a PVG, inclined with the angle $\beta$, the Sun's radiation flux $\Phi_{\mathrm{GEN}}$ onto its surface area $A_{\mathrm{PVG}}$ over the course of one day, must be simulated. Since the Sun's irradiance is symmetrical for $t_0 = 12\mathrm{h}$, and the PVG is assumed to be aligned, so that $A_{\mathrm{PVG}}$ is perpendicular to the Sun's rays for $t_0 = 12\mathrm{h}$, the Sun's radiation flux $\Phi_{\mathrm{GEN}}$, as a Gaussian function of the solar time $t_{\mathrm{S}}$, can be approximated as shown in figure \ref{fig:tikz_energy_gauss} \cite{Appelbaum:1993}.
+
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_energy_gauss}
+	\caption{Model of the Sun's radiation flux $\Phi_{\mathrm{GEN}}$ as a Gaussain function of the solar time $t_{\mathrm{S}}$. It is assumed that the Sun's irradiance is symmetrical around solar noon, and that the photovoltaic generator is aligned, so that its surface area is perpendicular to the Sun's rays at solar noon.}
+	\label{fig:tikz_energy_gauss}
+\end{figure}
+
+The corresponding Gaussian function can be obtained from equations \ref{eq:phi_gen_gauss} and \ref{eq:tau}:
+
+\begin{center}
+	\begin{equation} \label{eq:phi_gen_gauss}
+		\Phi_{\mathrm{GEN}}\left(t_{\mathrm{S}}\right) = \Phi_{\mathrm{max}} \, \exp\left(-\frac{(t_{\mathrm{S}} - t_0)^2}{2 \tau^2}\right) \text{, }
+	\end{equation}
+\end{center}
+
+\begin{center}
+	\begin{equation} \label{eq:tau}
+		\tau = \frac{t_0 - t_{\mathrm{S,r}}}{3} = \frac{t_{\mathrm{S,s}} - t_0}{3} \text{.}
+	\end{equation}
+\end{center}
+
+And the area this curve encloses with the solar time axis $t_{\mathrm{S}}$, from sunrise $t_{\mathrm{S,r}}$ to sunset $t_{\mathrm{S,s}}$, is equal to 99,7\% of the \emph{Sun's daily energy} $W_{\mathrm{GEN}}$ onto the surface area $A_{\mathrm{PVG}}$ \cite{Appelbaum:1993, Prechtl:2006, Prechtl:2008, Glover:2010, Schrufer:2014, AlNahhal:2019}:\footnote{$t_{\mathrm{S,r}}$ and $t_{\mathrm{S,s}}$ have been chosen this way for simplicity.}
+
+\begin{center}
+	\begin{equation} \label{eq:w_gen_gauss}
+		W_\mathrm{GEN} = \frac{1}{0,997} \int\limits_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} \Phi_{\mathrm{max}} \, \exp\left(-\frac{(t_{\mathrm{S}} - t_0)^2}{2 \tau^2}\right) \,\mathrm{d}t_\mathrm{S} = \frac{\Phi_{\mathrm{max}} \, \tau \sqrt{2\pi}}{0,997} \text{.}
+	\end{equation}
+\end{center}
+
+A similar approach is used in \cite{Guo:2017, Nguyen:2020} and from \cite{Balafas:2010, Mertens:2015, Koudouris:2017} it can be seen, that the Sun's total irradiance $E_{\mathrm{GEN}}$ throughout the day, from which $\Phi_{\mathrm{GEN}}$ derives, behaves similar to a Gaussian curve.\footnote{How to solve the integral in equation \ref{eq:w_gen_gauss}, from $-\infty$ to $\infty$, can be found in appendix \ref{sec:gauss_general}.}
+
+The \emph{greates daily radiation flux} $\Phi_{\mathrm{max}}$ from equation \ref{eq:phi_gen_gauss} can be calculated using the equations \ref{eq:e_gen_ghi_dni} and \ref{eq:radiation_flux} by deriving the following relationship\cite{Appelbaum:1993, Prechtl:2006, Prechtl:2008}:
+
+\begin{center}
+	\begin{equation} \label{eq:w_gen}
+		W_\mathrm{GEN} = \int\limits_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} \Phi_{\mathrm{GEN}}\,\mathrm{d}t_\mathrm{S} = A_{\mathrm{PVG}} \int\limits_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} E_{\mathrm{GEN}}\,\mathrm{d}t_\mathrm{S} \text{.}
+	\end{equation}
+\end{center}
+
+Needless to say, $A_{\mathrm{PVG}}$ is a constant factor. Considering this, and the findings from subsection \ref{sec:energy_yield}, the integrals from equation \ref{eq:w_gen} can be partly solved as follows:
+
+\begin{center}
+	\begin{equation} \label{eq:int_e_gen}
+		\begin{split}
+		\int\limits_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} E_{\mathrm{GEN}}\,\mathrm{d}t_\mathrm{S} = E_{\mathrm{GHI}} \left( \frac{1 + \cos \beta}{2} + \frac{1 - \cos \beta}{2} \cdot ALB \right) \cdot \left(t_{\mathrm{S,s}} - t_{\mathrm{S,r}}\right) \\ 
+		- E_{\mathrm{DNI}} \ \frac{1 + \cos \beta}{2} \underbrace{\int\limits_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} \sin \gamma_{\mathrm{S}}\,\mathrm{d}t_\mathrm{S}}_\text{\textbf{\RN{1}}} + E_{\mathrm{DNI}} \underbrace{\int\limits_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} \cos \theta \,\mathrm{d}t_\mathrm{S}}_\text{\textbf{\RN{2}}}
+		\end{split}
+	\end{equation}
+\end{center}
+
+Using equations \ref{eq:sin_gamma_s} and \ref{eq:solar_hour_angle}, integral \text{\textbf{\RN{1}}} can be solved to:
+
+\begin{center}
+	\begin{equation} \label{eq:int_rn_1}
+		\begin{aligned}
+		\text{\textbf{\RN{1}}:} \ \int\limits_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} \sin \gamma_{\mathrm{S}}\,\mathrm{d}t_\mathrm{S} &= 
+		\sin \varphi \, \sin \delta \cdot \left(t_{\mathrm{S,s}} - t_{\mathrm{S,r}} \right) \\
+		&+ c_{\varphi,\delta} \, \left(\sin \left(\left(t_{\mathrm{S,s}} - 12\mathrm{h} \right) \cdot \frac{15^\circ}{1\mathrm{h}} \right) - \sin \left(\left( t_{\mathrm{S,r}} - 12\mathrm{h} \right) \cdot \frac{15^\circ}{1\mathrm{h}} \right)\right) \text{,}
+		\end{aligned}
+	\end{equation}
+\end{center}
+
+with $c_{\varphi,\delta}$ being:
+
+\begin{center}
+	\begin{equation} \label{eq:const_varphi_delta}
+		c_{\varphi,\delta} = \cos \varphi \, \cos \delta \cdot \frac{1\mathrm{h}}{15^\circ} \text{.}
+	\end{equation}
+\end{center}
+
+Integral \text{\textbf{\RN{2}}} on the other hand cannot be solved analytically as easy. This is why a sum instead of an integral is used to calculate the Sun's daily energy $W_{\mathrm{GEN}}$ onto $A_{\mathrm{PVG}}$ in the Matlab simulation (see appendix XXXX) \cite{Appelbaum:1992, Appelbaum:1993, Prechtl:2006, Prechtl:2008}:
+
+\begin{center}
+	\begin{equation} \label{eq:sum_energy}
+		W_\mathrm{GEN} = A_{\mathrm{PVG}} \displaystyle\sum_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} E_{\mathrm{GEN}} \, \Delta t_{\mathrm{S}} \text{.}
+	\end{equation}
+\end{center}
+
+Using trigonometric functions, $E_{\mathrm{GEN}}$ can be simplyfied as shown in equation \ref{eq:sum_e_gen} (see appendix \ref{sec:trigonometry}). And depending on the desired accuracy, $\Delta t_{\mathrm{S}}$ can be smaller or greater. The smaller it is the more accurate the Sun's daily energy $W_{\mathrm{GEN}}$ onto $A_{\mathrm{PVG}}$ can be modeled \cite{Appelbaum:1992, Appelbaum:1993}.\footnote{$\Delta t_{\mathrm{S}}$ is one discrete time step. It can be caluculated from the length $len$ of the Matlab vector, that goes from $t_{\mathrm{S,r}}$ to $t_{\mathrm{S,s}}$: $\Delta t_{\mathrm{S}} = \frac{1}{len}$.}
+
+\begin{center}
+	\begin{equation} \label{eq:sum_e_gen}
+		\begin{aligned}
+		\displaystyle\sum_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} E_{\mathrm{GEN}} \, \Delta t_{\mathrm{S}} &= \displaystyle\sum_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} \left(E_{\mathrm{GHI}} - E_{\mathrm{DNI}} \, \sin \gamma_{\mathrm{S}} \right) \, \cos^2 \frac{\beta}{2} \, \Delta t_{\mathrm{S}} \\
+		&+ \displaystyle\sum_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} \left(E_{\mathrm{DNI}} \, \cos \theta + E_{\mathrm{GHI}} \, \sin^2 \frac{\beta}{2} \cdot ALB\right) \, \Delta t_{\mathrm{S}}
+		\end{aligned}
+	\end{equation}
+\end{center}
+
+By inserting the caluclated $W_{\mathrm{GEN}}$ from equation \ref{eq:sum_energy} into equation \ref{eq:w_gen_gauss} and transforming it, the greates daily radiation flux $\Phi_{\mathrm{max}}$, which in this simulation occurs for $t_0 = 12\mathrm{h}$, can be obtained:
+
+\begin{center}
+	\begin{equation} \label{eq:phi_max_sum}
+		\Phi_{\mathrm{max}} = \frac{0,997 \cdot A_{\mathrm{PVG}}}{\tau \sqrt{2\pi}} \displaystyle\sum_{t_{\mathrm{S,r}}}^{t_{\mathrm{S,s}}} E_{\mathrm{GEN}} \, \Delta t_{\mathrm{S}}
+	\end{equation}
+\end{center}
+
+%
+%
+%
+
+%% Photovoltaic generators %%
+
+\subsection{Photovoltaic generators} \label{sec:photovoltaic_generators}
+The aim of this subsection is to model the \emph{PVG current} $I_{\mathrm{PVG}}$ and the \emph{PVG voltage} $U_{\mathrm{PVG}}$ based on the previous findings. Since most commercial PVGs consist of photovoltaic cells (PVCs) connected in series, only these are going to be covered. Figure \ref{fig:tikz_PVG_circuit_diagram} shows the circuit diagram of such a PVG with a given \emph{number of PVCs} $n = N_{\mathrm{PVC}}$.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVG_circuit_diagram}
+	\caption{Circuit diagram of a photovoltaic generator. It consists of $n = N_{\mathrm{PVC}}$ photovoltaic cells connected in series. (Recreated from: \cite{Mertens:2015})}
+	\label{fig:tikz_PVG_circuit_diagram}
+\end{figure}
+It can be seen, that $I_{\mathrm{PVG}}$ is equal for all PVCs and that $U_{\mathrm{PVG}}$ is the sum of the \emph{PVC voltages} $U_{\mathrm{PVC}}$. In this thesis it is assumed that all PVCs have the same voltage $U_{\mathrm{PVC}}$, and therefore $U_{\mathrm{PVG}}$ can be written as presented in equation \ref{eq:u_pvg_sum_of_pvc}. For the sake of simplicity it is furthermore assumed, that the PVG is installed in a way, so that no shadowing occurs during the course of the mission \cite{Prechtl:2006, Mertens:2015}.
+
+\begin{center}
+	\begin{equation} \label{eq:u_pvg_sum_of_pvc}
+		U_{\mathrm{PVG}} = N_{\mathrm{PVC}} \, U_{\mathrm{PVC}}
+	\end{equation}
+\end{center}
+
+In the next step the PVCs shown in figure \ref{fig:tikz_PVG_circuit_diagram} must be modeled. For this, the simplified standard model\footnote{This model can be derived from the PVC standard model for $R_{\mathrm{P}} \to \infty$ and $R_{\mathrm{S}} = 0\Omega$.} is used, as there are explicit solutions for $U_{\mathrm{PVC}}$ and $I_{\mathrm{PVG}}$. It represents an ideal PVC without internal losses. An illustration of this model is provided in figure \ref{fig:tikz_PVC_simplified} \cite{Mertens:2015, Wagner:2018}.
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVC_simplified}
+	\caption{Simplified standard model of a photovoltaic cell. (Recreated from: \cite{Mertens:2015, Wagner:2018})}
+	\label{fig:tikz_PVC_simplified}
+\end{figure}
+
+After applying Kirchoff's first and second law to the simplified standard model, considering equation \ref{eq:u_pvg_sum_of_pvc}, and taking into account that the PVG's current-voltage characteristic depends on the \emph{PVC temperature} $\vartheta = \vartheta_{\mathrm{PVC}}$ and the -- already introduced -- radiation flux $\Phi = \Phi_{\mathrm{GEN}}$, it can be modeled with the equations \ref{eq:i_of_u} and \ref{eq:u_of_i}.\footnote{Eqaution \ref{eq:u_of_i} can be derived from equations \ref{eq:i_of_u}.}
+\begin{center}
+	\begin{equation} \label{eq:i_of_u}
+		I_{\mathrm{PVG}}\left(U_{\mathrm{PVG}}, \vartheta, \Phi\right) = I_{\mathrm{Ph}} - \underbrace{I_{\mathrm{S}} \left( \exp \left(\frac{U_{\mathrm{PVG}}}{m \, N_{\mathrm{PVC}} \, U_{\mathrm{T}} } \right) - 1  \right)}_{I_{\mathrm{D}}}
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:u_of_i}
+		U_{\mathrm{PVG}}\left(I_{\mathrm{PVG}}, \vartheta, \Phi\right) = m \, N_{\mathrm{PVC}} \, U_{\mathrm{T}} \, \ln \left( \frac{I_{\mathrm{Ph}} - I_{\mathrm{PVG}} + I_{\mathrm{S}}}{I_{\mathrm{S}}} \right)
+	\end{equation}
+\end{center}
+The diode's \emph{thermal voltage} $U_{\mathrm{T}} = U_{\mathrm{T}}\left( \vartheta \right)$, with $k = 1,380649 \cdot 10^{-23} \mathrm{Ws/K}$ being the \emph{Bolzmann constant} and $e = 1,602176634\cdot10^{-19} \mathrm{As}$ being the \emph{elementary charge}, can be obtained from equation \ref{eq:u_temp}.
+\begin{center}
+	\begin{equation} \label{eq:u_temp}
+		U_{\mathrm{T}}\left( \vartheta \right) = \frac{ k \, \left( \vartheta_{\mathrm{PVC}} + 273,15^\circ \mathrm{C} \right) }{e} \cdot \frac{\mathrm{1K}}{1^\circ \mathrm{C}}
+	\end{equation}
+\end{center}
+$m$ is the \emph{ideality factor} with the condition $\{m \in \mathbb{R}^+ \mid 2 \geq m \geq 1 \}$. It is an empirical value that is used to model the PVCs more precisely.\footnote{For $m = 1$, $I_\mathrm{D}$ is Shockley's equation.} And the quantities $I_{\mathrm{S}} = I_{\mathrm{S}}\left( \vartheta \right)$ and $I_{\mathrm{Ph}} = I_{\mathrm{Ph}}\left(\vartheta, \Phi\right)$ are the diode's \emph{reverse saturation current} and the PVC's \emph{photocurrent}. How the PVC temperature $\vartheta_{\mathrm{PVC}}$ is determined will be explained later \cite{Prechtl:2006, Mertens:2015, Tietze:2016, Wagner:2018, Elert:2020}. 
+
+Based on equation \ref{eq:i_of_u} the modeled current-voltage characteristic can be visualized as shown in figure \ref{fig:tikz/tikz_PVG_curve}, where $I_{\mathrm{SC}}\left(\vartheta,\Phi\right)$ and $U_{\mathrm{OC}}\left(\vartheta,\Phi\right)$ are the PVG's \emph{short-circuit current} and \emph{open-circuit voltage}. The MPP is the \emph{maximum power point}, for which the PVG provides the greatest electrical power \cite{Prechtl:2006, Mertens:2015, Wagner:2018}:
+\begin{center}
+	\begin{equation} \label{eq:p_mpp}
+		P_{\mathrm{MPP}} = U_{\mathrm{MPP}} \, I_{\mathrm{MPP}} \text{.}
+	\end{equation}
+\end{center}
+\begin{figure}[h!]
+	\centering
+	\input{tikz/tikz_PVG_curve}
+	\caption{Modeled current-voltage characteristic of a photovoltaic generator depending on the radiation flux $\Phi = \Phi_{\mathrm{GEN}}$ and the photovoltaic cell temperature $\vartheta = \vartheta_{\mathrm{PVC}}$. (Recreated from: \cite{Mertens:2015, Wagner:2018})}
+	\label{fig:tikz/tikz_PVG_curve}
+\end{figure}
+
+The quantity in the simplified standard model that changes with the solar radiation, is the photocurrent. It is proportional to the radiation flux $\Phi_{\mathrm{GEN}}$, with $S = \mathrm{const.}$ being the \emph{sensitivity} of the PVC:
+\begin{center}
+	\begin{equation} \label{eq:photo_i}
+		I_{\mathrm{Ph}}\left( \vartheta_{\mathrm{STC}}, \Phi \right) = S \, \Phi_{\mathrm{GEN}} \text{.}
+	\end{equation}
+\end{center}
+In the case $I_{\mathrm{PVG}}\left(0\mathrm{V}, \vartheta_{\mathrm{STC}}, \Phi_{\mathrm{STC}}\right) = I_\mathrm{SC,STC}$ the sensitivity results from equation \ref{eq:sens}.
+\begin{center}
+	\begin{equation} \label{eq:sens}
+		 S = \frac{I_\mathrm{SC,STC}}{\Phi_{\mathrm{STC}}}
+	\end{equation}
+\end{center}
+For the standard test conditions (STC), listed in table \ref{tab:table_STC}, $I_\mathrm{SC,STC}$ can be taken directly from the data sheet of the PVG and $\Phi_{\mathrm{STC}}$ can be obtained from equation \ref{eq:radiation_flux}. In this, $A_\mathrm{PVG}$ can either be measured or taken from the PVG's data sheet as well.
+\begin{table}[h!]
+	\centering
+	\input{tables/table_STC}
+	\caption{Parameters for the standard test conditions of a photovoltaic generator \cite{Mertens:2015}.}
+	\label{tab:table_STC}
+\end{table}
+And finally, after substituting equation \ref{eq:sens} into equation \ref{eq:photo_i} and taking the \emph{temperature coefficient} of the short circuit current $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ into account, the photocurrent, depending on the PVC temperature and the radiation flux, follows to:
+\begin{center}
+	\begin{equation} \label{eq:i_ph_theta_phi}
+		 I_{\mathrm{Ph}}\left( \vartheta, \Phi \right) = \underbrace{I_{\mathrm{SC,STC}} \, \frac{E_\mathrm{GEN}}{E_\mathrm{STC}}}_{I_{\mathrm{Ph}}\left( \vartheta_{\mathrm{STC}}, \Phi \right)} \, \left[ 1 + \frac{\mathrm{TC}\left(I_{\mathrm{SC}}\right)}{100\%} \left(\vartheta_{\mathrm{PVC}} - \vartheta_{\mathrm{STC}} \right) \right] \text{.}
+	\end{equation}
+\end{center}
+$\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ can usually be taken from the PVG's data sheet.\footnote{Typical $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$ values for Si-PVCs are around $0,06 \% / \mathrm{K}$.} And because $I_{\mathrm{PVG}}\left( 0\mathrm{V}, \vartheta, \Phi \right) = I_{\mathrm{SC}}\left( \vartheta, \Phi \right)$, it follows, that $I_{\mathrm{SC}}\left( \vartheta, \Phi \right) = I_{\mathrm{Ph}}\left( \vartheta, \Phi \right)$ \cite{Mertens:2015, Tietze:2016, Wagner:2018}. 
+
+Now that $I_{\mathrm{Ph}}\left( \vartheta, \Phi \right)$ is known, the diode's reverse saturation current can be calculated from the case $I_{\mathrm{PVG}}\left(U_{\mathrm{OC}}\left( \vartheta, \Phi \right), \vartheta, \Phi\right) = 0\mathrm{A}$: 
+\begin{center}
+	\begin{equation} \label{I_S_theta_phi}
+		I_\mathrm{S}\left(\vartheta\right) = I_{\mathrm{Ph}}\left( \vartheta, \Phi \right) \, \left( \exp \left( \frac{U_\mathrm{OC}\left(\vartheta,\Phi\right)}{m \, N_\mathrm{PVC} \, U_\mathrm{T}} \right) - 1 \right)^{-1} \text{.}
+	\end{equation}
+\end{center}
+The open-circuit voltage $U_\mathrm{OC}\left(\vartheta,\Phi\right)$ can be obtined by subtracting the case $U_{\mathrm{PVG}}\left( 0\mathrm{A}, \vartheta, \Phi \right)$ from the case $U_{\mathrm{PVG}}\left(0\mathrm{A}, \vartheta, \Phi_{\mathrm{STC}}\right)$, while taking the temperature coefficient of the open-circuit voltage $\mathrm{TC}\left(U_{\mathrm{OC}}\right)$ into account:
+\begin{center}
+	\begin{equation} \label{U_OC_theta_phi}
+		U_\mathrm{OC}\left(\vartheta,\Phi\right) = U_\mathrm{OC}\left(\vartheta,\Phi_\mathrm{STC}\right)  + m \, N_\mathrm{PVC} \, U_\mathrm{T} \, \ln \left( \frac{I_{\mathrm{Ph}}\left(\vartheta, \Phi \right) + I_{\mathrm{S}}\left( \vartheta\right)}{I_\mathrm{Ph}\left(\vartheta,\Phi_\mathrm{STC}\right) + I_{\mathrm{S}}\left( \vartheta\right)} \right) \text{,}
+	\end{equation}
+\end{center}
+where $U_\mathrm{OC}\left(\vartheta,\Phi_\mathrm{STC}\right)$ is the temperature depndent open-circuit voltage for the radiation flux $\Phi_\mathrm{STC}$ at STC: 
+\begin{center}
+	\begin{equation} \label{U_OC_phi_STC}
+		U_\mathrm{OC}\left(\vartheta,\Phi_\mathrm{STC}\right) = U_\mathrm{OC,STC} \left[ 1 + \frac{\mathrm{TC}\left(U_{\mathrm{OC}}\right)}{100\%} \left(\vartheta_{\mathrm{PVC}} - \vartheta_{\mathrm{STC}} \right) \right] \text{.}
+	\end{equation}
+\end{center}
+In addition to $\mathrm{TC}\left(I_{\mathrm{SC}}\right)$, $\mathrm{TC}\left(U_{\mathrm{OC}}\right)$ can also be taken from the PVG's data sheet.\footnote{Typical $\mathrm{TC}\left(U_{\mathrm{OC}}\right)$ values for Si-PVCs are around $-0,40 \% / ^\circ \mathrm{C}$.} Equation \ref{U_OC_theta_phi} is only valid becuase the reverse saturation current $I_\mathrm{S}\left(\vartheta\right)$ does not depend on the radiation flux \cite{Mertens:2015, Tietze:2016, Hering:2017, Wagner:2018}. 
+
+Since both functions -- from the equations \ref{I_S_theta_phi} and \ref{U_OC_theta_phi} -- are in a non-linear relationship to one another, the Newton-Raphson method must be used to approximate them numerically (see appendix \ref{sec:newton_raphson_method}). For this, the functions $f_1\left( \mathrm{\mathbf{x}}_R \right)$ and $f_2\left( \mathrm{\mathbf{x}}_R \right)$ are introduced in the equations \ref{f_1} and \ref{f_2}. In first equation (\ref{f_1}) an exponential function is used instead of a logarthmic function, because some numerical approximation algorithms do not converge for logarithmic functions.
+\begin{center}
+	\begin{equation} \label{f_1}
+		f_1 \left( \mathrm{\mathbf{x}}_R \right)  = \exp \left( \frac{U_\mathrm{OC}\left(\vartheta,\Phi\right) - U_\mathrm{OC}\left(\vartheta,\Phi_\mathrm{STC}\right)}{m \, N_\mathrm{PVC} \, U_\mathrm{T}} \right) - \frac{I_\mathrm{Ph}\left(\vartheta,\Phi\right) + I_\mathrm{S}\left(\vartheta\right)}{I_\mathrm{Ph}\left(\vartheta,\Phi_\mathrm{STC}\right) + I_\mathrm{S}\left(\vartheta\right)} = 0
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{f_2}
+		f_2\left( \mathrm{\mathbf{x}}_R \right) = I_\mathrm{S}\left(\vartheta\right) - I_\mathrm{Ph}\left(\vartheta,\Phi\right) \, \left( \exp \left( \frac{U_\mathrm{OC}\left(\vartheta,\Phi\right)}{m \, N_\mathrm{PVC} \, U_\mathrm{T}} \right) - 1 \right)^{-1} = 0\mathrm{A}
+	\end{equation}
+\end{center}
+The vector $\mathrm{\mathbf{x}}_R$ containes the zero crossings of the functions $f_1\left( \mathrm{\mathbf{x}}_R \right)$ and $f_2\left( \mathrm{\mathbf{x}}_R \right)$. It can be seen in equation \ref{x_r_vector}. 
+\begin{center}
+	\begin{equation} \label{x_r_vector}
+		\mathrm{\mathbf{x}}_R = \Big( I_\mathrm{S}\left(\vartheta\right), U_\mathrm{OC}\left(\vartheta,\Phi\right) \Big)^{\mathrm T}
+	\end{equation}
+\end{center}
+Furthermore, the vector $\mathrm{\mathbf{f}}\left(\mathrm{\mathbf{x}}_R\right) = \mathbf{0}$, which containes the functions from the equations \ref{f_1} and \ref{f_2}, must be introduced for the Newton-Raphson method:
+\begin{center}
+	\begin{equation} \label{f_vector}
+		\mathrm{\mathbf{f}}\left(\mathrm{\mathbf{x}}_R\right) = 
+  			\Big( f_{1} \left( \mathrm{\mathbf{x}}_R \right), f_{1} \left( \mathrm{\mathbf{x}}_R \right) \Big)^{\mathrm T} = \mathrm{\mathbf{0}} \text{.}
+	\end{equation}
+\end{center}
+With the help of the Jacobian matrix $\mathrm{\mathbf{J}}$, the $\left(n + 1\right)$\textsuperscript{th} approximation with $n \in \mathbb{N}$, can be determined as follows:
+\begin{center}
+	\begin{equation} \label{eq:vect_U_I_approx}
+		\mathrm{\mathbf{x}}_{R, n + 1} = \mathrm{\mathbf{x}}_{R,n} 	- \mathrm{\mathbf{J}}^{-1}\left( \mathrm{\mathbf{x}}_{R,n} \right) \, \mathrm{\mathbf{f}}\left( \mathrm{\mathbf{x}}_{R,n} \right) \text{,}
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{eq:jacobian_for_PVG}
+		\mathrm{\mathbf{J}} = \left. \dfrac{\partial \mathrm{\mathbf{f}}\left(\mathrm{\mathbf{x}}\right)}{\partial \mathrm{\mathbf{x}}} \right|_{\mathrm{\mathbf{x}} = \mathrm{\mathbf{x}}_R} = 
+ 		\begin{pmatrix}
+  			\dfrac{\partial f_1\big( I_\mathrm{S}\left(\vartheta\right), U_\mathrm{OC}\left(\vartheta,\Phi\right) \big)}{\partial I_\mathrm{S}\left(\vartheta\right)}  & \dfrac{\partial  f_1\big( I_\mathrm{S}\left(\vartheta\right), U_\mathrm{OC}\left(\vartheta,\Phi\right) \big)}{\partial U_\mathrm{OC}\left(\vartheta,\Phi\right)} \\
+			\dfrac{\partial f_2\big( I_\mathrm{S}\left(\vartheta\right), U_\mathrm{OC}\left(\vartheta,\Phi\right) \big)}{\partial I_\mathrm{S}\left(\vartheta\right)} & \dfrac{\partial f_2\big( I_\mathrm{S}\left(\vartheta\right), U_\mathrm{OC}\left(\vartheta,\Phi\right) \big)}{\partial U_\mathrm{OC}\left(\vartheta,\Phi\right)} 
+ 		\end{pmatrix} \text{.}
+ 	\end{equation}
+\end{center}
+Starting values for the Newton-Raphson method can be obtained from the equtaions \ref{eq:U_OC_theta_phi_zero} and \ref{I_S_theta_phi_zero} if it is accepted, that the diode's reverse saturation current $I_{\mathrm{S}}$ is small compared to the photocurrent $I_{\mathrm{Ph}}$, so that $I_{\mathrm{S}} + I_{\mathrm{Ph}} \approx I_{\mathrm{Ph}}$ applies.\footnote{Equation \ref{eq:U_OC_theta_phi_zero} can be derived from equation \ref{eq:U_OC_theta_phi} and equation \ref{I_S_theta_phi_zero} can be derived from equation \ref{I_S_theta_phi}.}
+\begin{center}
+	\begin{equation} \label{eq:U_OC_theta_phi_zero}
+		\begin{gathered}
+		 U_{\mathrm{OC,0}}\left( \vartheta, \Phi \right) = U_\mathrm{OC}\left(\vartheta,\Phi_\mathrm{STC}\right) + m \, N_\mathrm{PVC} \, U_\mathrm{T} \, \ln \left( \frac{I_\mathrm{Ph}\left(\vartheta,\Phi\right)}{I_\mathrm{Ph}\left(\vartheta,\Phi_\mathrm{STC}\right)} \right) \text{,} \\ \text{for } I_\mathrm{S} \ll I_\mathrm{Ph}
+		 \end{gathered}
+	\end{equation}
+\end{center}
+\begin{center}
+	\begin{equation} \label{I_S_theta_phi_zero}
+		I_\mathrm{S,0}\left(\vartheta\right) = I_{\mathrm{Ph}}\left( \vartheta, \Phi \right) \, \exp \left( - \frac{U_\mathrm{OC}\left(\vartheta,\Phi\right)}{m \, N_\mathrm{PVC} \, U_\mathrm{T}} \right) \text{,} \quad \text{for } I_\mathrm{S} \ll I_\mathrm{Ph}
+	\end{equation}
+\end{center}
+From these, the starting vector $\mathrm{\mathbf{x}}_{R,0} = \big( I_\mathrm{S,0}\left(\vartheta\right), U_\mathrm{OC,0}\left(\vartheta,\Phi\right) \big)^{\mathrm T}$ for the first iteration can determined. Finally it has to mentioned, that the functions $f_1\left( \mathrm{\mathbf{x}}_R \right)$ and $f_2\left( \mathrm{\mathbf{x}}_R \right)$ are continuously differentiable for the required number of iteration steps $n + 1$, which is a requirement of the Newton-Raphson method \cite{Schwarz:2011, Rudolf:2014, Taschner:2014, Mertens:2015, Wagner:2018, Kugi:2021}.
+
+The PVC temperature $\vartheta_{\mathrm{PVC}}$, depending on the total irradiance $E_{\mathrm{GEN}}$ and the \emph{ambient temperature} $\vartheta_{\mathrm{A}}$, with the \emph{nominal operating cell temperature}\footnote{Typical $\mathrm{NOCT}$ values for c-Si-PVGs are around $45$ to $50^\circ \mathrm{C}$.} $\mathrm{NOCT}$ and the conditions under which it is measured, $\vartheta_{\mathrm{A,NOCT}}$ and $E_{\mathrm{NOCT}}$, can be approximated by assuming that the increase of $\vartheta_{\mathrm{PVC}}$, compared to the ambient temperature $\vartheta_{\mathrm{A}}$, is proportional to $E_{\mathrm{GEN}}$:
+\begin{center}
+	\begin{equation} \label{eq:cell_temp}
+		\vartheta_{\mathrm{PVC}} \approx \vartheta_{\mathrm{A}} + \left(\mathrm{NOCT} - \vartheta_{\mathrm{A,NOCT}}\right) \frac{E_{\mathrm{GEN}}}{E_{\mathrm{NOCT}}} \text{.}
+	\end{equation}
+\end{center}
+The paramateres under which the $\mathrm{NOCT}$ is measured are provided by table \ref{tab:table_NOCT} and the $\mathrm{NOCT}$ is usually listed in the PVG's data sheet as well \cite{Mertens:2015}.
+
+\begin{table}[h!]
+	\centering
+	\input{tables/table_NOCT}
+	\caption{Conditions under which the NOCT is measured \cite{Mertens:2015}.}
+	\label{tab:table_NOCT}
+\end{table}
+
+Ambient temperatures $\vartheta_{\mathrm{A}}$ for different locations on Earth can be obtained from climate charts. Figure \ref{fig:temp_vienna}, for example, presents monthly averages for the ambient temperature in $^\circ \mathrm{C}$ and precipitation in $\mathrm{mm}$, collected by the Global Historical Climatology Network, for the Hohe Warte in Vienna, Austria, between 1997 and 2016. Below the chart the percentage of missing data, regarding the months of the year, is presented. More climate charts can be found in appendix \ref{ap:solar_resource_maps} \cite{Zepner:2020}.
+
+\begin{figure}[h!]
+	\centering
+  	\includegraphics[width = 0.96\textwidth]{temp_maps/temp_vienna}
+  	\caption{Monthly averages of temperature and precipitation data for the Hohe Warte in Vienna, Austria. (Image credit: \cite{Zepner:2020} and \emph{climatecharts.net})}
+	\label{fig:temp_vienna}
+\end{figure}
+
+%
+%
+%
+
+%% Cable losses %%
+
+\subsection{Cable losses}
+
+%
+%
+%
+
+%% Energy storage %%
+
+\subsection{Energy storage}
+

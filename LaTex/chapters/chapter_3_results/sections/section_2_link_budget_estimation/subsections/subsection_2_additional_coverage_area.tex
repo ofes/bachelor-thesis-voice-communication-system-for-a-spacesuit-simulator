@@ -1,0 +1,18 @@
+\subsection{Additional coverage area around the base station}
+As shown in the figure \ref{fig:tikz_range}, the participants of the designed voice communication system that can freely move also receive a transmitted signal from the base station at a distance $r_\mathrm{BSt}$ around it. So that the link margin of $21,595\mathrm{dB}$ for the least powerfull radio device is constant in the entire system, the distance $r_\mathrm{BSt}$ follows from transforming the equation (\ref{eq:plane_earth_approx_db}) to: 
+\begin{equation} \label{eq:r_bst}
+	\centering
+	\begin{aligned}
+	r_\mathrm{BSt} &= \sqrt{\dfrac{1,271 \cdot 3,6 \mathrm{m}^2}{10^{\left(\dfrac{-127,436\mathrm{dBW} - 4,771\mathrm{dBW} - 3,5\mathrm{dBi} + 1,987\mathrm{dB}}{20\mathrm{dB}}\right)}}} \\ 
+	&= 4712,20\mathrm{m}\text{.}
+	\end{aligned}
+\end{equation}
+In this case there is no need to differentiate between the maximum transmission power and the transmission power limited to $5\mathrm{W}$ of the base station, since the $3\mathrm{W}$ transmission power of the safety officer's radio is the decisive factor. 
+
+Since the repeater may not receive the signal from the safety officers and the AAs in this area, it is necessary to calculate the maximum distance that the safety officers can take to the AAs. It is calculated in the same manner as the equation (\ref{eq:r_bst}) and results in:
+\begin{equation} \label{eq:r_ser_sfty}
+	\centering
+	r_\mathrm{SER,SFTY} = \sqrt{\dfrac{1,271 \cdot 1,55 \mathrm{m}^2}{10^{\left(\dfrac{-127,436\mathrm{dBW} - 4,771\mathrm{dBW}}{20\mathrm{dB}}\right)}}} = 2834,09\mathrm{m}\text{.}
+\end{equation}
+
+The distances calculated in the equations (\ref{eq:r_bst}) and (\ref{eq:r_ser_sfty}) may appear large, but what has already been mentioned in the section \ref{sec:comm_link_fade_margin} must be taken into account. 
