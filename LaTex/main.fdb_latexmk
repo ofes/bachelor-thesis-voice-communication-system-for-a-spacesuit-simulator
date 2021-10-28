@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber main"] 1635453987 "main.bcf" "main.bbl" "main" 1635454195
+["biber main"] 1635453987 "main.bcf" "main.bbl" "main" 1635454790
   "main.bcf" 1635454194 136507 586a117637bf73c5090f065b80af9f90 "pdflatex"
   "references.bib" 1624309675 41631 85bbec2ae84931fcf84d6cbf0d6167e1 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1635454182 "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" "main.pdf" "main" 1635454195
+["pdflatex"] 1635454182 "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" "main.pdf" "main" 1635454790
   "../MATLAB/LiFePO4_data/latex_export//image_chg_50.eps" 1618488800 309314 e4ddf3ca1958bfff49ece93d659ae663 ""
   "../MATLAB/LiFePO4_data/latex_export//image_dis_50.eps" 1618488780 304143 4e1596e5d02c3f2c5d85dc952757f8b7 ""
   "../MATLAB/LiFePO4_data/latex_export//image_electrolyte_resistances_matlab.eps" 1618488811 89741 8289648df655b1ad5fd042b857630603 ""
@@ -375,7 +375,7 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1635105065 2805612 8e600dc419c8f102c94eb7e40cb31e97 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "abbreviation.tex" 1620052971 1813 a65e044f6313a05494725da74159f468 ""
-  "abstract.tex" 1620052622 1936 66ccf69377b3d75639948aea63b759d8 ""
+  "abstract.tex" 1635454788 1936 66ccf69377b3d75639948aea63b759d8 ""
   "chapters/appendix_1_austrian_space_forum/appendix_1_austrian_space_forum.tex" 1620490552 6135 a95f1f0503f8a65db3f8db00cac4bdb9 ""
   "chapters/appendix_2_matlab_maple_source_codes/appendix_2_matlab_maple_source_codes.tex" 1620491281 488 2355e1f98af873b1a0eadf0772ff4392 ""
   "chapters/appendix_2_matlab_maple_source_codes/sections/section_1_matlab.tex" 1620292949 25188 76fd585670a5317e5a089133f26d8d4a ""
@@ -514,13 +514,13 @@
   "tikz/tikz_wind_energy.tex" 1612289051 6841 3ed9a52f372ec607d8b73a262663e60a ""
   "titlepage.tex" 1619217805 1063 15ef2a63b8a059343242dcaebb5b712b ""
   (generated)
-  "main.pdf"
-  "main.log"
   "main.toc"
-  "main.bcf"
-  "main.run.xml"
-  "main.lot"
   "main.lof"
-  "main.aux"
   "main.out"
+  "main.pdf"
+  "main.lot"
+  "main.bcf"
+  "main.aux"
   "main.lol"
+  "main.run.xml"
+  "main.log"
