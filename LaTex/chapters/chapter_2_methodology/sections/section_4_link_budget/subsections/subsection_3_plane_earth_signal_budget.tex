@@ -19,19 +19,19 @@ Based on $\underline{\rho}$, the field strength at the receiving antenna changes
 The \emph{phase difference} $\Theta$ in $\left(\mathrm{rad}\right)$ -- which occurs due to the reflection of the electromagnetic wave -- can be derived from the figure \ref{fig:tikz_plane_earth_signal_budget} as shown below:
 \begin{equation} \label{eq:phase_difference}
 	\centering
-	\Theta = \dfrac{4\pi \, h_\mathrm{T} \, h_\mathrm{T}}{\lambda_\sim \, d}\text{.}
+	\Theta = \dfrac{4\pi \, h_\mathrm{T} \, h_\mathrm{R}}{\lambda_\sim \, d}\text{.}
 \end{equation}
 If the angle of incidence $\psi$ is small, which is the case for $d \gg h_\mathrm{T}, h_\mathrm{R}$, a perfect reflection of the electromagnetic wave can be assumed, hence $\underline{\rho} = \exp(j\pi) = -1$.\footnote{It can be seen that the phase difference $\Theta$ is small for $d \gg h_\mathrm{T}, h_\mathrm{R}$.} This is because the E-field for the \emph{transversal magnetic} (TM) mode is perpendicular to the plane when $\psi$ is small \cite{Mecklenbrauker:2017}. As a result, the squared absolute value of the complex factor, which now represents the power increase at the receiving antenna compared to free space propagation, can be simplified to:
 \begin{equation} \label{eq:field_strength}
 	\centering
-	\left|\underline{F}\right|^2 = 4 \left| \sin^2 \left(\dfrac{\Theta}{2}\right) \right| = 4 \sin^2 \left(\dfrac{2\pi \, h_\mathrm{T} \, h_\mathrm{T}}{\lambda_\sim \, d}\right) \text{,} \quad \text{for } \underline{\rho} = -1\text{.}
+	\left|\underline{F}\right|^2 = 4 \left| \sin^2 \left(\dfrac{\Theta}{2}\right) \right| = 4 \sin^2 \left(\dfrac{2\pi \, h_\mathrm{T} \, h_\mathrm{R}}{\lambda_\sim \, d}\right) \text{,} \quad \text{for } \underline{\rho} = -1\text{.}
 \end{equation}
 By multiplying the result from the equation (\ref{eq:field_strength}) with the right side of the equation (\ref{eq:free_space}), the available power at the receiving antenna for plane earth propagation results in: 
 \begin{equation} \label{eq:plane_earth}
 	\centering
 	\begin{aligned}
 	P_\mathrm{R} & = P_\mathrm{T} \left(\dfrac{\lambda_\sim}{4 \pi \, d}\right)^2 L_\mathrm{R} \, L_\mathrm{T} \, G_\mathrm{R} \, G_\mathrm{T} \, \left|\underline{F}\right|^2 \\
-				 & = 4P_\mathrm{T} \left(\dfrac{\lambda_\sim}{4 \pi \, d}\right)^2 L_\mathrm{R} \, L_\mathrm{T} \, G_\mathrm{R} \, G_\mathrm{T} \sin^2 \left(\dfrac{2\pi \, h_\mathrm{T} \, h_\mathrm{T}}{\lambda_\sim \, d}\right)\text{.}
+				 & = 4P_\mathrm{T} \left(\dfrac{\lambda_\sim}{4 \pi \, d}\right)^2 L_\mathrm{R} \, L_\mathrm{T} \, G_\mathrm{R} \, G_\mathrm{T} \sin^2 \left(\dfrac{2\pi \, h_\mathrm{T} \, h_\mathrm{R}}{\lambda_\sim \, d}\right)\text{.}
 	\end{aligned}
 \end{equation}
 Finally, since $d \gg h_\mathrm{T} \text{, } h_\mathrm{R}$ applies, the sine in the equation (\ref{eq:plane_earth}) can be approximated with $\sin x \approx x$, from which the \emph{plane earth propagation equation} is derived:

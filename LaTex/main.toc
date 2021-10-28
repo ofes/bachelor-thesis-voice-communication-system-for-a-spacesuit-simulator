@@ -1,0 +1,129 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of Figures}{VIII}{chapter*.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{List of Tables}{XII}{chapter*.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Listings}{XIV}{chapter*.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abbreviations}{XV}{chapter*.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Symbols}{XVII}{chapter*.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}About the thesis}{1}{section.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.1}Motivation}{1}{subsection.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.2}Backup voice communication system}{2}{subsection.1.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Aim}{3}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.1}Literature review}{3}{subsection.1.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.2}Deliverables}{3}{subsection.1.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.3}Thesis Structure}{5}{subsection.1.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Methodology}{7}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Electrical energy distribution}{7}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Wind energy}{8}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Solar energy}{9}{section.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.1}Angular relationships}{11}{subsection.2.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.2}Solar irradiation on the Earth's surface}{13}{subsection.2.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.3}Photovoltaic energy yield}{15}{subsection.2.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.4}Photovoltaic generator alignment}{18}{subsection.2.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.5}Modeling the solar energy curve}{20}{subsection.2.3.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.6}Photovoltaic generators}{22}{subsection.2.3.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.7}MPP tracking solar charging controllers}{27}{subsection.2.3.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.8}Electrochemical energy storage}{29}{subsection.2.3.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.9}Cable losses}{37}{subsection.2.3.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.10}Martian application}{38}{subsection.2.3.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.4}Voice communication system}{41}{section.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.1}Load for the electrical energy distribution}{41}{subsection.2.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.2}Free space signal budget}{42}{subsection.2.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.3}Plane earth signal budget}{44}{subsection.2.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.4}Martian application}{45}{subsection.2.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Results}{47}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}System design}{47}{section.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.1}Base station radio infrastructure}{49}{subsection.3.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.2}Repeater radio infrastructure}{53}{subsection.3.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.3}Serenity radio system}{55}{subsection.3.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.4}Safety officer radio}{57}{subsection.3.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.5}On-site support crew radio}{57}{subsection.3.1.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Link budget estimation}{58}{section.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Communication links and fade margin}{59}{subsection.3.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Additional coverage area around the base station}{60}{subsection.3.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Self-sufficient energy distribution system}{61}{section.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}Photovoltaic generator model}{61}{subsection.3.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.2}$\boldsymbol {\mathrm {LiFePO}_4}$ battery model}{67}{subsection.3.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.3}Performance estimation}{72}{subsection.3.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Conclusion and critical reflection}{81}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Conclusion}{81}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}Voice communication system}{81}{subsection.4.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Self-sufficient energy distribution system}{82}{subsection.4.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.3}Martian application}{82}{subsection.4.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Critical refelction}{83}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Voice communication system}{83}{subsection.4.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Self-sufficient energy distribution system}{84}{subsection.4.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Austrian Space Forum}{A1}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.1}History}{A1}{section.A.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.2}Serenity spacesuit simulator}{A3}{section.A.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Mathematical basics}{A4}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.1}Integral of the Gaussian bell curve}{A4}{section.B.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.2}Newton-Raphson method}{A6}{section.B.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {C}{\mdseries \textsc {\textbf {Matlab}}\xspace }\xspace and {\mdseries \textsc {\textbf {Maple}}\xspace }\xspace source codes}{A8}{appendix.C}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.1}{\mdseries \textsc {\textbf {Matlab}}\xspace }\xspace simulation of the self-sufficient energy distribution system}{A8}{section.C.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {C.2}{\mdseries \textsc {\textbf {Maple}}\xspace }\xspace source code for the Jacobian matrix}{A21}{section.C.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{References}{R1}{section.C.2}%
