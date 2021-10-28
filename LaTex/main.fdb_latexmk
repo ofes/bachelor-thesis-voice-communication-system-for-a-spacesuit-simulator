@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber main"] 1635457839 "main.bcf" "main.bbl" "main" 1635460041
+["biber main"] 1635457839 "main.bcf" "main.bbl" "main" 1635463498
   "main.bcf" 1635458022 136507 586a117637bf73c5090f065b80af9f90 "pdflatex"
   "references.bib" 1624309675 41631 85bbec2ae84931fcf84d6cbf0d6167e1 ""
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1635458010 "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" "main.pdf" "main" 1635460041
+  "main.bbl"
+["pdflatex"] 1635458010 "/Users/filip/Vienna University of Technology/Bachlor thesis/LaTex/main.tex" "main.pdf" "main" 1635463498
   "../MATLAB/LiFePO4_data/latex_export//image_chg_50.eps" 1618488800 309314 e4ddf3ca1958bfff49ece93d659ae663 ""
   "../MATLAB/LiFePO4_data/latex_export//image_dis_50.eps" 1618488780 304143 4e1596e5d02c3f2c5d85dc952757f8b7 ""
   "../MATLAB/LiFePO4_data/latex_export//image_electrolyte_resistances_matlab.eps" 1618488811 89741 8289648df655b1ad5fd042b857630603 ""
@@ -514,13 +514,13 @@
   "tikz/tikz_wind_energy.tex" 1612289051 6841 3ed9a52f372ec607d8b73a262663e60a ""
   "titlepage.tex" 1619217805 1063 15ef2a63b8a059343242dcaebb5b712b ""
   (generated)
-  "main.lof"
-  "main.bcf"
-  "main.out"
-  "main.run.xml"
-  "main.log"
+  "main.toc"
   "main.lot"
-  "main.lol"
+  "main.bcf"
+  "main.lof"
   "main.pdf"
   "main.aux"
-  "main.toc"
+  "main.run.xml"
+  "main.out"
+  "main.log"
+  "main.lol"
