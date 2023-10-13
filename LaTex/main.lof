@@ -1,127 +1,63 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Part one of the flowchart of this thesis. It illustartes which steps were taken in order to achieve the deliverables.\relax }}{4}{figure.caption.11}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Part two of the flowchart of this thesis. It illustartes which steps were taken in order to achieve the deliverables.\relax }}{5}{figure.caption.12}%
-\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Turbine that converts kinetic energy from wind into electrical energy. The dashed circle represents the area $A_\mathrm {W}$ that is perpendicular to a flowing gas.\relax }}{8}{figure.2.1}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Angular relationship between the Sun and Earth. (Recreated from: \cite {Mertens:2015})\relax }}{9}{figure.caption.13}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Angular relationship between the Sun and Earth. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015})\relax }}{9}{figure.caption.13}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Basic structure of an electrical stand-alone system which is supplied with electrical energy by a photovoltaic generator. The energy is stored in an electrochemical energy storage device.\relax }}{10}{figure.caption.14}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Angular relationship of the Sun's altitude $\gamma _{\mathrm {S}}$ and azimuth $\alpha _{\mathrm {S}}$ with the corresponding celestial hemisphere of an observer. In this figure the Sun already passed the solar noon. (Recreated from: \cite {Mertens:2015})\relax }}{12}{figure.caption.15}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Solar resource map of the long term average global horizontal irradiation of Austria. (Image credit: \cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{14}{figure.caption.16}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Solar resource map of the long term average direct normal irradiation of Austria. (Image credit: \cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{15}{figure.caption.17}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Solar radiation on an inclined photovoltaic generator with the angle $\beta $. (Recreated from: \cite {Mertens:2015})\relax }}{16}{figure.caption.18}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Illustration of the incidence angle $\theta $ of the solar rays with respect to the normal to $A_\mathrm {PV}$. (Recreated from: \cite {Landis:1995})\relax }}{16}{figure.caption.19}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Angular relationship of the Sun's altitude $\gamma _{\mathrm {S}}$ and azimuth $\alpha _{\mathrm {S}}$ with the corresponding celestial hemisphere of an observer. In this figure the Sun already passed the solar noon. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015})\relax }}{12}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Solar resource map of the long term average global horizontal irradiation of Austria. (Image credit: \blx@tocontentsinit {0}\cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{14}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Solar resource map of the long term average direct normal irradiation of Austria. (Image credit: \blx@tocontentsinit {0}\cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{15}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Solar radiation on an inclined photovoltaic generator with the angle $\beta $. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015})\relax }}{16}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Illustration of the incidence angle $\theta $ of the solar rays with respect to the normal to $A_\mathrm {PV}$. (Recreated from: \blx@tocontentsinit {0}\cite {Landis:1995})\relax }}{16}{figure.caption.19}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Illustration of the latitude $\varphi _{\mathrm {Z}}$ on Earth at which the Sun is at its zenith for $t_{\mathrm {S}} = 12\mathrm {h}$. By comparing the latitude of the installation site of a photovoltaic generator it can be determined how it must be aligned, so that the electrical energy yield can be maximized.\relax }}{20}{figure.caption.21}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Model of the Sun's radiation flux $\Phi _{\mathrm {G}}$ onto the energy-converting area of a photovoltaic generator as a Gaussain function of the solar time $t_{\mathrm {S}}$. It is assumed that the Sun's irradiance is symmetrical around solar noon, and that the photovoltaic generator is aligned so that its energy-converting area is perpendicular to the Sun's rays at solar noon.\relax }}{20}{figure.caption.22}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Electrical equivalent circuit of a photovoltaic generator. It consists of $N_{\mathrm {C}}$ photovoltaic cells connected in series. (Recreated from: \cite {Mertens:2015})\relax }}{22}{figure.caption.23}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Simplified standard model of a photovoltaic cell. (Recreated from: \cite {Mertens:2015, Wagner:2018})\relax }}{23}{figure.caption.24}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Modeled current-voltage characteristic of a photovoltaic generator, depending on the radiation flux $\Phi _{\mathrm {G}}$ and the photovoltaic cell temperature $\vartheta _{\mathrm {C}}$. (Recreated from: \cite {Mertens:2015, Wagner:2018})\relax }}{24}{figure.caption.25}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Monthly averages of temperature and precipitation data for the Hohe Warte in Vienna, Austria. (Image credit: \cite {Zepner:2020})\relax }}{27}{figure.caption.28}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Electrical power output of a photovoltaic generator as a function of $U_{\mathrm {PV}}$. It is further dependent on the photovoltaic cell temperature $\vartheta _{\mathrm {C}}$ and the radiation flux $\Phi _{\mathrm {G}}$. (Recreated from: \cite {Mertens:2015})\relax }}{28}{figure.caption.29}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.16}{\ignorespaces The basic structure of a maximum power point tracking solar charging controller. (Recreated from: \cite {Mertens:2015})\relax }}{29}{figure.caption.30}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.17}{\ignorespaces $R_{\mathrm {int}}$ model of a $\mathrm {LiFePO}_4$ battery (electrochemical energy storage device). (Recreated from: \cite {Hinz:2019, Saldana:2019})\relax }}{31}{figure.caption.31}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Typical behavior of the open-circuit voltage $U_0$ of a $\mathrm {LiFePO}_4$ battery depending on the $\mathrm {SOC}$. $\mathrm {SOC_1}$ to $\mathrm {SOC}_{N_\mathrm {MP}}$ represent the measuring points for the discharging and charging experiment. (Recreated from: \cite {Mertens:2015, Sterner:2017, Li:2018, Hinz:2019, Hossain:2019})\relax }}{32}{figure.caption.32}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Behavior of the battery voltage $U_{\mathrm B}(t)$ when it is first discharged with $I_{\mathrm D}$ and then charged with $I_{\mathrm C}$. From the resulting voltage drop $\Delta U_{\mathrm D}(t_\mathrm {D, on})$ and voltage rise $\Delta U_{\mathrm C}(t_\mathrm {C, on})$, the $R_{int}$ model's electrolyte resistances $R_{e,\mathrm {D}}$ and $R_{e,\mathrm {C}}$ can be calculated. The turquoise curve represents the behavior of the modeled battery voltage. (Recreated from: \cite {Rahmoun:2012, Hentunen:2014, Li:2018, Kurzweil:2018, Gurjer:2019, Saldana:2019, Hossain:2019})\relax }}{33}{figure.caption.33}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Electrical equivalent circuit of a photovoltaic generator. It consists of $N_{\mathrm {C}}$ photovoltaic cells connected in series. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015})\relax }}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Simplified standard model of a photovoltaic cell. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015, Wagner:2018})\relax }}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Modeled current-voltage characteristic of a photovoltaic generator, depending on the radiation flux $\Phi _{\mathrm {G}}$ and the photovoltaic cell temperature $\vartheta _{\mathrm {C}}$. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015, Wagner:2018})\relax }}{24}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Monthly averages of temperature and precipitation data for the Hohe Warte in Vienna, Austria. (Image credit: \blx@tocontentsinit {0}\cite {Zepner:2020})\relax }}{27}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Electrical power output of a photovoltaic generator as a function of $U_{\mathrm {PV}}$. It is further dependent on the photovoltaic cell temperature $\vartheta _{\mathrm {C}}$ and the radiation flux $\Phi _{\mathrm {G}}$. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015})\relax }}{28}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces The basic structure of a maximum power point tracking solar charging controller. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015})\relax }}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces $R_{\mathrm {int}}$ model of a $\mathrm {LiFePO}_4$ battery (electrochemical energy storage device). (Recreated from: \blx@tocontentsinit {0}\cite {Hinz:2019, Saldana:2019})\relax }}{31}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Typical behavior of the open-circuit voltage $U_0$ of a $\mathrm {LiFePO}_4$ battery depending on the $\mathrm {SOC}$. $\mathrm {SOC_1}$ to $\mathrm {SOC}_{N_\mathrm {MP}}$ represent the measuring points for the discharging and charging experiment. (Recreated from: \blx@tocontentsinit {0}\cite {Mertens:2015, Sterner:2017, Li:2018, Hinz:2019, Hossain:2019})\relax }}{32}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Behavior of the battery voltage $U_{\mathrm B}(t)$ when it is first discharged with $I_{\mathrm D}$ and then charged with $I_{\mathrm C}$. From the resulting voltage drop $\Delta U_{\mathrm D}(t_\mathrm {D, on})$ and voltage rise $\Delta U_{\mathrm C}(t_\mathrm {C, on})$, the $R_{int}$ model's electrolyte resistances $R_{e,\mathrm {D}}$ and $R_{e,\mathrm {C}}$ can be calculated. The turquoise curve represents the behavior of the modeled battery voltage. (Recreated from: \blx@tocontentsinit {0}\cite {Rahmoun:2012, Hentunen:2014, Li:2018, Kurzweil:2018, Gurjer:2019, Saldana:2019, Hossain:2019})\relax }}{33}{figure.caption.33}%
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Measurement setup for the discharge experiment.\relax }}{34}{figure.caption.34}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.21}{\ignorespaces An example of the behavior the battery voltage $U_\mathrm {B}(t)$, battery current $I_\mathrm {B}(t)$ and battery charge $Q_\mathrm {B}(t)$ of a $\mathrm {LiFePO}_4$ battery when it is charged with a constant current $I_\mathrm {C}$ and then with a constant voltage $U_\mathrm {full}$ over a longer period of time. At $t_\mathrm {C} + t_\mathrm {V}$ the battery charger switches from $U_\mathrm {full}$ to $U_\mathrm {float}$ to keep the battery in a fully charged state. (Recreated from: \cite {Notten:2005, Sterner:2017, Liu:2020})\relax }}{35}{figure.caption.35}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.21}{\ignorespaces An example of the behavior the battery voltage $U_\mathrm {B}(t)$, battery current $I_\mathrm {B}(t)$ and battery charge $Q_\mathrm {B}(t)$ of a $\mathrm {LiFePO}_4$ battery when it is charged with a constant current $I_\mathrm {C}$ and then with a constant voltage $U_\mathrm {full}$ over a longer period of time. At $t_\mathrm {C} + t_\mathrm {V}$ the battery charger switches from $U_\mathrm {full}$ to $U_\mathrm {float}$ to keep the battery in a fully charged state. (Recreated from: \blx@tocontentsinit {0}\cite {Notten:2005, Sterner:2017, Liu:2020})\relax }}{35}{figure.caption.35}%
 \contentsline {figure}{\numberline {2.22}{\ignorespaces Measurement setup for the charge experiment.\relax }}{36}{figure.caption.36}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.23}{\ignorespaces \textit {``Diurnal variation of global $G_\mathrm {h}$, beam $G_\mathrm {bh}$ and diffuse $G_\mathrm {dh}$ irradiance on a horizontal Mars surface at Viking Lander VL1.''} (Image and caption credit: \cite {Appelbaum:1990})\relax }}{38}{figure.caption.37}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.24}{\ignorespaces \textit {``Diurnal variation of global $G_\mathrm {h}$, beam $G_\mathrm {bh}$ and diffuse $G_\mathrm {dh}$ irradiance on a horizontal Mars surface at Viking Lander VL1.''} (Image and caption credit: \cite {Appelbaum:1990})\relax }}{39}{figure.caption.38}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.25}{\ignorespaces \textit {``Diurnal variation of global $G_\mathrm {h}$, beam $G_\mathrm {bh}$ and diffuse $G_\mathrm {dh}$ irradiance on a horizontal Mars surface at Viking Lander VL1.''} (Image and caption credit: \cite {Appelbaum:1990})\relax }}{39}{figure.caption.39}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.26}{\ignorespaces Illustration of the plane earth signal budget. (Recreated from: \cite {Parsons:2000, Glover:2010, Goiser:2019})\relax }}{44}{figure.caption.40}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.23}{\ignorespaces \textit {``Diurnal variation of global $G_\mathrm {h}$, beam $G_\mathrm {bh}$ and diffuse $G_\mathrm {dh}$ irradiance on a horizontal Mars surface at Viking Lander VL1.''} (Image and caption credit: \blx@tocontentsinit {0}\cite {Appelbaum:1990})\relax }}{38}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.24}{\ignorespaces \textit {``Diurnal variation of global $G_\mathrm {h}$, beam $G_\mathrm {bh}$ and diffuse $G_\mathrm {dh}$ irradiance on a horizontal Mars surface at Viking Lander VL1.''} (Image and caption credit: \blx@tocontentsinit {0}\cite {Appelbaum:1990})\relax }}{39}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.25}{\ignorespaces \textit {``Diurnal variation of global $G_\mathrm {h}$, beam $G_\mathrm {bh}$ and diffuse $G_\mathrm {dh}$ irradiance on a horizontal Mars surface at Viking Lander VL1.''} (Image and caption credit: \blx@tocontentsinit {0}\cite {Appelbaum:1990})\relax }}{39}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.26}{\ignorespaces Illustration of the plane earth signal budget. (Recreated from: \blx@tocontentsinit {0}\cite {Parsons:2000, Glover:2010, Goiser:2019})\relax }}{44}{figure.caption.40}%
 \addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Proposed topology for the designed voice communication system.\relax }}{47}{figure.caption.41}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Top view of the mission area covered by the voice communication system.\relax }}{48}{figure.caption.42}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic structure of the base station radio infrastructure.\relax }}{49}{figure.caption.43}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Attenuation of the Messi \& Paoloni Ultraflex 7 coaxial cable for $20^\circ \mathrm {C}$. For the frequency $f_\sim = 158,950\mathrm {MHz}$, the attenuation is around $7,2471\mathrm {dB/100m}$. (Recreated from: \cite {Paoloni:2021})\relax }}{52}{figure.caption.49}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Attenuation of the Messi \& Paoloni Ultraflex 7 coaxial cable for $20^\circ \mathrm {C}$. For the frequency $f_\sim = 158,950\mathrm {MHz}$, the attenuation is around $7,2471\mathrm {dB/100m}$. (Recreated from: \blx@tocontentsinit {0}\cite {Paoloni:2021})\relax }}{52}{figure.caption.49}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Schematic structure of the self-sufficient energy distribution system of the repeater radio infrastructure.\relax }}{53}{figure.caption.50}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Schematic structure of repeater radio infrastructure.\relax }}{54}{figure.caption.51}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Schematic structure of the Serenity radio system.\relax }}{55}{figure.caption.53}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Anthropometric dimensional data for the american female and male. (Image and caption credit: \cite {Hinker:2007, Adolf:2020})\relax }}{57}{figure.caption.55}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Anthropometric dimensional data for the american female and male. (Image and caption credit: \blx@tocontentsinit {0}\cite {Hinker:2007, Adolf:2020})\relax }}{57}{figure.caption.55}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Modeled current-voltage characteristic of the AE Solar AE195SMM6-36 PV generator, depending on the total irradiance onto its inclined surface $E_\mathrm {G}$. The PV cell temperature $\vartheta _\mathrm {C} = 25^\circ \mathrm {C}$ is assumed to be constant.\relax }}{63}{figure.caption.63}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Modeled current-voltage characteristic of the DAS Energy DAS145PF PV generator, depending on the total irradiance onto its inclined surface $E_\mathrm {G}$. The PV cell temperature $\vartheta _\mathrm {C} = 25^\circ \mathrm {C}$ is assumed to be constant.\relax }}{63}{figure.caption.64}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Modeled power-voltage characteristic of the AE Solar AE195SMM6-36 PV generator, depending on the total irradiance onto its inclined surface $E_\mathrm {G}$. The PV cell temperature $\vartheta _\mathrm {C} = 25^\circ \mathrm {C}$ is assumed to be constant.\relax }}{64}{figure.caption.65}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Modeled power-voltage characteristic of the DAS Energy DAS145PF PV generator, depending on the total irradiance onto its inclined surface $E_\mathrm {G}$. The PV cell temperature $\vartheta _\mathrm {C} = 25^\circ \mathrm {C}$ is assumed to be constant.\relax }}{64}{figure.caption.66}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Modeled current-voltage characteristic of the AE Solar AE195SMM6-36 PV generator, depending on its PV cell temperature $\vartheta _\mathrm {C}$. The total irradiance onto its inclined surface $E_\mathrm {G} = 1000\mathrm {Wm}^{-2}$ is assumed to be constant.\relax }}{65}{figure.caption.67}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Modeled current-voltage characteristic of the DAS Energy DAS145PF PV generator, depending on its PV cell temperature $\vartheta _\mathrm {C}$. The total irradiance onto its inclined surface $E_\mathrm {G} = 1000\mathrm {Wm}^{-2}$ is assumed to be constant.\relax }}{65}{figure.caption.68}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Modeled power-voltage characteristic of the AE Solar AE195SMM6-36 PV generator, depending on its PV cell temperature $\vartheta _\mathrm {C}$. The total irradiance onto its inclined surface $E_\mathrm {G} = 1000\mathrm {Wm}^{-2}$ is assumed to be constant.\relax }}{66}{figure.caption.69}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.16}{\ignorespaces Modeled power-voltage characteristic of the DAS Energy DAS145PF PV generator, depending on its PV cell temperature $\vartheta _\mathrm {C}$. The total irradiance onto its inclined surface $E_\mathrm {G} = 1000\mathrm {Wm}^{-2}$ is assumed to be constant.\relax }}{66}{figure.caption.70}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Recorded time courses of $U_\mathrm {B}(t)$ and $I_\mathrm {D}(t)$ during the discharging experiment for $\mathrm {SOC}_n = 0,50$. The device under test was the Offgridtec Smart-Pro $12,8\mathrm {V}$ $50\mathrm {Ah}$ $\mathrm {LiFePO_4}$ battery.\relax }}{69}{figure.caption.73}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Recorded time courses of $U_\mathrm {B}(t)$ and $I_\mathrm {C}(t)$ during the charging experiment for $\mathrm {SOC}_n = 0,50$. The device under test was the Offgridtec Smart-Pro $12,8\mathrm {V}$ $50\mathrm {Ah}$ $\mathrm {LiFePO_4}$ battery.\relax }}{69}{figure.caption.74}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Open-circuit voltages $U_\mathrm {0,C}(\mathrm {SOC}_n)$, $U_\mathrm {0}(\mathrm {SOC}_n)$ and $U_\mathrm {0,D}(\mathrm {SOC}_n)$ obtained from the discharging and charging experiment carried out on the Offgridtec Smart-Pro $12,8\mathrm {V}$ $50\mathrm {Ah}$ $\mathrm {LiFePO_4}$ battery.\relax }}{70}{figure.caption.76}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.20}{\ignorespaces Electrolyte resistances $R_\mathrm {e,D}(\mathrm {SOC}_n)$ and $R_\mathrm {e,C}(\mathrm {SOC}_n)$ obtained from the discharging and charging experiment carried out on the Offgridtec Smart-Pro $12,8\mathrm {V}$ $50\mathrm {Ah}$ $\mathrm {LiFePO_4}$ battery.\relax }}{71}{figure.caption.77}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.21}{\ignorespaces Time course of $I_\mathrm {C}(t)$ over time during the CV charging phase of the Mean Well ENC-180-12 battery charger. The charged device was the Offgridtec Smart-Pro $12,8\mathrm {V}$ $50\mathrm {Ah}$ $\mathrm {LiFePO_4}$ battery.\relax }}{71}{figure.caption.78}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Monthly averages of temperature and precipitation data for Mitzpe Ramon, Southern District, Israel (Negev Desert). (Image credit: \cite {Zepner:2020})\relax }}{74}{figure.caption.82}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Solar resource map of the long term average global horizontal irradiation of Israel. (Image credit: \cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{79}{figure.caption.83}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Solar resource map of the long term average direct normal irradiation of Israel. (Image credit: \cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{80}{figure.caption.84}%
-\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Monthly averages of temperature and precipitation data for Mitzpe Ramon, Southern District, Israel (Negev Desert). (Image credit: \blx@tocontentsinit {0}\cite {Zepner:2020})\relax }}{74}{figure.caption.82}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Solar resource map of the long term average global horizontal irradiation of Israel. (Image credit: \blx@tocontentsinit {0}\cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{79}{figure.caption.83}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Solar resource map of the long term average direct normal irradiation of Israel. (Image credit: \blx@tocontentsinit {0}\cite {GlobalSolarAtlas:2020, Solargis:2021})\relax }}{80}{figure.caption.84}%
 \addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {A.1}{\ignorespaces Visible geological similarities between the Martian surface and an analog Martian environment on Earth.\relax }}{A2}{figure.caption.85}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {A.2}{\ignorespaces Serenity spacesuit simulator design study. (Image credit: OeWF/Bernhard Kaliauer Design Studio)\relax }}{A3}{figure.caption.86}%
-\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {B.1}{\ignorespaces Shifted Gauss bell.\relax }}{A4}{figure.caption.87}%
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {B.2}{\ignorespaces Newton-Raphson method to approximate the zero crossing of a function.\relax }}{A7}{figure.caption.88}%
-\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
