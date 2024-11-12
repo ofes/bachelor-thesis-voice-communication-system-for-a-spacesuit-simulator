@@ -21,3 +21,4 @@ LaTex/main.pdf
 *.synctex.gz
 *.gz
 *.toc
+*.fls
