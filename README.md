@@ -1,2 +1,18 @@
-# (ABSTRACT) Voice Communication System for a Spacesuit Simulator
-In this thesis, a voice communication system with an associated self-sufficient energy distribution system for a spacesuit simulator is designed and its performance is examined. For this purpose, the plane earth signal budget is used to show that the minimum fade margin of the voice communication system is sufficiently large to meet the range requirements and a Matlab simulation is developed which estimates the daily electrical energy yield of the self-sufficient energy distribution system for different mission locations on Earth. The latter is based on the angular relationships between the Sun and Earth, a model of a PV generator and a model of a LiFePO_4 battery. The performance estimation of the voice communication system has shown that a sufficiently large fade margin could be achieved if a repeater radio infrastructure is used. Regarding the self-sufficient energy distribution system, the developed Matlab simulation showed that it can be used to supply the repeater radio infrastructre for different mission locations on Earth when sufficient solar radiation is available. In addition, this thesis examines how the designed system must be adapted so that it can be used on the surface of Mars. Investigations showed, that the Martian Ionosphere can be used as a reflector for electromagnetic waves in the very high frequency band during the day. Thus allowing global communication. Another important finding of this investigation was that the temperature dependence of the electrical devices involved must not be neglected if such a system is to be planned for Mars. 
+# Voice Communication System for a Spacesuit Simulator
+
+This Bachelor’s thesis focuses on designing and evaluating a **voice communication system** with a **self-sufficient energy distribution system** for a spacesuit simulator.
+
+## Key Features
+- **Voice Communication System**: Achieves a sufficient fade margin using a **repeater radio infrastructure**.
+- **Energy Distribution System**: A **Matlab simulation** estimates daily solar energy yield for different mission locations on Earth, based on:
+  - Solar and Earth angular relationships
+  - PV generator model
+  - LiFePO₄ battery model
+
+## Findings
+1. The communication system meets range requirements with a sufficiently large fade margin.
+2. The energy distribution system reliably powers the repeater infrastructure in areas with adequate solar radiation.
+3. On **Mars**, the Martian ionosphere can reflect electromagnetic waves in the **VHF band** during the day, enabling global communication.
+4. Temperature dependencies of electrical devices must be considered for Martian applications.
+
+This project highlights the potential for communication and energy systems on Earth and Mars.
